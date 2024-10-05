@@ -17,7 +17,7 @@ function Users() {
                     <AddBtn entity='users'/>
                     <SearchBar />
                 </div>
-
+                
                 <Table />
 
                 <Pagination />
