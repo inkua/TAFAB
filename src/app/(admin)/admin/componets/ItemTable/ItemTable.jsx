@@ -4,6 +4,11 @@ function ItemTable() {
     return (
         <tr className="overflow-y-scroll">
             <td className="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
+
+                {/* -- */}
+                <h2>Estos datos no vienen desde una base de datos, están hardcodeados dentro de ItemTable.jsx</h2>
+                {/* -- */}
+
                 <div className="inline-flex items-center gap-x-3">
                     <div className="flex items-center gap-x-2">
                         <div className="flex items-center justify-center w-8 h-8 text-blue-500 bg-blue-100 rounded-full dark:bg-gray-800">
