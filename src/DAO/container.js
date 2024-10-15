@@ -1,6 +1,7 @@
 import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, updateDoc } from "firebase/firestore";
+import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 
-import { db } from "./firebaseConfig";
+import { db, storage } from "./firebaseConfig";
 
 const addElement = async (element, collectionName) => {
     try {
@@ -78,6 +79,13 @@ const formatList = (elementList) => {
     return formattedList;
 };
 
+//UPLOAD AN IMAGE
+const uploadImage = async (file) => {
+    const storageRef = ref(storage, `images/${file.name}` + "_" + Date.now());
+    await uploadBytes(storageRef, file);
+    return await getDownloadURL(storageRef)
+}
+
 
 
 export {
@@ -86,4 +94,5 @@ export {
     addElement,
     updateElement,
     deleteElement,
+    uploadImage
 };
