@@ -3,6 +3,7 @@
 import { useState } from "react"
 import FormProduct from "../FormProduct/FormProduct"
 import { useRouter } from "next/navigation"
+import { uploadImage } from "@/DAO/container"
 
 function BtnProduct() {
     const [isOpen, setIsOpen] = useState(false)
@@ -26,6 +27,11 @@ function BtnProduct() {
         }
     }
 
+    const uploadHandler = async ()=>{
+        const response = await uploadImage("image", "product")
+        alert("la respuesta es: "+ response)
+    }
+
     return (
         <>
             <div className="flex items-center mt-4 gap-x-3">
@@ -40,6 +46,7 @@ function BtnProduct() {
             </div>
 
             <FormProduct isOpen={isOpen} setIsOpen={setIsOpen} saveData={saveProduct} />
+            <button onClick={()=>uploadHandler()}> prueba upload</button>
         </>
     )
 }

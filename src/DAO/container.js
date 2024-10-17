@@ -80,10 +80,16 @@ const formatList = (elementList) => {
 };
 
 //UPLOAD AN IMAGE
-const uploadImage = async (file) => {
-    const storageRef = ref(storage, `images/${file.name}` + "_" + Date.now());
-    await uploadBytes(storageRef, file);
-    return await getDownloadURL(storageRef)
+const uploadImage = async (file, entityName) => {
+    try {
+        const storageRef = ref(storage, `${entityName}/${file.name}` + "_" + Date.now());
+        await uploadBytes(storageRef, file);
+        return await getDownloadURL(storageRef)
+    } catch (e) {
+        console.error(`${entityName},uploadImage, container, DAO: `, e);
+        return false;
+    }
+
 }
 
 // DELETE AN IMAGE
@@ -92,8 +98,8 @@ export async function delImage(imageUrl) {
         const storageRef = ref(storage, imageUrl);
         await deleteObject(storageRef);
     } catch (e) {
-        console.error("Error al eliminar la imagen: ", e);
-        throw new Error("Error al eliminar la imagen");
+        console.error("delImage, container, DAO: ", e);
+        return false;
     }
 }
 
@@ -105,5 +111,5 @@ export {
     addElement,
     updateElement,
     deleteElement,
-    uploadImage
+    uploadImage,
 };
