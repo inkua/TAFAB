@@ -86,6 +86,17 @@ const uploadImage = async (file) => {
     return await getDownloadURL(storageRef)
 }
 
+// DELETE AN IMAGE
+export async function delImage(imageUrl) {
+    try {
+        const storageRef = ref(storage, imageUrl);
+        await deleteObject(storageRef);
+    } catch (e) {
+        console.error("Error al eliminar la imagen: ", e);
+        throw new Error("Error al eliminar la imagen");
+    }
+}
+
 
 
 export {
