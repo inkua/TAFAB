@@ -8,8 +8,19 @@ const addAdmin = async (newAdmin) => {
 }
 
 // get a admin by id | require the admin id
-const getAdmById = async (aid) => {
+const getAdminById = async (aid) => {
     return await getElementById(aid, 'admins')
+
+}
+// get a admin by id | require the admin id
+const getAdminByEmail = async (email) => {
+    try {
+        const admins = await getAdmins()
+        const admin = admins.find(item =>(item.email===email))
+        return admin
+    } catch (error) {
+        return false        
+    }
 }
 
 // get all admins
@@ -34,8 +45,9 @@ const generatePassword = ()=>{
 }
 export {
     addAdmin,
-    getAdmById,
+    getAdminById,
     getAdmins,
     setAdmin,
     deleteAdmin,
+    getAdminByEmail,
 }

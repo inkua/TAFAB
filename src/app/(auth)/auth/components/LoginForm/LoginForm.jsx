@@ -1,30 +1,51 @@
 'use client'
 
 import { useState } from 'react';
+import { useRouter } from "next/navigation";
 
 function LoginForm() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState({});
 
-    const handleSubmit = (e) => {
+    const router = useRouter()
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        
-       
+
+        if (validateForm) {
+            const formData = new FormData();
+            formData.append('email', email);
+            formData.append('password', password);
+
+            await fetch('http://localhost:3000/api/auth/', {
+                method: 'POST',
+                body: formData,
+            }).then(response => {
+                if (response.ok) {
+                    router.push('/admin')
+                } else {
+                    alert('credenciales invalidas')
+                }
+            });
+        }
+    };
+
+    const validateForm = () => {
         const newErrors = {};
         if (!email) newErrors.email = 'El correo electrónico es obligatorio';
         else if (!/\S+@\S+\.\S+/.test(email)) newErrors.email = 'Ingresa un correo electrónico válido';
-        
+
         if (!password) newErrors.password = 'La contraseña es obligatoria';
         else if (password.length < 6) newErrors.password = 'La contraseña debe tener al menos 6 caracteres';
-        
+
         setErrors(newErrors);
-        
+
         if (Object.keys(newErrors).length === 0) {
-           
-            console.log('Formulario enviado:', { email, password });
+            return true
         }
-    };
+        return false
+    }
 
     return (
         <div className="flex items-center w-full max-w-md px-6 mx-auto lg:w-2/6">

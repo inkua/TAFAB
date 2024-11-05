@@ -6,7 +6,6 @@ import Pagination from "../componets/Pagination/Pagination";
 
 async function Admins() {
     let data = await getAdmins(); //usando el servicio del DAO
-    console.log(data)
 
     return (
         <>
