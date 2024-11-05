@@ -34,6 +34,7 @@ const deleteElement = async (id, collectionName) => {
     try {
         const docRef = doc(db, collectionName, id);
         await deleteDoc(docRef);
+        return true
     } catch (e) {
         console.error(`${collectionName}, deleteElement, container, DAO: `, e);
         return false;
