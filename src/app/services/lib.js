@@ -1,3 +1,4 @@
+import { getAdminByEmail } from "@/DAO/admins.db";
 import { SignJWT, jwtVerify } from "jose";
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
@@ -10,7 +11,7 @@ export async function encrypt(payload) {
     return await new SignJWT(payload)
         .setProtectedHeader({ alg: "HS256" })
         .setIssuedAt()
-        .setExpirationTime("1 min from now")
+        .setExpirationTime("1h")
         .sign(key);
 }
 
@@ -22,12 +23,30 @@ export async function decrypt(input) {
     return payload;
 }
 
+// Validate token
+export async function validateToken(token) {
+    try {
+        const { payload } = await jwtVerify(token, key, {
+            algorithms: ["HS256"],
+        });
+
+        if (!payload) {
+            return false
+        }
+        return true
+
+    } catch (e) {
+        console.error("Invalid token", e)
+        return false
+    }
+}
+
 export async function login(data) {
     // verifico credenciales y obtengo el usuario
     const user = { email: data.email, name: data.name };
 
     // creacion de sesion
-    const expires = new Date(Date.now() + 10 * 6000);
+    const expires = new Date(Date.now() + 60 * 60 * 1000);
     const session = await encrypt({ user, expires });
 
     // guardo la sesion en una cookie
@@ -43,7 +62,6 @@ export async function logout() {
         return false
     }
 }
-
 
 export async function getSession() {
     const session = cookies().get("session")?.value;
@@ -66,4 +84,21 @@ export async function updateSession(request) {
         expires: parsed.expires,
     });
     return res;
+}
+
+export async function isRootAdmin(token) {
+    try {
+        const data = await decrypt(token)
+        if (!data) { return false }
+
+        const admin = await getAdminByEmail(data.user.email)
+        if (!admin) { return false }
+
+        if (admin.type !== "root") { return false }
+
+        return true
+    } catch (e) {
+        console.error('Error validateAdmin - lib: ', e);
+        return false
+    }
 }

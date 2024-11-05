@@ -41,7 +41,7 @@ const deleteAdmin = async (aid)=>{
 
 // genera contraseña y se la envía al email
 const generatePassword = ()=>{
-    return 123456789
+    return "123456789"
 }
 export {
     addAdmin,

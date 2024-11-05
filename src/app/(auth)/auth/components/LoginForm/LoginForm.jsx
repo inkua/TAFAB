@@ -52,7 +52,7 @@ function LoginForm() {
             <div className="flex-1">
                 <div className="text-center">
                     <div className="flex justify-center mx-auto">
-                        <img className="w-auto h-7 sm:h-8" src="https://merakiui.com/images/logo.svg" alt="Logo" />
+                        <img className="w-auto h-7 sm:h-8 bg-white" src="/logo.svg" alt="Logo" />
                     </div>
                     <p className="mt-3 text-gray-500 dark:text-gray-300">Inicia sesión para acceder a tu cuenta</p>
                 </div>
