@@ -1,4 +1,4 @@
-import { addElement, getAllElements, getElementById, updateElement } from "./container";
+import { addElement, delImage, getAllElements, getElementById, updateElement, uploadImage } from "./container";
 
 // add a new product | require the data product
 const addProduct = async (newProduct) => {
@@ -19,6 +19,15 @@ const getProducts = async ()=>{
 const setProduct = async (newData, Pid)=>{
     return await updateElement(newData, Pid, 'products')
 }
+
+const uploadProductImg = async (file)=>{
+    return await uploadImage(file, "product")
+}
+
+const deleteProductImage = async (file)=>{
+    return await delImage(urlImage)
+}
+
 
 export {
     addProduct,
