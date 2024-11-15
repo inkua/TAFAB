@@ -8,7 +8,7 @@ const headers = [
     { id: 5, title: "Actions" },
 ]
 function TableProduct({ data }) {
-
+    
     return (
         <section className="flex flex-col mt-6 px-4 sm:px-6 md:px-0">
             <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8 overflow-y-scroll">

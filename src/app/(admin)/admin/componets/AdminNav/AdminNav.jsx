@@ -3,7 +3,8 @@
 import { usePathname } from 'next/navigation'
 
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import BtnLogout from './BtnLogout/BtnLogout'
 
 const user = {
     name: 'Tom Cook',
@@ -16,11 +17,11 @@ const navigation = [
     { name: 'Dashboard', href: '/admin', current: true },
     { name: 'Usuarios', href: '/admin/users', current: false },
     { name: 'Productos', href: '/admin/products', current: false },
+    { name: 'Administradores', href: '/admin/admins', current: false },
 ]
 const userNavigation = [
     { name: 'Your Profile', href: '/admin/profile' },
     { name: 'Settings', href: '#' },
-    { name: 'Sign out', href: '#' },
 ]
 
 function classNames(...classes) {
@@ -89,6 +90,7 @@ function AdminNav() {
                                             </a>
                                         </MenuItem>
                                     ))}
+                                    <BtnLogout />
                                 </MenuItems>
                             </Menu>
                         </div>
@@ -144,6 +146,7 @@ function AdminNav() {
                                 {item.name}
                             </DisclosureButton>
                         ))}
+                            <BtnLogout />
                     </div>
                 </div>
             </DisclosurePanel>

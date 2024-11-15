@@ -1,14 +1,11 @@
-import ActionDropdown from "../ActionDropdown/ActionDropdown"
+import ActionDropdownAdmin from "../ActionDropdownAdmin/ActionDropdownAdmin"
 
-function ItemTable() {
+
+function ItemTableAdmin({ data }) {
+
     return (
         <tr className="overflow-y-scroll">
             <td className="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
-
-                {/* -- */}
-                <h2>Estos datos no vienen desde una base de datos, están hardcodeados dentro de ItemTable.jsx</h2>
-                {/* -- */}
-
                 <div className="inline-flex items-center gap-x-3">
                     <div className="flex items-center gap-x-2">
                         <div className="flex items-center justify-center w-8 h-8 text-blue-500 bg-blue-100 rounded-full dark:bg-gray-800">
@@ -18,21 +15,21 @@ function ItemTable() {
                         </div>
 
                         <div>
-                            <h2 className="font-normal text-gray-800 dark:text-white ">Dashboard screenshot.jpg</h2>
-                            <p className="text-xs font-normal text-gray-500 dark:text-gray-400">720 KB</p>
+                            <h2 className="font-normal text-gray-800 dark:text-white ">{data?.name}</h2>
+                            <p className="text-xs font-normal text-gray-500 dark:text-gray-400">{data?.id}</p>
                         </div>
                     </div>
                 </div>
             </td>
-            <td className="px-12 py-4 text-sm font-normal text-gray-700 whitespace-nowrap">720 KB</td>
-            <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">Jan 4, 2022</td>
-            <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">Jan 4, 2022</td>
-            <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">Demi Wilkinson</td>
+
+            <td className="px-4 py-4 text-sm font-normal text-gray-700 whitespace-nowrap">{data?.email}</td>
+            <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">{data?.password}</td>
+            <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">{data?.type}</td>
             <td className="px-4 py-4 text-sm whitespace-nowrap relative inline-block text-left">
-                <ActionDropdown />
+                <ActionDropdownAdmin data={data}/>
             </td>
         </tr>
     )
 }
 
-export default ItemTable
+export default ItemTableAdmin

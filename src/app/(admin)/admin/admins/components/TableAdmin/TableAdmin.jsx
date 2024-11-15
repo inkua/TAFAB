@@ -1,16 +1,14 @@
-import ItemTable from "../ItemTable/ItemTable"
+import ItemTableAdmin from "../ItemTableAdmin/ItemTableAdmin"
 
 const headers = [
-    {id:1, title:"filename"},
-    {id:2, title:"File size"},
-    {id:3, title:"Date uploaded"},
-    {id:4, title:"Last updated"},
-    {id:5, title:"Uploaded by"},
-    {id:6, title:"Actions"},
+    { id: 1, title: "Nombre" },
+    { id: 2, title: "Correo" },
+    { id: 3, title: "Contraseña" },
+    { id: 4, title: "Tipo" },
+    { id: 5, title: "Actions" },
 ]
-
-function Table() {
-
+function TableAdmin({ data }) {
+    
     return (
         <section className="flex flex-col mt-6 px-4 sm:px-6 md:px-0">
             <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8 overflow-y-scroll">
@@ -21,7 +19,7 @@ function Table() {
                             <thead className="bg-gray-50 dark:bg-gray-800">
                                 <tr>
                                     {
-                                        headers.map((item)=>
+                                        headers.map((item) =>
                                             <th scope="col" key={item.id}
                                                 className="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
                                                 {item.title}
@@ -32,12 +30,15 @@ function Table() {
                             </thead>
 
                             <tbody className="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
-
-                                {/* Item List */}
-                                
-                                <ItemTable />
-                                <ItemTable />
-
+                                {
+                                    data.length === 0 ?
+                                        (<p className="text-black">Lista de administradores vacía</p>)
+                                        :
+                                        (   data.map((item) => (
+                                                <ItemTableAdmin key={item.id} data={item} />
+                                            ))
+                                        )
+                                }
                             </tbody>
                         </table>
                     </div>
@@ -47,4 +48,4 @@ function Table() {
     )
 }
 
-export default Table
+export default TableAdmin
