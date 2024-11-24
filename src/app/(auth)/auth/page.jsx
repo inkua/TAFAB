@@ -1,5 +1,6 @@
 import LoginForm from "./components/LoginForm/LoginForm"
 
+
 function Login() {
     return (
         <div className="bg-white text-[#1D1738]">

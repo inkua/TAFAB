@@ -1,4 +1,5 @@
 'use client'
+import Swal from 'sweetalert2';
 
 import { useState } from 'react';
 import { useRouter } from "next/navigation";
@@ -6,14 +7,12 @@ import { useRouter } from "next/navigation";
 function LoginForm() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [errors, setErrors] = useState({});
-
-    const router = useRouter()
+    const router = useRouter();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (validateForm) {
+        if (validateForm()) {
             const formData = new FormData();
             formData.append('email', email);
             formData.append('password', password);
@@ -23,10 +22,20 @@ function LoginForm() {
                 body: formData,
             }).then(response => {
                 if (response.ok) {
-                    router.push('/admin')
+                    router.push('/admin');
                 } else {
-                    alert('credenciales invalidas')
+                    Swal.fire({
+                        title: 'Error!',
+                        text: 'Credenciales inválidas',
+                        icon: 'error',
+                    });
                 }
+            }).catch(() => {
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'Error en el servidor. Por favor, inténtalo de nuevo más tarde.',
+                    icon: 'error',
+                });
             });
         }
     };
@@ -39,13 +48,17 @@ function LoginForm() {
         if (!password) newErrors.password = 'La contraseña es obligatoria';
         else if (password.length < 6) newErrors.password = 'La contraseña debe tener al menos 6 caracteres';
 
-        setErrors(newErrors);
-
-        if (Object.keys(newErrors).length === 0) {
-            return true
+        if (Object.keys(newErrors).length > 0) {
+            const errorMessages = Object.values(newErrors).join('\n');
+            Swal.fire({
+                title: 'Campos incompletos',
+                text: errorMessages,
+                icon: 'warning',
+            });
+            return false;
         }
-        return false
-    }
+        return true;
+    };
 
     return (
         <div className="flex items-center w-full max-w-md px-6 mx-auto lg:w-2/6">
@@ -68,9 +81,8 @@ function LoginForm() {
                                 placeholder="ejemplo@correo.com"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
-                                className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg  dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
+                                className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
                             />
-                            {errors.email && <p className="mt-1 text-sm text-red-500">{errors.email}</p>}
                         </div>
 
                         <div className="mt-6">
@@ -86,7 +98,6 @@ function LoginForm() {
                                 onChange={(e) => setPassword(e.target.value)}
                                 className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
                             />
-                            {errors.password && <p className="mt-1 text-sm text-red-500">{errors.password}</p>}
                         </div>
 
                         <div className="mt-6">
