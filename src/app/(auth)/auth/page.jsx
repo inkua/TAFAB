@@ -3,7 +3,7 @@ import LoginForm from "./components/LoginForm/LoginForm"
 
 function Login() {
     return (
-        <div className="bg-white text-[#1D1738]">
+        <main className="bg-white text-[#1D1738]">
             <div className="flex justify-center h-screen">
                 <div className="hidden bg-cover lg:block lg:w-2/3" style={{ backgroundImage: "url(/auth/login.jpg)" }}>
                     <div className="flex items-center h-full px-20 bg-gray-900 bg-opacity-40">
@@ -22,7 +22,7 @@ function Login() {
                 <LoginForm />
 
             </div>
-        </div>
+        </main>
     )
 }
 

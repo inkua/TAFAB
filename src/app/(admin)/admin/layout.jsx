@@ -2,10 +2,10 @@ import AdminNav from "./componets/AdminNav/AdminNav"
 
 function layout({ children }) {
     return (
-        <>
-            <AdminNav/>
+        <body className="bg-gray-900">
+            <AdminNav />
             {children}
-        </>
+        </body>
     )
 }
 
