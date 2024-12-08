@@ -8,7 +8,7 @@ function page() {
 
     <div className='w-full flex mt-16 justify-center items-center'>
 
-    <img className='w-[80%] h-[300px] md:w-1/2    lg:w-[80%]  ' src="https://via.placeholder.com/1114x311" alt="" />
+    <img className='w-[80%] h-[300px] md:w-1/2    lg:w-[80%]  ' src="Frame50.svg" alt="" />
 
     </div>
 
@@ -38,14 +38,14 @@ function page() {
       <div className='grid gap-6   md:grid-cols-2 w-full' >
  
         <div className='flex flex-col md:flex-row  gap-3 justify-center'>
-          <img  className='w-full md:w-1/2 lg:w-1/3' src="https://via.placeholder.com/213x244" alt="" />
+          <img  className='w-full md:w-1/2 lg:w-1/3' src="/Frame51.svg" alt="" />
          <div>
           <h3 className='text-text-dark font-extrabold  text-3xl  mt-3'>MISIÓN </h3>
           <p className='leading-6'>Construir redes de apoyo, asistir, visibilizar, defender el bienestar psicosocial de las personas Trans venezolanas y sus DDHH</p>
          </div>
         </div>
         <div className='flex flex-col md:flex-row gap-3  justify-center  '>
-          <img  className='w-full md:w-1/2 lg:w-1/3' src="https://via.placeholder.com/213x244" alt="" />
+          <img  className='w-full md:w-1/2 lg:w-1/3' src="/Frame52.svg" alt="" />
          <div >
           <h3 className='text-text-dark font-extrabold text-3xl mt-3'>VISIÓN  </h3>
           <p className='leading-6  '>Ser una organización con alcance nacional e internacional, que genere una red de apoyo que  promueva y acompañe el bienestar Psicosocial de las personas Transgénero y el alcance de sus DDHH, que mejore sus contextos y les permita  generar sus propias iniciativas de solidaridad Trans.</p>
@@ -69,7 +69,7 @@ function page() {
         <div className='grid md:grid-cols-2 gap-9'>
 
           <article className='flex flex-col md:flex-row justify-center items-center gap-4'>
-            <img src="https://via.placeholder.com/329x153" alt="" />
+            <img src="/Frame56.svg" alt="" />
 
          
             <p className='leading-6 font-semibold'>Hombre transgénero y No Binarie nacido en Coro, Falcón. Estudiante universitario, defensor de Derechos Humanos y cofundador de Trans AFAB Venezuela. Actualmente es codirector de la organización.</p>
@@ -102,7 +102,7 @@ function page() {
         <div className='grid md:grid-cols-2 gap-9'>
 
           <article className='flex flex-col md:flex-row justify-center items-center gap-4'>
-            <img src="https://via.placeholder.com/329x153" alt="" />
+            <img src="/Frame57.svg" alt="" />
             <p className='leading-6 font-semibold'>Hombre transgénero. Estudiante de psicología en la Universidad Central de Venezuela, activista por los Derechos Humanos de la comunidad LGBTIQ+ y Cofundador de Trans AFAB Venezuela. Actualmente es codirector y tesorero de la organización.</p>
           </article>
 
@@ -140,7 +140,7 @@ function page() {
  <div className='grid md:grid-cols-2 gap-9'>
 
    <article className='flex flex-col md:flex-row justify-center items-center gap-4'>
-     <img src="https://via.placeholder.com/329x153" alt="" />
+     <img src="/Frame58.svg" alt="" />
      <p className='leading-6 font-semibold'>Mujer Trans. Artista, artesana y activista por los Derechos Humanos de las personas LGBTIQ+. Actualmente es vocal de la junta directiva y coordinadora regional para el estado Aragua.</p>
    </article>
 
@@ -172,7 +172,7 @@ y sigo descubriendo quien soy realmente después de tantos años, el activismo m
  <div className='grid md:grid-cols-2 gap-9'>
 
    <article className='flex flex-col md:flex-row justify-center items-center gap-4'>
-     <img src="https://via.placeholder.com/329x153" alt="" />
+     <img src="/Frame59.svg" alt="" />
      <p className='leading-6 font-semibold'>Persona No Binarie. Artista, Drag Queen venezolana y activista por los Derechos Humanos de la comunidad LGBTIQ+. Actualmente es vocal de la junta directiva y coordinadora regional para el estado Carabobo.</p>
    </article>
 
@@ -204,7 +204,7 @@ y sigo descubriendo quien soy realmente después de tantos años, el activismo m
  <div className='grid md:grid-cols-2 gap-9'>
 
    <article className='flex flex-col md:flex-row justify-center items-center gap-4'>
-     <img src="https://via.placeholder.com/329x153" alt="" />
+     <img src="/Frame60.svg" alt="" />
      <p className='leading-6 font-semibold'>Hombre Trans. Estudiante universitario, músico e ilustrador. Actualmente es secretario de la junta directiva diseñador gráfico de TAFAB.</p>
    </article>
 
@@ -246,7 +246,7 @@ de mi vida con miedo de mí mismo y del rechazo. Ser yo requiere valentía pero 
   Además, participamos conjuntamente con otras organizaciones de la sociedad civil en proyectos conjuntos, con el objetivo de ampliar nuestro alcance e impacto en la comunidad LGBTIQ venezolana.</p>
 
 
-  <img className='m-auto w-full' src="https://via.placeholder.com/1144x311" alt="" />
+  <img className='m-auto w-full' src="/Frame61.svg" alt="" />
 
 
   <h2 className='font-extrabold text-text-dark text-2xl  md:text-3xl mt-16'>¿CUÁLES SON NUESTROS PRINCIPIOS?</h2>

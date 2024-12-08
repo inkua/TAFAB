@@ -16,7 +16,7 @@ function LeaderCard() {
   <div className='grid  tablet:grid-cols-1 md:grid-cols-2 gap-9'>
  
     <article className='flex flex-col md:flex-row justify-center items-center gap-4'>
-      <img src="https://via.placeholder.com/329x153" alt="" />
+      <img src="/Frame58.svg" alt="" />
       <p className='leading-6 font-semibold'>Mujer Trans. Artista, artesana y activista por los Derechos Humanos de las personas LGBTIQ+. Actualmente es vocal de la junta directiva y coordinadora regional para el estado Aragua.</p>
     </article>
  
@@ -48,7 +48,7 @@ function LeaderCard() {
   <div className='grid md:grid-cols-2 gap-9'>
  
     <article className='flex flex-col md:flex-row justify-center items-center gap-4'>
-      <img src="https://via.placeholder.com/329x153" alt="" />
+      <img src="/Frame59.svg" alt="" />
       <p className='leading-6 font-semibold'>Persona No Binarie. Artista, Drag Queen venezolana y activista por los Derechos Humanos de la comunidad LGBTIQ+. Actualmente es vocal de la junta directiva y coordinadora regional para el estado Carabobo.</p>
     </article>
  
@@ -80,7 +80,7 @@ function LeaderCard() {
   <div className='grid md:grid-cols-2 gap-9'>
  
     <article className='flex flex-col md:flex-row justify-center items-center gap-4'>
-      <img src="https://via.placeholder.com/329x153" alt="" />
+      <img src="/Frame60.svg" alt="" />
       <p className='leading-6 font-semibold'>Hombre Trans. Estudiante universitario, músico e ilustrador. Actualmente es secretario de la junta directiva diseñador gráfico de TAFAB.</p>
     </article>
  
