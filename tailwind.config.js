@@ -14,7 +14,7 @@ module.exports = {
       },
       padding:{
         "mobile":"1rem",
-        "tablet":"4rem",
+        "tablet":"2rem",
       },
       margin:{
         "mobile":"1rem",
