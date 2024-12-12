@@ -39,6 +39,8 @@ module.exports = {
         "btn-purple": "#644C9B",
       }
     },
+
+  
   },
   plugins: [
     require('@tailwindcss/forms'),
