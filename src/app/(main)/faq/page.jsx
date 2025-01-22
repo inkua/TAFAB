@@ -22,7 +22,7 @@ const faqs = [
         answer: (<>
             ¡Sí! Actualmente contamos con acompañamiento y monitoreo alrededor de la terapia de reemplazo hormonal (TRH). Podemos informarte y responder las dudas que tengas como acompañarte a lo largo de este trayecto. Estamos construyendo un equipo médico para brindar atención integral, pero por lo momentos contamos directamente con un médico y referimos a los demás especialistas, varios siendo miembros de la fundación Unitrans. Para más información puedes contactarnos al {" "}
             <a
-                href="https://example.com"
+                href="https://wa.me/584260364005"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-500 underline"
