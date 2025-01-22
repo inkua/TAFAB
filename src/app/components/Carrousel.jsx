@@ -36,7 +36,7 @@ const Carrousel = () => {
   };
 
   return (
-    <div className="relative w-[90%] mx-auto">
+    <div className="relative w-[90%] mx-auto -z-10">
       {/* Carrusel */}
       <div className="flex overflow-hidden relative">
         <div

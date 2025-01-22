@@ -11,6 +11,7 @@ const Proyectos = () => {
       titulo: "Programa de atención psicosocial",
       descripcion: "Dividido en grupos de apoyo psicológico, grupos terapéuticos, terapia grupal focalizada y atención psicológica individual.",
       imagen: "/Proyecto2.svg",
+      seccionId: 'acompañamientopisicosocial'
     },
     {
       titulo: "Programa de educación y visibilización",
@@ -38,11 +39,12 @@ const Proyectos = () => {
     <section className="p-6 font-sans w-full  md:w-[80%] m-auto ">
       <h1 className="md:text-2xl text-xl font-bold mb-4 text-text-dark">NUESTROS PROYECTOS</h1>
       <p className="mb-6 text-gray-700">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue. Vestibulum auctor ornare leo, non suscipit magna interdum eu. Curabitur pellentesque nibh nibh, at maximus ante fermentum sit amet. Pellentesque commodo lacus at sodales sodales. Quisque sagittis orci ut diam condimentum, vel euismod erat placerat. In iaculis arcu eros, eget tempus orci facilisis id.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue. Vestibulum auctor ornare leo, non suscipit magna interdum eu. Curabitur pellentesque nibh nibh, at maximus ante fermentum sit amet. Pellentesque commodo lacus at sodales sodales. Quisque sagittis orci ut diam condimentum, vel euismod erat placerat. In iaculis arcu eros, eget tempus orci facilisis id.
       </p>
       <div className="flex flex-col gap-8">
         {proyectos.map((proyecto, index) => (
           <div
+            id={proyecto.seccionId}
             key={index}
             className="flex flex-col md:flex-row  items-center gap-4 border-b pb-4"
           >
