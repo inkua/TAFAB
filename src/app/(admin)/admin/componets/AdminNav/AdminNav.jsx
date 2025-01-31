@@ -1,16 +1,14 @@
 'use client'
 
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import BtnLogout from './BtnLogout/BtnLogout'
 
 const user = {
-    name: 'Tom Cook',
-    email: 'tom@example.com',
     imageUrl:
-        'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+        '/admin/admin/user.png',
 }
 
 const navigation = [
@@ -19,22 +17,25 @@ const navigation = [
     { name: 'eventos', href: '/admin/events', current: false },
     { name: 'Administradores', href: '/admin/admins', current: false },
 ]
-const userNavigation = [
-    { name: 'Your Profile', href: '/admin/profile' },
-    { name: 'Settings', href: '#' },
-]
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
-const isCurrentPath=(current, href)=>{
-    if(current==href) return true
+const isCurrentPath = (current, href) => {
+    if (current == href) return true
     return false
 }
 
 function AdminNav() {
     const pathname = usePathname()
-
+    const router = useRouter()
+    
+    const buttonHandler = async (e) => {
+        e.preventDefault()
+        const response = await fetch('/api/admins/profile');
+        const result = await response.json();
+        router.push(`/admin/profile?user=${result.data}`)
+    }
     return (
         <Disclosure as="nav" className="bg-gray-800">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -55,7 +56,7 @@ function AdminNav() {
                                         href={item.href}
                                         aria-current={isCurrentPath(pathname, item.href) ? 'page' : undefined}
                                         className={classNames(
-                                            isCurrentPath(pathname, item.href) ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                                            isCurrentPath(pathname, item.href) ? ' text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                                             'rounded-md px-3 py-2 text-sm font-medium',
                                         )}
                                     >
@@ -73,23 +74,31 @@ function AdminNav() {
                                     <MenuButton className="relative flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                                         <span className="absolute -inset-1.5" />
                                         <span className="sr-only">Open user menu</span>
-                                        <img alt="" src={user.imageUrl} className="h-8 w-8 rounded-full" />
+                                        <img alt="user" src={user.imageUrl} className="h-8 w-8 rounded-full bg-blue-200 object-scale-down" />
                                     </MenuButton>
                                 </div>
                                 <MenuItems
                                     transition
                                     className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
                                 >
-                                    {userNavigation.map((item) => (
-                                        <MenuItem key={item.name}>
-                                            <a
-                                                href={item.href}
-                                                className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100"
-                                            >
-                                                {item.name}
-                                            </a>
-                                        </MenuItem>
-                                    ))}
+                                    <MenuItem>
+                                        <button
+                                            className="block w-full text-left px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100"
+                                            onClick={(e) => buttonHandler(e)}
+                                            onKeyDown={(e) => { (e.key === 'Enter' || e.key === ' ') && (buttonHandler(e)) }}>
+                                            Perfil
+                                        </button>
+                                    </MenuItem>
+
+                                    <MenuItem >
+                                        <a
+                                            href={"/admin/settings"}
+                                            className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100"
+                                        >
+                                            Contraseña
+                                        </a>
+                                    </MenuItem>
+
                                     <BtnLogout />
                                 </MenuItems>
                             </Menu>
@@ -133,20 +142,25 @@ function AdminNav() {
                             <div className="text-base font-medium leading-none text-white">{user.name}</div>
                             <div className="text-sm font-medium leading-none text-gray-400">{user.email}</div>
                         </div>
-                        
+
                     </div>
                     <div className="mt-3 space-y-1 px-2">
-                        {userNavigation.map((item) => (
-                            <DisclosureButton
-                                key={item.name}
-                                as="a"
-                                href={item.href}
-                                className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
-                            >
-                                {item.name}
-                            </DisclosureButton>
-                        ))}
-                            <BtnLogout />
+                        <button
+                            className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
+                            onClick={(e) => buttonHandler(e)}
+                            onKeyDown={(e) => { (e.key === 'Enter' || e.key === ' ') && (buttonHandler(e)) }}>
+                            Perfil
+                        </button>
+
+                        <DisclosureButton
+                            as="a"
+                            href="/admin/settings"
+                            className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
+                        >
+                            Contraseña
+                        </DisclosureButton>
+
+                        <BtnLogout />
                     </div>
                 </div>
             </DisclosurePanel>

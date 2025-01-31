@@ -1,12 +1,18 @@
-import { getAdmins } from "@/DAO/admins.db";
-import BtnAdmin from "./components/BtnAdmin/BtnAdmin";
-import TableAdmin from "./components/TableAdmin/TableAdmin";
-import SearchBar from "../componets/SearchBar/SearchBar";
-import Pagination from "../componets/Pagination/Pagination";
+import { getAdminsPerPage } from "@/DAO/admins.db"
+import SearchBar from "../componets/SearchBar/SearchBar"
+import AdminAddBtn from "./components/AdminAddBtn/AdminAddBtn"
+import AdminTable from "./components/AdminTable/AdminTable"
+import Pagination from "../componets/Pagination/Pagination"
 
-async function Admins() {
-    let data = await getAdmins(); //usando el servicio del DAO
 
+async function Administradores({searchParams}) {
+    const { page } = searchParams
+    let data = {}
+    if (page) {
+        data = await getAdminsPerPage(Number(page))
+    } else {
+        data = await getAdminsPerPage()
+    }
     return (
         <>
             <header className="bg-white shadow">
@@ -17,16 +23,16 @@ async function Admins() {
 
             <main className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" >
                 <div className="sm:flex sm:items-center sm:justify-between">
-                    <BtnAdmin />
+                    <AdminAddBtn />
                     <SearchBar />
                 </div>
 
-                <TableAdmin data={data} />
+                <AdminTable data={data.list} />
 
-                <Pagination />
+                <Pagination data={data} />
             </main>
         </>
     )
 }
 
-export default Admins
+export default Administradores
