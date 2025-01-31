@@ -4,22 +4,22 @@ import { headers } from "next/headers";
 
 // login
 export async function POST(request) {
-    const formData = await request.formData();
-    const email = formData.get("email")
-    const password = formData.get("password")
+    try {
+        const { email, password } = await request.json()
+        const admin = await getAdminByEmail(email)
 
-    const admin = await getAdminByEmail(email)
-    
-    if (!admin || password !== admin.password) {
-        return Response.json("No autorizado", { status: 401, data: null });
-    } else {
-        await login(admin)
-        return Response.json("Inicio de sesión exitoso", { status: 200, data: "Inicio de sesión exitoso" });
+        if (!admin || admin.password !== password) {
+            return new Response(null, { status: 400 });
+        }
+        
+        await login({ email: email, name: admin.name });
+        return new Response(null, { status: 200 });
     }
-
+    catch (error) {
+        return new Response(null, { status: 500 });
+    }
 }
 
-// valid token
 export async function GET() {
     try {
         const headersList = headers()

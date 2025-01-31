@@ -13,13 +13,11 @@ function LoginForm() {
         e.preventDefault();
 
         if (validateForm()) {
-            const formData = new FormData();
-            formData.append('email', email);
-            formData.append('password', password);
-
-            await fetch('http://localhost:3000/api/auth/', {
+            await fetch('/api/auth/', {
                 method: 'POST',
-                body: formData,
+                body: JSON.stringify({
+                    email: email, password: password,
+                }),
             }).then(response => {
                 if (response.ok) {
                     router.push('/admin');
