@@ -1,5 +1,5 @@
 import { getAdminByEmail } from "@/DAO/admins.db";
-import { SignJWT, jwtVerify } from "jose";
+import { jwtVerify, SignJWT } from "jose";
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 
@@ -15,12 +15,26 @@ export async function encrypt(payload) {
         .sign(key);
 }
 
-//verifica el token
+//verifica el token y lo desencripta
 export async function decrypt(input) {
     const { payload } = await jwtVerify(input, key, {
         algorithms: ["HS256"],
     });
     return payload;
+}
+
+// Get token from session
+export async function getToken() {
+    try {
+        const token = request.cookies.get("session")?.value;
+        if (token) {
+            return token
+        }
+        return false
+    } catch (e) {
+        console.error("couldn't get Token - lib", e)
+        return false
+    }
 }
 
 // Validate token
@@ -41,9 +55,7 @@ export async function validateToken(token) {
     }
 }
 
-export async function login(data) {
-    // verifico credenciales y obtengo el usuario
-    const user = { email: data.email, name: data.name };
+export async function login(user) {
 
     // creacion de sesion
     const expires = new Date(Date.now() + 60 * 60 * 1000);
@@ -84,6 +96,17 @@ export async function updateSession(request) {
         expires: parsed.expires,
     });
     return res;
+}
+
+export async function validateAdmin() {
+    try {
+        const session = await getSession()
+        const admin = await getAdminByEmail(session.user.email)
+        return admin
+    } catch (e) {
+        console.error('Error validateAdmin - lib: ', e);
+        return false
+    }
 }
 
 export async function isRootAdmin(token) {
