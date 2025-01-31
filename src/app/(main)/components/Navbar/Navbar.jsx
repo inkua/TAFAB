@@ -16,12 +16,24 @@ function Navbar() {
             href: "/nosotros",
             dropdownItems: [
                 {
-                    name: "Item1",
-                    href: "/nosotros#item1"
+                    name: "Misión y visión",
+                    href: "/nosotros#misionyvision"
                 },
                 {
-                    name: "Item2",
-                    href: "/nosotros#item2"
+                    name: "¿Quién es nuestra dirigencia?",
+                    href: "/nosotros#dirigencia"
+                },
+                {
+                    name: "¿Cómo funcionamos?",
+                    href: "/nosotros#comofuncionamos"
+                },
+                {
+                    name: "¿Cuáles son nuestros principios?",
+                    href: "/nosotros#principios"
+                },
+                {
+                    name: "¿Como nos financiamos?",
+                    href: "/nosotros#comonosfinanciamos"
                 },
             ],
         },
@@ -29,16 +41,6 @@ function Navbar() {
         {
             name: "Proyectos",
             href: "/proyectos",
-            dropdownItems: [
-                {
-                    name: "Item1",
-                    href: "/proyectos#item1"
-                },
-                {
-                    name: "Item2",
-                    href: "/proyectos#item2"
-                },
-            ],
         },
         {
             name: "Infórmate",
@@ -46,7 +48,7 @@ function Navbar() {
         },
         {
             name: "Preguntas frecuentes",
-            href: "/preguntasfrecuentes"
+            href: "/faq"
         },
         {
             name: "Cómo ayudar",
@@ -55,7 +57,7 @@ function Navbar() {
     ];
 
     return (
-        <header className="flex flex-col">
+        <header className="flex flex-col z-10">
             {/* Top Banner */}
             <div className="bg-primary p-mobile lg:p-8 flex flex-col lg:flex-row gap-4 text-center items-center justify-center text-text-white font-semibold text-lg">
                 <p>Defendemos los derechos y el bienestar de las personas Trans en Venezuela y el mundo</p>
@@ -106,7 +108,7 @@ function Navbar() {
 
                             {/* Dropdown Menu */}
                             {item.dropdownItems && activeDropdown === item.name && (
-                                <div className="absolute left-0 top-5 mt-2 w-48 origin-top-left rounded-md bg-white py-2 shadow-lg ring-1 ring-black ring-opacity-5">
+                                <div className="absolute top-5 mt-2 w-56 origin-top-left rounded-md bg-white py-2 shadow-lg ring-1 ring-black ring-opacity-5">
                                     {item.dropdownItems.map((dropdownItem) => (
                                         <Link
                                             key={dropdownItem.name}
