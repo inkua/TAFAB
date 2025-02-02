@@ -2,8 +2,8 @@ import { deleteImage, updateImage, uploadImage } from "./cloudinaryContainer";
 import { addElement, deleteElement, getAllElements, getElementById, updateElement } from "./container";
 
 // add a new video entity | requires video data | returns the added video response
-const addVideo = async () => {
-    return await addElement(newProduct, 'videos')
+const addVideo = async (newVideo) => {
+    return await addElement(newVideo, 'videos')
 }
 
 // get an video by id | requires the video id | returns the video object
@@ -65,7 +65,7 @@ const uploadVideoImg = async (buffer, videoId) => {
     const result = await uploadImage(buffer, "videos")
 
     if (result) {
-        setVideo({ imgUrl: result }, videoId)
+        await setVideo({ imgUrl: result }, videoId)
     }
     return result
 }

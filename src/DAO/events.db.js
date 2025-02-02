@@ -2,8 +2,8 @@ import { deleteImage, updateImage, uploadImage } from "./cloudinaryContainer";
 import { addElement, deleteElement, getAllElements, getElementById, updateElement } from "./container";
 
 // add a new event | requires event data | returns the added event response
-const addEvent = async (newProduct) => {
-    return await addElement(newProduct, 'events')
+const addEvent = async (newEvent) => {
+    return await addElement(newEvent, 'events')
 }
 
 // get an event by id | requires the event id | returns the event object

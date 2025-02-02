@@ -2,8 +2,8 @@ import { deleteImage, updateImage, uploadImage } from "./cloudinaryContainer";
 import { addElement, deleteElement, getAllElements, getElementById, updateElement } from "./container";
 
 // add a new news entity | requires news data | returns the added news response
-const addNews = async (newNews) => {
-    return await addElement(newNews, 'news');
+const addNew = async (newData) => {
+    return await addElement(newData, 'news');
 };
 
 // get a news by id | requires the news id | returns the news object
