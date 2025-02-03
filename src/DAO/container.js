@@ -1,6 +1,7 @@
 import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, updateDoc } from "firebase/firestore";
+import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 
-import { db } from "./firebaseConfig";
+import { db, storage } from "./firebaseConfig";
 
 const addElement = async (element, collectionName) => {
     try {
@@ -34,6 +35,7 @@ const deleteElement = async (id, collectionName) => {
     try {
         const docRef = doc(db, collectionName, id);
         await deleteDoc(docRef);
+        return true
     } catch (e) {
         console.error(`${collectionName}, deleteElement, container, DAO: `, e);
         return false;
@@ -78,6 +80,30 @@ const formatList = (elementList) => {
     return formattedList;
 };
 
+//UPLOAD AN IMAGE
+const uploadImage = async (file, entityName) => {
+    try {
+        const storageRef = ref(storage, `${entityName}/${file.name}` + "_" + Date.now());
+        await uploadBytes(storageRef, file);
+        return await getDownloadURL(storageRef)
+    } catch (e) {
+        console.error(`${entityName},uploadImage, container, DAO: `, e);
+        return false;
+    }
+
+}
+
+// DELETE AN IMAGE
+export async function delImage(imageUrl) {
+    try {
+        const storageRef = ref(storage, imageUrl);
+        await deleteObject(storageRef);
+    } catch (e) {
+        console.error("delImage, container, DAO: ", e);
+        return false;
+    }
+}
+
 
 
 export {
@@ -86,4 +112,5 @@ export {
     addElement,
     updateElement,
     deleteElement,
+    uploadImage,
 };
