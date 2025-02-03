@@ -7,7 +7,7 @@ const addNew = async (newData) => {
 };
 
 // get a news by id | requires the news id | returns the news object
-const getNewsById = async (nid) => {
+const getNewById = async (nid) => {
     return await getElementById(nid, 'news');
 };
 
@@ -45,52 +45,52 @@ const getActiveNews = async () => {
 };
 
 // update a news by id | requires new data and the news id | returns the updated news response
-const setNews = async (newData, nid) => {
+const setNew = async (newData, nid) => {
     return await updateElement(newData, nid, 'news');
 };
 
 // delete a news by id and its image | requires the news id | returns the delete operation response
-const deleteNews = async (nid) => {
-    const newsItem = await getNewsById(nid);
+const deleteNew = async (nid) => {
+    const newItem = await getNewById(nid);
 
-    if (newsItem.data.imgUrl) {
-        await deleteNewsImg(newsItem.data.imgUrl);
+    if (newItem.data.imgUrl) {
+        await deleteNewImg(newItem.data.imgUrl);
     }
 
     return await deleteElement(nid, 'news');
 };
 
 // upload a news image | requires the image buffer and news id | returns the uploaded image URL
-const uploadNewsImg = async (buffer, newsId) => {
+const uploadNewImg = async (buffer, newsId) => {
     const result = await uploadImage(buffer, "news");
 
     if (result) {
-        await setNews({ imgUrl: result }, newsId);
+        await setNew({ imgUrl: result }, newsId);
     }
     return result;
 };
 
 // update a news image | requires the image buffer and existing image URL | returns the updated image URL
-const setNewsImg = async (buffer, imgUrl) => {
+const setNewImg = async (buffer, imgUrl) => {
     const result = await updateImage(buffer, imgUrl, "news");
     return result;
 };
 
 // delete a news image | requires the image URL | returns the delete operation response
-const deleteNewsImg = async (imgUrl) => {
+const deleteNewImg = async (imgUrl) => {
     const result = await deleteImage(imgUrl);
     return result;
 };
 
 export {
-    addNews,
-    getNewsById,
+    addNew,
+    getNewById,
     getNews,
     getNewsPerPage,
     getActiveNews,
-    setNews,
-    deleteNews,
-    uploadNewsImg,
-    setNewsImg,
-    deleteNewsImg,
+    setNew,
+    deleteNew,
+    uploadNewImg,
+    setNewImg,
+    deleteNewImg,
 };

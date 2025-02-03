@@ -16,6 +16,7 @@ const navigation = [
     { name: 'Videos', href: '/admin/videos', current: false },
     { name: 'Eventos', href: '/admin/events', current: false },
     { name: 'Recursos', href: '/admin/resources', current: false },
+    { name: 'Noticias', href: '/admin/news', current: false },
     { name: 'Administradores', href: '/admin/admins', current: false },
 ]
 
