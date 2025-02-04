@@ -39,6 +39,7 @@ function AdminNav() {
         router.push(`/admin/profile?user=${result.data}`)
     }
     return (
+
         <Disclosure as="nav" className="bg-gray-800">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="flex h-16 items-center justify-between">
@@ -51,7 +52,7 @@ function AdminNav() {
                             />
                         </div>
                         <div className="hidden md:block">
-                            <div className="ml-10 flex items-baseline space-x-4">
+                            <nav className="ml-10 flex items-baseline space-x-4">
                                 {navigation.map((item) => (
                                     <a
                                         key={item.name}
@@ -65,7 +66,7 @@ function AdminNav() {
                                         {item.name}
                                     </a>
                                 ))}
-                            </div>
+                            </nav>
                         </div>
                     </div>
                     <div className="hidden md:block">
@@ -119,7 +120,7 @@ function AdminNav() {
             </div>
 
             <DisclosurePanel className="md:hidden">
-                <div className="space-y-1 px-2 pb-3 pt-2 sm:px-3">
+                <nav className="space-y-1 px-2 pb-3 pt-2 sm:px-3">
                     {navigation.map((item) => (
                         <DisclosureButton
                             key={item.name}
@@ -134,7 +135,7 @@ function AdminNav() {
                             {item.name}
                         </DisclosureButton>
                     ))}
-                </div>
+                </nav>
                 <div className="border-t border-gray-700 pb-3 pt-4">
                     <div className="flex items-center px-5">
                         <div className="flex-shrink-0">

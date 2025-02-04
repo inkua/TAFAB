@@ -2,7 +2,7 @@
 
 function layout({ children }) {
     return (
-        <body>
+        <body className="h-screen">
             {children}
         </body>
     )

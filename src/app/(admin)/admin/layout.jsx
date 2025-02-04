@@ -3,10 +3,10 @@ import AdminNav from "./componets/AdminNav/AdminNav"
 
 function layout({ children }) {
     return (
-        <body >
+        <body className="h-screen">
             <AdminNav />
-            <ToastProvider />
             {children}
+            <ToastProvider />
         </body>
     )
 }
