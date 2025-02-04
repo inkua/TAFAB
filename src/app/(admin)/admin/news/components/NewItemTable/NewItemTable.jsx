@@ -1,7 +1,8 @@
-import ItemTableImg from "../../../componets/ItemTableImg/ItemTableImg";
-import ActionDropdown from "../ActionDropdown/ActionDropdown";
+import ItemTableImg from "../../../componets/ItemTableImg/ItemTableImg"
+import NewActionDropdown from "../NewActionDropdown/NewActionDropdown"
 
-function ItemTable({ data }) {
+
+const NewItemTable = ({ data }) => {
     return (
         <tr>
             <td className="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
@@ -23,22 +24,19 @@ function ItemTable({ data }) {
                 </div>
             </td>
             <td className="px-12 max-w-[20%] overflow-hidden py-4 text-sm font-normal text-gray-700">
-                {data.date ? new Date(data.date.seconds * 1000).toLocaleDateString('en-GB') : 'Fecha no disponible'}
+                {data.copy}
             </td>
             <td className="px-12 max-w-[20%] overflow-hidden py-4 text-sm font-normal text-gray-700">
-                {data.info}
+                {data.status}
             </td>
             <td className="px-12 max-w-[20%] overflow-hidden py-4 text-sm font-normal text-gray-700">
-                {data.location}
-            </td>
-            <td className="px-12 max-w-[20%] overflow-hidden py-4 text-sm font-normal text-gray-700">
-                {data.url?"si":"No"}
+                {data.date}
             </td>
             <td className="px-4 py-4 text-sm whitespace-nowrap flex items-center justify-center">
-                <ActionDropdown data={data} />
+                <NewActionDropdown data={data} />
             </td>
         </tr>
     )
 }
 
-export default ItemTable;
+export default NewItemTable
