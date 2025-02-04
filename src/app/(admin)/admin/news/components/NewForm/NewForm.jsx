@@ -1,11 +1,15 @@
 import { getDateFormated } from "@/utils/getDate";
+import { convertFromHTML, convertToHTML } from "draft-convert";
+import { EditorState } from "draft-js";
 import { useEffect, useState } from "react";
+
+import RichTextEditor from "../RichEditor/RichEditor";
 
 const NewForm = ({ isOpen, setIsOpen, saveNew, data, add = true }) => {
     const [title, setTitle] = useState("")
     const [copy, setCopy] = useState("")
-    const [article, setArticle] = useState("")
     const [status, setStatus] = useState("Activo")
+    const [editorState, setEditorState] = useState(null);
 
 
     const [id, setId] = useState("");
@@ -14,7 +18,7 @@ const NewForm = ({ isOpen, setIsOpen, saveNew, data, add = true }) => {
         return {
             title,
             copy,
-            article,
+            article: convertToHTML(editorState.getCurrentContent()),
             status,
         }
     }
@@ -33,7 +37,7 @@ const NewForm = ({ isOpen, setIsOpen, saveNew, data, add = true }) => {
 
         setTitle("")
         setCopy("")
-        setArticle("")
+
         setStatus("Activo")
 
         setIsOpen(false);
@@ -43,9 +47,14 @@ const NewForm = ({ isOpen, setIsOpen, saveNew, data, add = true }) => {
         if (data) {
             setTitle(data.title || "")
             setCopy(data.copy || "")
-            setArticle(data.article || "")
+
+            const articleConverted = EditorState.createWithContent(convertFromHTML(data.article));
+            setEditorState(articleConverted || "")
+
             setStatus(data.status || "Activo")
             setId(data.id);
+        }else{
+            setEditorState(EditorState.createEmpty())
         }
     }, [data])
 
@@ -55,7 +64,7 @@ const NewForm = ({ isOpen, setIsOpen, saveNew, data, add = true }) => {
                 <div className="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center z-50 p-4">
                     <div className="bg-white text-black rounded-lg p-6 shadow-lg w-full md:w-[500px] lg:w-[900px] max-h-[95vh] overflow-y-auto">
                         <h2 className="text-xl font-bold mb-4">
-                            {add ? "Nuevo registro de adopción" : "Actualizar registro de adopción"}
+                            {add ? "Nuevo artículo / noticia" : "Actualizar artículo / noticia"}
                         </h2>
 
                         <form onSubmit={handleSubmit}>
@@ -110,7 +119,7 @@ const NewForm = ({ isOpen, setIsOpen, saveNew, data, add = true }) => {
                                     <label className="text-black" htmlFor="article">
                                         Artículo:
                                     </label>
-                                    <textarea
+                                    {/* <textarea
                                         id="article"
                                         name="article"
                                         rows="5"
@@ -118,7 +127,8 @@ const NewForm = ({ isOpen, setIsOpen, saveNew, data, add = true }) => {
                                         onChange={(e) => setArticle(e.target.value)}
 
                                         className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md"
-                                    />
+                                    /> */}
+                                    <RichTextEditor data={{editorState, setEditorState}} />
                                 </div>
                             </div>
 
