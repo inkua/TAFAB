@@ -3,31 +3,43 @@
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react'
 import NewForm from '../NewForm/NewForm';
+import BlockingOverlay from '../../../componets/BlockingOverlay/BlockingOverlay';
 
 const NewAddBtn = () => {
     const router = useRouter();
     const [isOpen, setIsOpen] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
 
     const uploadNew = async (newData) => {
-        const URL = `/api/news`
-        const response = await fetch(URL, {
-            method: "POST",
-            body: JSON.stringify({
-                data: newData,
-            }),
-        });
+        setIsLoading(true);
 
-        const data = await response.json();
+        try {
+            const URL = `/api/news`
+            const response = await fetch(URL, {
+                method: "POST",
+                body: JSON.stringify({
+                    data: newData,
+                }),
+            });
 
-        if (data.data) {
-            alert("Operación Exitosa!");
-        } else {
+            const data = await response.json();
+
+            if (data.data) {
+                alert("Operación Exitosa!");
+            } else {
+                alert("No se pudo realizar la operación!");
+            }
+
+        } catch (error) {
             alert("No se pudo realizar la operación!");
+        } finally {
+            setIsLoading(false);
         }
     };
 
     return (
         <>
+            <BlockingOverlay isLoading={isLoading} />
             <div className="flex items-center mt-4 gap-x-3">
                 <button
                     className="flex items-center justify-center w-1/2 px-5 py-2 text-sm tracking-wide text-white transition-colors duration-200 bg-blue-500 rounded-lg sm:w-auto gap-x-2 hover:bg-blue-600 dark:hover:bg-blue-500 dark:bg-blue-600"

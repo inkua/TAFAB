@@ -51,7 +51,7 @@ const UploadImages = ({ props }) => {
             {loading ? (
                 <div className="mt-4">
                     <p className="text-sm text-gray-700">Optimizando imágen, por favor espere.</p>
-                    <p className="text-4xl text-blue-600">Optimizando...</p>
+                    <p className="text-4xl text-blue-600 animate-pulse">Optimizando...</p>
                 </div>
             ) : (
                 <>

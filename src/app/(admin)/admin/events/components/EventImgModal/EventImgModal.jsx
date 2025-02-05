@@ -1,6 +1,7 @@
 import { useState } from "react"
 
 import UploadImages from "../../../componets/UploadImages/UploadImages"
+import BlockingOverlay from "../../../componets/BlockingOverlay/BlockingOverlay"
 
 const EventImgModal = ({ data }) => {
 
@@ -8,26 +9,34 @@ const EventImgModal = ({ data }) => {
     const [image, setImage] = useState(null)
     const [url, setUrl] = useState(imgUrl)
     const [loading, setLoading] = useState(false)
+    const [isLoading, setIsLoading] = useState(false); // block overlay
 
     const handlerSubmit = async (e) => {
         e.preventDefault()
+        setIsLoading(true);
 
-        const formData = new FormData()
-        formData.append('file', image)
-        formData.append('id', eventId)
+        try {
+            const formData = new FormData()
+            formData.append('file', image)
+            formData.append('id', eventId)
 
-        const response = await fetch('/api/events/image', {
-            method: 'POST',
-            body: formData,
-        });
+            const response = await fetch('/api/events/image', {
+                method: 'POST',
+                body: formData,
+            });
 
-        if (response.status == 200) {
-            const result = await response.json();
-            setUrl(result.data)
-            alert('Imagen añadida correctamente')
-            setOpen(false)
-        } else {
+            if (response.status == 200) {
+                const result = await response.json();
+                setUrl(result.data)
+                alert('Imagen añadida correctamente')
+                setOpen(false)
+            } else {
+                alert('No se pudo realizar la operación')
+            }
+        } catch (error) {
             alert('No se pudo realizar la operación')
+        } finally {
+            setIsLoading(false);
         }
     }
 
@@ -38,6 +47,8 @@ const EventImgModal = ({ data }) => {
 
     return (
         <>
+            <BlockingOverlay isLoading={isLoading} />
+
             {open && (
                 <div className="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center z-50 p-4">
                     <div className="bg-white text-black rounded-lg p-6 shadow-lg w-full md:w-[500px] lg:w-[900px] max-h-[95vh] overflow-y-auto">
