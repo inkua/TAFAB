@@ -4,6 +4,7 @@ import { useState } from "react"
 import BlockingOverlay from "../../../componets/BlockingOverlay/BlockingOverlay"
 import UploadImages from "../../../componets/UploadImages/UploadImages"
 import { reloadPage } from "../../../componets/utils"
+import { useToast } from "@/utils/toast"
 
 const VideoImgModal = ({ data }) => {
     const { open, setOpen, imgUrl, videoId } = data
@@ -11,7 +12,9 @@ const VideoImgModal = ({ data }) => {
     const [url, setUrl] = useState(imgUrl)
     const [loading, setLoading] = useState(false)
     const [isLoading, setIsLoading] = useState(false); // block overlay
+    const { showToast } = useToast()
     const router = useRouter()
+    
 
     const handlerSubmit = async (e) => {
         e.preventDefault()
@@ -30,13 +33,13 @@ const VideoImgModal = ({ data }) => {
             if (response.status == 200) {
                 const result = await response.json();
                 setUrl(result.data)
-                alert('Imagen añadida correctamente')
+                showToast({ type: "success", message: 'Operación exitosa' })
                 setOpen(false)
             } else {
-                alert('No se pudo realizar la operación')
+                showToast({ type: 'error', message: 'No se pudo realizar la operación!' })
             }
         } catch (error) {
-            alert('No se pudo realizar la operación')
+            showToast({ type: 'error', message: 'No se pudo realizar la operación!' })
 
         } finally {
             setIsLoading(false);            

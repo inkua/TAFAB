@@ -3,6 +3,7 @@ import UploadImages from "../../../componets/UploadImages/UploadImages"
 import BlockingOverlay from "../../../componets/BlockingOverlay/BlockingOverlay"
 import { reloadPage } from "../../../componets/utils"
 import { useRouter } from "next/navigation"
+import { useToast } from "@/utils/toast"
 
 
 const NewImgModal = ({ data }) => {
@@ -11,6 +12,7 @@ const NewImgModal = ({ data }) => {
     const [url, setUrl] = useState(imgUrl)
     const [loading, setLoading] = useState(false)
     const [isLoading, setIsLoading] = useState(false); // block overlay
+    const { showToast } = useToast()
     const router = useRouter()
 
 
@@ -31,13 +33,13 @@ const NewImgModal = ({ data }) => {
             if (response.status == 200) {
                 const result = await response.json();
                 setUrl(result.data)
-                alert('Imagen añadida correctamente')
+                showToast({ type: "success", message: 'Operación exitosa' })
                 setOpen(false)
             } else {
-                alert('No se pudo realizar la operación')
+                showToast({ type: 'error', message: 'No se pudo realizar la operación!' })
             }
         } catch (error) {
-            alert('No se pudo realizar la operación')
+            showToast({ type: 'error', message: 'No se pudo realizar la operación!' })
         }finally {
             setIsLoading(false);
             reloadPage(router)

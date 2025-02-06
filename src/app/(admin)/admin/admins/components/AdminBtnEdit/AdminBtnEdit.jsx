@@ -5,11 +5,17 @@ import AdminFrom from "../AdminForm/AdminForm";
 import { reloadPage } from "../../../componets/utils";
 import BlockingOverlay from "../../../componets/BlockingOverlay/BlockingOverlay";
 import { useState } from "react";
+import { useToast } from "@/utils/toast";
 
 function AdminBtnEdit({ data, open, setOpen, disabled = false }) {
     const [isLoading, setIsLoading] = useState(false);
     const router = useRouter();
+    const { showToast } = useToast()
+
+
     const updateData = async (newData) => {
+        setIsLoading(true);
+        
         try {
             const response = await fetch("/api/admins", {
                 method: "PUT",
@@ -21,12 +27,12 @@ function AdminBtnEdit({ data, open, setOpen, disabled = false }) {
             const data = await response.json();
 
             if (data.data) {
-                alert("Operación Exitosa!");
+                showToast({ type: "success", message: 'Operación exitosa' })
             } else {
-                alert("No se pudo realizar la operación!");
+                showToast({ type: 'error', message: 'No se pudo realizar la operación!' })
             }
         } catch (error) {
-            alert("No se pudo realizar la operación!");
+            showToast({ type: 'error', message: 'No se pudo realizar la operación!' })
         } finally {
             setIsLoading(false);
             reloadPage(router)

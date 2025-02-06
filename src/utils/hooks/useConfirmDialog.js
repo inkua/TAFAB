@@ -4,8 +4,10 @@ import ConfirmDialog from "@/app/components/ConfirmDialog/ConfirmDialog";
 export function useConfirmDialog() {
     const [isOpen, setIsOpen] = useState(false);
     const [resolvePromise, setResolvePromise] = useState(null);
+    const [message, setMessage] = useState(null)
 
-    const confirm = () => {
+    const confirm = (message = null) => {
+        setMessage(message)
         return new Promise((resolve) => {
             setResolvePromise(() => resolve);
             setIsOpen(true);
@@ -14,7 +16,7 @@ export function useConfirmDialog() {
 
     const handleConfirm = (value) => {
         if (resolvePromise) {
-            resolvePromise(value); // Resuelve la promesa
+            resolvePromise(value);
             setIsOpen(false);
         }
     };
@@ -24,9 +26,9 @@ export function useConfirmDialog() {
         ConfirmDialogComponent: (
             <ConfirmDialog
                 isModalOpen={isOpen}
-                setIsModalOpen={setIsOpen}
                 onConfirm={() => handleConfirm(true)}
                 onCancel={() => handleConfirm(false)}
+                message={message}
             />
         ),
     };

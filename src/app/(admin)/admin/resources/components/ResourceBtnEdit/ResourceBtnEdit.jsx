@@ -5,10 +5,12 @@ import ResourceForm from "../ResourceForm/ResourceForm";
 import BlockingOverlay from "../../../componets/BlockingOverlay/BlockingOverlay";
 import { reloadPage } from "../../../componets/utils";
 import { useRouter } from "next/navigation";
+import { useToast } from "@/utils/toast";
 
 const ResourceBtnEdit = ({ data, open, setOpen, disabled = false }) => {
     const [isLoading, setIsLoading] = useState(false);
     const router = useRouter()
+    const { showToast } = useToast()
 
     const setData = async (newData, rid) => {
         setIsLoading(true)
@@ -26,13 +28,13 @@ const ResourceBtnEdit = ({ data, open, setOpen, disabled = false }) => {
             const data = await response.json();
 
             if (data.data) {
-                alert("Operación Exitosa!");
+                showToast({ type: "success", message: 'Operación exitosa' })
             } else {
-                alert("No se pudo realizar la operación!");
+                showToast({ type: 'error', message: 'No se pudo realizar la operación!' })
             }
 
         } catch (error) {
-            alert("No se pudo realizar la operación!");
+            showToast({ type: 'error', message: 'No se pudo realizar la operación!' })
 
         } finally {
             setIsLoading(false);

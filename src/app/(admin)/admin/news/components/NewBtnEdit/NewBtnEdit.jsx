@@ -5,9 +5,11 @@ import NewForm from "../NewForm/NewForm";
 import BlockingOverlay from "../../../componets/BlockingOverlay/BlockingOverlay";
 import { useRouter } from "next/navigation";
 import { reloadPage } from "../../../componets/utils";
+import { useToast } from "@/utils/toast";
 
 const NewBtnEdit = ({ data, open, setOpen, disabled = false }) => {
     const [isLoading, setIsLoading] = useState(false);
+    const { showToast } = useToast()
     const router = useRouter()
 
     const setData = async (newData, nid) => {
@@ -22,17 +24,18 @@ const NewBtnEdit = ({ data, open, setOpen, disabled = false }) => {
                     id: nid
                 }),
             });
-    
+
             const data = await response.json();
-    
+
             if (data.data) {
-                alert("Operación Exitosa!");
+                showToast({ type: "success", message: 'Operación exitosa' })
             } else {
-                alert("No se pudo realizar la operación!");
+                showToast({ type: 'error', message: 'No se pudo realizar la operación!' })
             }
+
         } catch (error) {
-            alert("No se pudo realizar la operación!");
-        }finally {
+            showToast({ type: 'error', message: 'No se pudo realizar la operación!' })
+        } finally {
             setIsLoading(false);
             reloadPage(router)
         }

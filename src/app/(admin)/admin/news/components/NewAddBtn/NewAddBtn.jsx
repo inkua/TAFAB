@@ -5,11 +5,13 @@ import React, { useState } from 'react'
 import NewForm from '../NewForm/NewForm';
 import BlockingOverlay from '../../../componets/BlockingOverlay/BlockingOverlay';
 import { reloadPage } from '../../../componets/utils';
+import { useToast } from '@/utils/toast';
 
 const NewAddBtn = () => {
     const router = useRouter();
     const [isOpen, setIsOpen] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
+    const { showToast } = useToast()
 
     const uploadNew = async (newData) => {
         setIsLoading(true);
@@ -26,13 +28,13 @@ const NewAddBtn = () => {
             const data = await response.json();
 
             if (data.data) {
-                alert("Operación Exitosa!");
+                showToast({ type: "success", message: 'Operación exitosa' })
             } else {
-                alert("No se pudo realizar la operación!");
+                showToast({ type: 'error', message: 'No se pudo realizar la operación!' })
             }
 
         } catch (error) {
-            alert("No se pudo realizar la operación!");
+            showToast({ type: 'error', message: 'No se pudo realizar la operación!' })
         } finally {
             setIsLoading(false);
             reloadPage(router)

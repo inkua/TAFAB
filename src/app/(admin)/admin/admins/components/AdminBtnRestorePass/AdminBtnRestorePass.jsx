@@ -1,25 +1,53 @@
+import { useState } from "react";
+import BlockingOverlay from "../../../componets/BlockingOverlay/BlockingOverlay";
+import { reloadPage } from "../../../componets/utils";
+import { useToast } from "@/utils/toast";
+import { useConfirmDialog } from "@/utils/hooks/useConfirmDialog";
+import { useRouter } from "next/navigation";
+
 
 export default function AdminBtnRestorePass({ admin, disabled=false }) {
-    const handlerClick = async () => {
-        if (confirm("Desea restaurar contraseña?")) {
+    const [isLoading, setIsLoading] = useState(false);
+    const { confirm, ConfirmDialogComponent } = useConfirmDialog();
+    const router = useRouter();
 
-            const response = await fetch('/api/admins/pass/reset', {
-                method: 'POST',
-                body: JSON.stringify({
-                    data: admin,
-                }),
-            });
-            if(response.ok){
-                alert("Se envió una contraseña provisional al email del administrador")
+    const { showToast } = useToast()
+
+
+    const handlerClick = async () => {
+        const isConfirmed = await confirm("Al restaurar la contraseña se eliminará la anterior.");
+
+        if (isConfirmed) {
+            setIsLoading(true);
+
+            try {
+                const response = await fetch('/api/admins/pass/reset', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        data: admin,
+                    }),
+                });
+                if(response.ok){
+                    showToast({ type: "success", message: 'Contraseña enviada!' })
+                }
+                else{
+                    showToast({ type: 'error', message: 'No se pudo realizar la operación!' })
+                }
+            } catch (error) {
+                showToast({ type: 'error', message: 'No se pudo realizar la operación!' })
+            }finally {
+                setIsLoading(false);
+                reloadPage(router)
             }
-            else{
-                alert("No se ha podido realizar la operación")
-            }
+
         }
     }
 
     return (
-        <>
+        <>  
+            {ConfirmDialogComponent}
+            <BlockingOverlay isLoading={isLoading} />
+
             <button
                 onClick={() => handlerClick()}
                 className={`block px-4 py-2 text-sm ${disabled? "text-gray-400": "text-gray-700 hover:underline"} `}

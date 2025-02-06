@@ -9,7 +9,7 @@ export function useToast() {
 
         toastFunction(message, {
             position: "top-right",
-            autoClose: 2000,
+            autoClose: 1900,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
