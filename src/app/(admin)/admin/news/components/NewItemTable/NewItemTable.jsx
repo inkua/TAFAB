@@ -1,3 +1,4 @@
+import { truncateDescription } from "@/utils/descriptions"
 import ItemTableImg from "../../../componets/ItemTableImg/ItemTableImg"
 import NewActionDropdown from "../NewActionDropdown/NewActionDropdown"
 
@@ -24,7 +25,7 @@ const NewItemTable = ({ data }) => {
                 </div>
             </td>
             <td className="px-12 max-w-[20%] overflow-hidden py-4 text-sm font-normal text-gray-700">
-                {data.copy}
+                {truncateDescription(data.copy)}
             </td>
             <td className="px-12 max-w-[20%] overflow-hidden py-4 text-sm font-normal text-gray-700">
                 {data.status}

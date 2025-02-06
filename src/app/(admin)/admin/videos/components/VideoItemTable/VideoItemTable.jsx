@@ -1,3 +1,5 @@
+
+import { truncateDescription } from "@/utils/descriptions"
 import ItemTableImg from "../../../componets/ItemTableImg/ItemTableImg"
 import VideoActionDropdown from "../VideoActionDropdown/VideoActionDropdown"
 
@@ -24,7 +26,7 @@ const VideoItemTable = ({ data }) => {
                 </div>
             </td>
             <td className="px-12 max-w-[20%] overflow-hidden py-4 text-sm font-normal text-gray-700">
-                {data.description}
+                {truncateDescription(data.description)}
             </td>
             <td className="px-12 max-w-[20%] overflow-hidden py-4 text-sm font-normal text-gray-700">
                 {data.status}
@@ -36,7 +38,7 @@ const VideoItemTable = ({ data }) => {
                 {data.date}
             </td>
             <td className="px-4 py-4 text-sm whitespace-nowrap flex items-center justify-center">
-                <VideoActionDropdown data={data}/>
+                <VideoActionDropdown data={data} />
             </td>
         </tr>
     )
