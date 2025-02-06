@@ -2,16 +2,21 @@ import { useState } from "react";
 import BlockingOverlay from "../../../componets/BlockingOverlay/BlockingOverlay";
 import { reloadPage } from "../../../componets/utils";
 import { useRouter } from "next/navigation";
+import { useConfirmDialog } from "@/utils/hooks/useConfirmDialog";
+import { useToast } from "@/utils/toast";
 
 const NewBtnDelete = ({ nid }) => {
     const [isLoading, setIsLoading] = useState(false);
+    const { confirm, ConfirmDialogComponent } = useConfirmDialog();
+    const { showToast } = useToast()
     const router = useRouter()
 
     const handlerDelete = async () => {
-        setIsLoading(true);
+        const isConfirmed = await confirm();
+        if (isConfirmed) {
+            setIsLoading(true);
 
-        try {
-            if (confirm("Desea eliminar el registro?")) {
+            try {
                 const URL = `/api/news`
                 const response = await fetch(URL, {
                     method: "DELETE",
@@ -23,21 +28,22 @@ const NewBtnDelete = ({ nid }) => {
                 const data = await response.json();
 
                 if (data.data) {
-                    alert("Operación Exitosa!");
+                    showToast({ type: "success", message: 'Artículo eliminado!' })
                 } else {
-                    alert("No se pudo realizar la operación!");
+                    showToast({ type: 'error', message: 'No se pudo realizar la operación!' })
                 }
+            } catch (error) {
+                showToast({ type: 'error', message: 'No se pudo realizar la operación!' })
+            } finally {
+                setIsLoading(false);
+                reloadPage(router)
             }
-        } catch (error) {
-            alert("No se pudo realizar la operación!");
-        } finally {
-            setIsLoading(false);
-            reloadPage(router)
         }
     }
 
     return (
         <>
+            {ConfirmDialogComponent}
             <BlockingOverlay isLoading={isLoading} />
 
             <button

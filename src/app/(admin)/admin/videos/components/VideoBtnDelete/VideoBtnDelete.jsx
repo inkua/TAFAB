@@ -3,13 +3,18 @@ import { useState } from "react";
 
 import BlockingOverlay from "../../../componets/BlockingOverlay/BlockingOverlay";
 import { reloadPage } from "../../../componets/utils";
+import { useConfirmDialog } from "@/utils/hooks/useConfirmDialog";
+import { useToast } from "@/utils/toast";
 
 const VideoBtnDelete = ({ vid }) => {
     const router = useRouter()
     const [isLoading, setIsLoading] = useState(false);
+    const { confirm, ConfirmDialogComponent } = useConfirmDialog();
+    const { showToast } = useToast()
 
     const handlerDelete = async () => {
-        if (confirm("Desea eliminar el registro?")) {
+        const isConfirmed = await confirm();
+        if (isConfirmed) {
             setIsLoading(true);
 
             try {
@@ -24,13 +29,13 @@ const VideoBtnDelete = ({ vid }) => {
                 const data = await response.json();
 
                 if (data.data) {
-                    alert("Operación Exitosa!");
+                    showToast({ type: "success", message: 'Registro eliminado!' })
                 } else {
-                    alert("No se pudo realizar la operación!");
+                    showToast({ type: 'error', message: 'No se pudo realizar la operación!' })
                 }
 
             } catch (error) {
-                alert("No se pudo realizar la operación!");
+                showToast({ type: 'error', message: 'No se pudo realizar la operación!' })
             } finally {
                 setIsLoading(false);
                 reloadPage(router)
@@ -40,6 +45,7 @@ const VideoBtnDelete = ({ vid }) => {
 
     return (
         <>
+            {ConfirmDialogComponent}
             <BlockingOverlay isLoading={isLoading} />
 
             <button

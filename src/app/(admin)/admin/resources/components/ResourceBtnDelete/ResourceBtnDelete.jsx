@@ -4,15 +4,21 @@ import { useState } from "react";
 import BlockingOverlay from "../../../componets/BlockingOverlay/BlockingOverlay";
 import { reloadPage } from "../../../componets/utils";
 import { useRouter } from "next/navigation";
+import { useConfirmDialog } from "@/utils/hooks/useConfirmDialog";
+import { useToast } from "@/utils/toast";
 
 const ResourceBtnDelete = ({ rid }) => {
     const [isLoading, setIsLoading] = useState(false);
     const router = useRouter()
+    const { confirm, ConfirmDialogComponent } = useConfirmDialog();
+    const { showToast } = useToast()
+
 
     const handlerDelete = async (e) => {
         e.preventDefault()
+        const isConfirmed = await confirm();
 
-        if (confirm("Desea eliminar el registro?")) {
+        if (isConfirmed) {
 
             setIsLoading(true);
 
@@ -28,12 +34,12 @@ const ResourceBtnDelete = ({ rid }) => {
                 const data = await response.json();
 
                 if (data.data) {
-                    alert("Operación Exitosa!");
+                    showToast({ message: 'Recurso eliminado!' })
                 } else {
-                    alert("No se pudo realizar la operación!");
+                    showToast({ type: 'error', message: 'No se pudo realizar la operación!' })
                 }
             } catch (error) {
-                alert("No se pudo realizar la operación!");
+                showToast({ type: 'error', message: 'No se pudo realizar la operación!' })
 
             } finally {
                 setIsLoading(false);
@@ -45,6 +51,7 @@ const ResourceBtnDelete = ({ rid }) => {
 
     return (
         <>
+            {ConfirmDialogComponent}
             <BlockingOverlay isLoading={isLoading} />
 
             <button

@@ -7,7 +7,7 @@ const truncateDescription = (descripcion)=>{
 const reloadPage = (router)=>{
     setTimeout(()=>{
         router.refresh()
-    }, 1500)
+    }, 2000)
 }
 
 export {
