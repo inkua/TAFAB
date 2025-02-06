@@ -1,14 +1,12 @@
 import { useRouter } from "next/navigation";
+
 function BtnLogout() {
     const router = useRouter()
 
     const handleClick = async ()=>{
-        const response = await fetch('http://localhost:3000/api/auth/logout/', {
+        const response = await fetch('/api/auth/logout', {
             method: 'POST',
             cache: "no-store" ,
-            body: JSON.stringify({
-                token: '',
-            }),
         });
         
         if(response.ok){

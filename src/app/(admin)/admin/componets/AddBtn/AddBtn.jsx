@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from "react"
-import { addProduct } from "@/DAO/products.db"
 
 function AddBtn({ entity }) {
 
@@ -16,12 +15,7 @@ function AddBtn({ entity }) {
         e.preventDefault()
 
         if(entity=='products'){
-            addProduct({
-                nombre,
-                precio, 
-                cantidad,
-                categoria
-            })
+            
         }
         setNombre('')
         setPrecio('')
