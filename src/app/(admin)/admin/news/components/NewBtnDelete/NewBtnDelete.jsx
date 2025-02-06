@@ -1,8 +1,11 @@
 import { useState } from "react";
 import BlockingOverlay from "../../../componets/BlockingOverlay/BlockingOverlay";
+import { reloadPage } from "../../../componets/utils";
+import { useRouter } from "next/navigation";
 
 const NewBtnDelete = ({ nid }) => {
     const [isLoading, setIsLoading] = useState(false);
+    const router = useRouter()
 
     const handlerDelete = async () => {
         setIsLoading(true);
@@ -29,6 +32,7 @@ const NewBtnDelete = ({ nid }) => {
             alert("No se pudo realizar la operación!");
         } finally {
             setIsLoading(false);
+            reloadPage(router)
         }
     }
 

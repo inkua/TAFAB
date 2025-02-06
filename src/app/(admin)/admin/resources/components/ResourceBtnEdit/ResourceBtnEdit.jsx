@@ -3,9 +3,12 @@
 import { useState } from "react";
 import ResourceForm from "../ResourceForm/ResourceForm";
 import BlockingOverlay from "../../../componets/BlockingOverlay/BlockingOverlay";
+import { reloadPage } from "../../../componets/utils";
+import { useRouter } from "next/navigation";
 
 const ResourceBtnEdit = ({ data, open, setOpen, disabled = false }) => {
     const [isLoading, setIsLoading] = useState(false);
+    const router = useRouter()
 
     const setData = async (newData, rid) => {
         setIsLoading(true)
@@ -33,6 +36,7 @@ const ResourceBtnEdit = ({ data, open, setOpen, disabled = false }) => {
 
         } finally {
             setIsLoading(false);
+            reloadPage(router)
         }
     }
     return (

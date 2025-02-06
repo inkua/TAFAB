@@ -5,6 +5,7 @@ import FormEvent from "../FormEvent/FormEvent"
 import { useRouter } from "next/navigation"
 import { useToast } from "@/utils/toast";
 import BlockingOverlay from "../../../componets/BlockingOverlay/BlockingOverlay";
+import { reloadPage } from "../../../componets/utils";
 
 function AddBtn() {
     const router = useRouter()
@@ -16,7 +17,7 @@ function AddBtn() {
         setIsLoading(true);
 
         try {
-            const response = await fetch('http://localhost:3000/api/events', {
+            const response = await fetch('/api/events', {
                 method: 'POST',
                 body: JSON.stringify({
                     token: '',
@@ -35,6 +36,7 @@ function AddBtn() {
             showToast({type:'error', message:'No se pudo realizar la operación!'})
         } finally {
             setIsLoading(false);
+            reloadPage(router)
         }
     }
 

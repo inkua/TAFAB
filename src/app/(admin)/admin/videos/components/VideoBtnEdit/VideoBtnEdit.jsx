@@ -3,8 +3,11 @@
 import { useState } from "react";
 import BlockingOverlay from "../../../componets/BlockingOverlay/BlockingOverlay";
 import VideoForm from "../VideoForm/VideoForm";
+import { reloadPage } from "../../../componets/utils";
+import { useRouter } from "next/navigation";
 
 const VideoBtnEdit = ({ data, open, setOpen, disabled = false }) => {
+    const router = useRouter()
     const [isLoading, setIsLoading] = useState(false);
 
     const setData = async (newData, vid) => {
@@ -33,6 +36,7 @@ const VideoBtnEdit = ({ data, open, setOpen, disabled = false }) => {
 
         } finally {
             setIsLoading(false);
+            reloadPage(router)
         }
 
     }

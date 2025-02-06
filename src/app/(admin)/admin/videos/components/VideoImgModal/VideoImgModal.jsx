@@ -1,7 +1,9 @@
+import { useRouter } from "next/navigation"
 import { useState } from "react"
-import UploadImages from "../../../componets/UploadImages/UploadImages"
-import BlockingOverlay from "../../../componets/BlockingOverlay/BlockingOverlay"
 
+import BlockingOverlay from "../../../componets/BlockingOverlay/BlockingOverlay"
+import UploadImages from "../../../componets/UploadImages/UploadImages"
+import { reloadPage } from "../../../componets/utils"
 
 const VideoImgModal = ({ data }) => {
     const { open, setOpen, imgUrl, videoId } = data
@@ -9,6 +11,7 @@ const VideoImgModal = ({ data }) => {
     const [url, setUrl] = useState(imgUrl)
     const [loading, setLoading] = useState(false)
     const [isLoading, setIsLoading] = useState(false); // block overlay
+    const router = useRouter()
 
     const handlerSubmit = async (e) => {
         e.preventDefault()
@@ -36,7 +39,8 @@ const VideoImgModal = ({ data }) => {
             alert('No se pudo realizar la operación')
 
         } finally {
-            setIsLoading(false);
+            setIsLoading(false);            
+            reloadPage(router)
         }
 
     }
@@ -55,7 +59,7 @@ const VideoImgModal = ({ data }) => {
                     <div className="bg-white text-black rounded-lg p-6 shadow-lg w-full md:w-[500px] lg:w-[900px] max-h-[95vh] overflow-y-auto">
                         <form onSubmit={(e) => handlerSubmit(e)}>
                             <h2 className="text-xl font-bold mb-4">
-                                Actualizar imagen
+                                Actualizar miniatura
                             </h2>
 
                             <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">

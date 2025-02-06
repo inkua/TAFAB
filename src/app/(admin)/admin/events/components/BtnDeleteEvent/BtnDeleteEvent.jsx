@@ -5,6 +5,7 @@ import { useToast } from "@/utils/toast"
 import { useRouter } from "next/navigation"
 import { useState } from "react";
 import BlockingOverlay from "../../../componets/BlockingOverlay/BlockingOverlay";
+import { reloadPage } from "../../../componets/utils";
 
 function BtnDeleteEvent({ data }) {
     const router = useRouter()
@@ -43,6 +44,7 @@ function BtnDeleteEvent({ data }) {
             showToast({ type: 'error', message: 'No se pudo realizar la operación!' })
         } finally {
             setIsLoading(false);
+            reloadPage(router)
         }
     }
 

@@ -1,7 +1,11 @@
+import { useRouter } from "next/navigation";
 import { useState } from "react";
+
 import BlockingOverlay from "../../../componets/BlockingOverlay/BlockingOverlay";
+import { reloadPage } from "../../../componets/utils";
 
 const VideoBtnDelete = ({ vid }) => {
+    const router = useRouter()
     const [isLoading, setIsLoading] = useState(false);
 
     const handlerDelete = async () => {
@@ -29,6 +33,7 @@ const VideoBtnDelete = ({ vid }) => {
                 alert("No se pudo realizar la operación!");
             } finally {
                 setIsLoading(false);
+                reloadPage(router)
             }
         }
     }

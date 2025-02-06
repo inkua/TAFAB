@@ -3,9 +3,12 @@
 import { useState } from "react";
 import NewForm from "../NewForm/NewForm";
 import BlockingOverlay from "../../../componets/BlockingOverlay/BlockingOverlay";
+import { useRouter } from "next/navigation";
+import { reloadPage } from "../../../componets/utils";
 
 const NewBtnEdit = ({ data, open, setOpen, disabled = false }) => {
     const [isLoading, setIsLoading] = useState(false);
+    const router = useRouter()
 
     const setData = async (newData, nid) => {
         setIsLoading(true);
@@ -31,6 +34,7 @@ const NewBtnEdit = ({ data, open, setOpen, disabled = false }) => {
             alert("No se pudo realizar la operación!");
         }finally {
             setIsLoading(false);
+            reloadPage(router)
         }
     }
 

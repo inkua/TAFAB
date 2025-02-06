@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import VideoForm from "../VideoForm/VideoForm";
 import BlockingOverlay from "../../../componets/BlockingOverlay/BlockingOverlay";
+import { reloadPage } from "../../../componets/utils";
 
 
 const VideoAddBtn = () => {
@@ -22,9 +23,9 @@ const VideoAddBtn = () => {
                     data: newData,
                 }),
             });
-    
+
             const data = await response.json();
-    
+
             if (data.data) {
                 alert("Operación Exitosa!");
             } else {
@@ -32,9 +33,10 @@ const VideoAddBtn = () => {
             }
         } catch (error) {
             alert("No se pudo realizar la operación!");
-            
-        }finally {
+
+        } finally {
             setIsLoading(false);
+            reloadPage(router)
         }
     };
     return (
@@ -64,7 +66,7 @@ const VideoAddBtn = () => {
                 </button>
             </div>
 
-            <VideoForm 
+            <VideoForm
                 isOpen={isOpen}
                 setIsOpen={setIsOpen}
                 saveVideo={uploadVideo}

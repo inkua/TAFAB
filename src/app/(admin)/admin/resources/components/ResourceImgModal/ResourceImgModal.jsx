@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import UploadImages from '../../../componets/UploadImages/UploadImages'
 import BlockingOverlay from '../../../componets/BlockingOverlay/BlockingOverlay'
+import { reloadPage } from '../../../componets/utils'
+import { useRouter } from 'next/navigation'
 
 const ResourceImgModal = ({ data }) => {
 
@@ -9,6 +11,7 @@ const ResourceImgModal = ({ data }) => {
     const [url, setUrl] = useState(imgUrl)
     const [loading, setLoading] = useState(false)
     const [isLoading, setIsLoading] = useState(false);//for blocking overlay
+    const router = useRouter()
 
     const handlerSubmit = async (e) => {
         e.preventDefault()
@@ -37,6 +40,7 @@ const ResourceImgModal = ({ data }) => {
             alert('No se pudo realizar la operación')
         } finally {
             setIsLoading(false);
+            reloadPage(router)
         }
 
     }

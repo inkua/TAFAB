@@ -5,6 +5,7 @@ import { useToast } from "@/utils/toast";
 import FormEvent from "../FormEvent/FormEvent";
 import BlockingOverlay from "../../../componets/BlockingOverlay/BlockingOverlay";
 import { useState } from "react";
+import { reloadPage } from "../../../componets/utils";
 
 function BtnEditEvent({ data, open, setOpen }) {
     const router = useRouter()
@@ -27,7 +28,6 @@ function BtnEditEvent({ data, open, setOpen }) {
     
             if (data.data) {
                 showToast({type:'success', message:'Datos actualizados!'})
-                router.refresh()
             } else {
                 showToast({type:'error', message:'No se pudo realizar la operación!'})
             }
@@ -35,6 +35,7 @@ function BtnEditEvent({ data, open, setOpen }) {
             showToast({type:'error', message:'No se pudo realizar la operación!'})
         } finally {
             setIsLoading(false);
+            reloadPage(router)
         }
     }
 

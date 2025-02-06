@@ -2,9 +2,12 @@
 
 import { useState } from "react";
 import BlockingOverlay from "../../../componets/BlockingOverlay/BlockingOverlay";
+import { reloadPage } from "../../../componets/utils";
+import { useRouter } from "next/navigation";
 
 const ResourceBtnDelete = ({ rid }) => {
     const [isLoading, setIsLoading] = useState(false);
+    const router = useRouter()
 
     const handlerDelete = async (e) => {
         e.preventDefault()
@@ -34,6 +37,7 @@ const ResourceBtnDelete = ({ rid }) => {
 
             } finally {
                 setIsLoading(false);
+                reloadPage(router)
             }
 
         }

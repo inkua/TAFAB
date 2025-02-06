@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 import React, { useState } from 'react'
 import NewForm from '../NewForm/NewForm';
 import BlockingOverlay from '../../../componets/BlockingOverlay/BlockingOverlay';
+import { reloadPage } from '../../../componets/utils';
 
 const NewAddBtn = () => {
     const router = useRouter();
@@ -34,6 +35,7 @@ const NewAddBtn = () => {
             alert("No se pudo realizar la operación!");
         } finally {
             setIsLoading(false);
+            reloadPage(router)
         }
     };
 
