@@ -1,7 +1,7 @@
 import { useRouter } from "next/navigation"
 import { useState } from "react"
 
-import BlockingOverlay from "../../../componets/BlockingOverlay/BlockingOverlay"
+import BlockingOverlay from "@/app/components/BlockingOverlay/BlockingOverlay";
 import UploadImages from "../../../componets/UploadImages/UploadImages"
 import { reloadPage } from "../../../componets/utils"
 import { useToast } from "@/utils/toast"

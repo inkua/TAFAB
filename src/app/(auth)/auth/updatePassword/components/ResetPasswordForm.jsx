@@ -1,5 +1,6 @@
 "use client";
 
+import { useToast } from "@/utils/toast";
 import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
 
@@ -10,6 +11,8 @@ function ResetPasswordForm() {
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [errors, setErrors] = useState("");
+
+    const { showToast } = useToast()
 
     const router = useRouter();
 
@@ -49,28 +52,33 @@ function ResetPasswordForm() {
         e.preventDefault();
 
         if (validateForm()) {
-            const data = {
-                email: emailRef.current.value,
-                currentPass: currentPswRef.current.value,
-                newPass: password,
-            };
-
-            const response = await fetch("/api/admins/pass/change", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(data),
-            });
-
-            const result = await response.json();
-
-            if (result.data) {
-                alert("Operación Exitosa, puedes ingresar a la plataforma desde el login con tu nueva contraseña");
-                router.push("/auth");
-            } else {
-                alert("No se pudo cambiar la contraseña, verifique los campos.");
+            try {
+                const data = {
+                    email: emailRef.current.value,
+                    currentPass: currentPswRef.current.value,
+                    newPass: password,
+                };
+    
+                const response = await fetch("/api/admins/pass/change", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(data),
+                });
+    
+                const result = await response.json();
+    
+                if (result.data) {
+                    showToast({type:'success', message:'operación exitosa, puedes ingresar a la plataforma desde el login con tu nueva contraseña', time:4000})
+                    router.push("/auth")
+                } else {
+                    showToast({type:'error', message:'No se pudo realizar la operación, verifique los campos.', time:4000})
+                }
+            } catch (error) {
+                showToast({type:'error', message:'No se pudo realizar la operación, verifique los campos.', time:4000})
             }
+
         }
     };
 

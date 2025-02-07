@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import NewForm from "../NewForm/NewForm";
-import BlockingOverlay from "../../../componets/BlockingOverlay/BlockingOverlay";
+import BlockingOverlay from "@/app/components/BlockingOverlay/BlockingOverlay";
 import { useRouter } from "next/navigation";
 import { reloadPage } from "../../../componets/utils";
 import { useToast } from "@/utils/toast";

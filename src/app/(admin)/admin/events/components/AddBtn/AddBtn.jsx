@@ -4,7 +4,7 @@ import { useState } from "react"
 import FormEvent from "../FormEvent/FormEvent"
 import { useRouter } from "next/navigation"
 import { useToast } from "@/utils/toast";
-import BlockingOverlay from "../../../componets/BlockingOverlay/BlockingOverlay";
+import BlockingOverlay from "@/app/components/BlockingOverlay/BlockingOverlay";
 import { reloadPage } from "../../../componets/utils";
 
 function AddBtn() {

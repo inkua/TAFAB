@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import VideoForm from "../VideoForm/VideoForm";
-import BlockingOverlay from "../../../componets/BlockingOverlay/BlockingOverlay";
+import BlockingOverlay from "@/app/components/BlockingOverlay/BlockingOverlay";
 import { reloadPage } from "../../../componets/utils";
 import { useToast } from "@/utils/toast";
 

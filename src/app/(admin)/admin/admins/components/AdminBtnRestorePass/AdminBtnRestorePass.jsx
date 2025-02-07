@@ -1,5 +1,5 @@
 import { useState } from "react";
-import BlockingOverlay from "../../../componets/BlockingOverlay/BlockingOverlay";
+import BlockingOverlay from "@/app/components/BlockingOverlay/BlockingOverlay";
 import { reloadPage } from "../../../componets/utils";
 import { useToast } from "@/utils/toast";
 import { useConfirmDialog } from "@/utils/hooks/useConfirmDialog";

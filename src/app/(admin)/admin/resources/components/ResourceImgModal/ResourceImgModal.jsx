@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import UploadImages from '../../../componets/UploadImages/UploadImages'
-import BlockingOverlay from '../../../componets/BlockingOverlay/BlockingOverlay'
+import BlockingOverlay from "@/app/components/BlockingOverlay/BlockingOverlay";
 import { reloadPage } from '../../../componets/utils'
 import { useRouter } from 'next/navigation'
 import { useToast } from '@/utils/toast'

@@ -3,7 +3,7 @@
 import { useToast } from "@/utils/toast";
 import { reloadPage } from "../../../componets/utils";
 import { useRouter } from "next/navigation";
-import BlockingOverlay from "../../../componets/BlockingOverlay/BlockingOverlay";
+import BlockingOverlay from "@/app/components/BlockingOverlay/BlockingOverlay";
 import { useState } from "react";
 import { useConfirmDialog } from "@/utils/hooks/useConfirmDialog";
 

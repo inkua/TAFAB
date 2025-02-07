@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react";
-import BlockingOverlay from "../../../componets/BlockingOverlay/BlockingOverlay";
+import BlockingOverlay from "@/app/components/BlockingOverlay/BlockingOverlay";
 import VideoForm from "../VideoForm/VideoForm";
 import { reloadPage } from "../../../componets/utils";
 import { useRouter } from "next/navigation";

@@ -4,7 +4,7 @@
 import { useToast } from "@/utils/toast"
 import { useRouter } from "next/navigation"
 import { useState } from "react";
-import BlockingOverlay from "../../../componets/BlockingOverlay/BlockingOverlay";
+import BlockingOverlay from "@/app/components/BlockingOverlay/BlockingOverlay";
 import { reloadPage } from "../../../componets/utils";
 import { useConfirmDialog } from "@/utils/hooks/useConfirmDialog";
 

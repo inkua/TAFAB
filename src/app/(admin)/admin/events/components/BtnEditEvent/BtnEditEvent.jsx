@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation"
 import { useToast } from "@/utils/toast";
 import FormEvent from "../FormEvent/FormEvent";
-import BlockingOverlay from "../../../componets/BlockingOverlay/BlockingOverlay";
+import BlockingOverlay from "@/app/components/BlockingOverlay/BlockingOverlay";
 import { useState } from "react";
 import { reloadPage } from "../../../componets/utils";
 
