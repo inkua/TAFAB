@@ -2,33 +2,50 @@
 
 import { useRouter } from "next/navigation";
 import AdminFrom from "../AdminForm/AdminForm";
+import { reloadPage } from "../../../componets/utils";
+import BlockingOverlay from "@/app/components/BlockingOverlay/BlockingOverlay";
+import { useState } from "react";
+import { useToast } from "@/utils/toast";
 
-function AdminBtnEdit({ data, open, setOpen, disabled=false }) {
+function AdminBtnEdit({ data, open, setOpen, disabled = false }) {
+    const [isLoading, setIsLoading] = useState(false);
     const router = useRouter();
+    const { showToast } = useToast()
+
+
     const updateData = async (newData) => {
+        setIsLoading(true);
+        
+        try {
+            const response = await fetch("/api/admins", {
+                method: "PUT",
+                body: JSON.stringify({
+                    data: newData,
+                }),
+            });
 
-        const response = await fetch("/api/admins", {
-            method: "PUT",
-            body: JSON.stringify({
-                data: newData,
-            }),
-        });
+            const data = await response.json();
 
-        const data = await response.json();
-
-        if (data.data) {
-            alert("Operación Exitosa!");
-            router.refresh();
-        } else {
-            alert("No se pudo realizar la operación!");
+            if (data.data) {
+                showToast({ type: "success", message: 'Operación exitosa' })
+            } else {
+                showToast({ type: 'error', message: 'No se pudo realizar la operación!' })
+            }
+        } catch (error) {
+            showToast({ type: 'error', message: 'No se pudo realizar la operación!' })
+        } finally {
+            setIsLoading(false);
+            reloadPage(router)
         }
     };
 
     return (
         <>
+            <BlockingOverlay isLoading={isLoading} />
+
             <button
                 onClick={() => setOpen(true)}
-                className={`block px-4 py-2 text-sm ${disabled? "text-gray-400": "text-gray-700 hover:underline"} `}
+                className={`block px-4 py-2 text-sm ${disabled ? "text-gray-400" : "text-gray-700 hover:underline"} `}
                 role="menuitem"
                 tabIndex="-1"
                 id="menu-item-0"

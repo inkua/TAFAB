@@ -3,41 +3,54 @@
 
 import { useToast } from "@/utils/toast"
 import { useRouter } from "next/navigation"
+import { useState } from "react";
+import BlockingOverlay from "@/app/components/BlockingOverlay/BlockingOverlay";
+import { reloadPage } from "../../../componets/utils";
+import { useConfirmDialog } from "@/utils/hooks/useConfirmDialog";
 
-function BtnDeleteEvent({data}) {
+function BtnDeleteEvent({ data }) {
     const router = useRouter()
+    const [isLoading, setIsLoading] = useState(false);
+    const { confirm, ConfirmDialogComponent } = useConfirmDialog(); // Usa el hook
     const { showToast } = useToast()
 
-    const handleConfirm = () => {
-        if (confirm('Confirma eliminar evento?')) {
-            return deleteData()
-        }
-        return 0
-    }
-
     const deleteData = async () => {
-        const response = await fetch(`http://localhost:3000/api/events/`, {
-            method: 'DELETE',
-            body: JSON.stringify({
-                token: '',
-                id: data.id,
-                url: data.url,
-            }),
-        });
+        const isConfirmed = await confirm();
 
-        const responseData = await response.json();
+        if (isConfirmed) {
+            setIsLoading(true);
 
-        if (responseData.data) {
-            showToast({message:'Evento eliminado!'})
-            router.refresh()
-        } else {
-            showToast({type:'error', message:'No se pudo realizar la operación!'})
+            try {
+                const response = await fetch(`/api/events`, {
+                    method: 'DELETE',
+                    body: JSON.stringify({
+                        token: '',
+                        id: data.id,
+                        url: data.url,
+                    }),
+                });
+
+                const responseData = await response.json();
+
+                if (responseData.data) {
+                    showToast({ type: "success", message: 'Evento eliminado!' })
+                } else {
+                    showToast({ type: 'error', message: 'No se pudo realizar la operación!' })
+                }
+            } catch (error) {
+                showToast({ type: 'error', message: 'No se pudo realizar la operación!' })
+            } finally {
+                setIsLoading(false);
+                reloadPage(router)
+            }
         }
     }
 
     return (
         <>
-            <button onClick={handleConfirm} className="inline-flex px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-100 w-full" role="menuitem" tabIndex="-1" id="menu-item-0">Eliminar</button>
+            {ConfirmDialogComponent}
+            <BlockingOverlay isLoading={isLoading} />
+            <button onClick={() => deleteData()} className="inline-flex px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-100 w-full" role="menuitem" tabIndex="-1" id="menu-item-0">Eliminar</button>
         </>
     )
 

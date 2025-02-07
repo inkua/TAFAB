@@ -1,3 +1,4 @@
+import { truncateDescription } from "@/utils/descriptions"
 import ItemTableImg from "../../../componets/ItemTableImg/ItemTableImg"
 import ResourceActionDropdown from "../ResourceActionDropdown/ResourceActionDropdown"
 
@@ -24,7 +25,7 @@ const ResourceItemTable = ({data}) => {
                 </div>
             </td>
             <td className="px-12 max-w-[20%] overflow-hidden py-4 text-sm font-normal text-gray-700">
-                {data.description}
+                {truncateDescription(data.description)}
             </td>
             <td className="px-12 max-w-[20%] overflow-hidden py-4 text-sm font-normal text-gray-700">
                 <a href={data.resourceUrl} className="underline" target="_blank" rel="noopener noreferrer">ver</a>

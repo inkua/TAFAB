@@ -13,7 +13,7 @@ function AdminItemTable({ data }) {
                         </div>
 
                         <div>
-                            <h2 className="font-normal text-gray-800  ">
+                            <h2 className="text-sm font-medium text-gray-800  ">
                                 {data.name}
                             </h2>
                         </div>

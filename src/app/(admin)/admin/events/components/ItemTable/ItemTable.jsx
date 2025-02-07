@@ -1,3 +1,4 @@
+import { truncateDescription } from "@/utils/descriptions";
 import ItemTableImg from "../../../componets/ItemTableImg/ItemTableImg";
 import ActionDropdown from "../ActionDropdown/ActionDropdown";
 
@@ -26,7 +27,7 @@ function ItemTable({ data }) {
                 {data.date ? new Date(data.date.seconds * 1000).toLocaleDateString('en-GB') : 'Fecha no disponible'}
             </td>
             <td className="px-12 max-w-[20%] overflow-hidden py-4 text-sm font-normal text-gray-700">
-                {data.info}
+                {truncateDescription(data.info)}
             </td>
             <td className="px-12 max-w-[20%] overflow-hidden py-4 text-sm font-normal text-gray-700">
                 {data.location}

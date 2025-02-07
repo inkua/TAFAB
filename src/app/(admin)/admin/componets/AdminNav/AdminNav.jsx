@@ -5,6 +5,8 @@ import { usePathname, useRouter } from 'next/navigation'
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import BtnLogout from './BtnLogout/BtnLogout'
+import Link from 'next/link'
+import Image from 'next/image'
 
 const user = {
     imageUrl:
@@ -45,16 +47,18 @@ function AdminNav() {
                 <div className="flex h-16 items-center justify-between">
                     <div className="flex items-center">
                         <div className="flex-shrink-0">
-                            <img
+                            <Image
                                 alt="Your Company"
                                 src="/admin/inkuALogo.png"
                                 className="h-8 w-auto"
+                                width={150}
+                                height={150}
                             />
                         </div>
                         <div className="hidden md:block">
                             <nav className="ml-10 flex items-baseline space-x-4">
                                 {navigation.map((item) => (
-                                    <a
+                                    <Link
                                         key={item.name}
                                         href={item.href}
                                         aria-current={isCurrentPath(pathname, item.href) ? 'page' : undefined}
@@ -64,7 +68,7 @@ function AdminNav() {
                                         )}
                                     >
                                         {item.name}
-                                    </a>
+                                    </Link>
                                 ))}
                             </nav>
                         </div>
@@ -94,12 +98,12 @@ function AdminNav() {
                                     </MenuItem>
 
                                     <MenuItem >
-                                        <a
+                                        <Link
                                             href={"/admin/settings"}
                                             className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100"
                                         >
                                             Contraseña
-                                        </a>
+                                        </Link>
                                     </MenuItem>
 
                                     <BtnLogout />

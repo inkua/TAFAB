@@ -1,4 +1,5 @@
 'use client'
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState, useRef } from "react";
 
@@ -152,9 +153,9 @@ function PasswordForm() {
                 </button>
 
                 <div className="mt-6 text-center">
-                    <a href="/admin" className="text-sm text-gray-500 hover:underline">
+                    <Link href="/admin" className="text-sm text-gray-500 hover:underline">
                         cancelar
-                    </a>
+                    </Link>
                 </div>
             </div>
         </form>

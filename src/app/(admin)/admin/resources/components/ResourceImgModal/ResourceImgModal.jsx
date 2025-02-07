@@ -1,5 +1,9 @@
 import { useState } from 'react'
 import UploadImages from '../../../componets/UploadImages/UploadImages'
+import BlockingOverlay from "@/app/components/BlockingOverlay/BlockingOverlay";
+import { reloadPage } from '../../../componets/utils'
+import { useRouter } from 'next/navigation'
+import { useToast } from '@/utils/toast'
 
 const ResourceImgModal = ({ data }) => {
 
@@ -7,27 +11,40 @@ const ResourceImgModal = ({ data }) => {
     const [image, setImage] = useState(null)
     const [url, setUrl] = useState(imgUrl)
     const [loading, setLoading] = useState(false)
+    const [isLoading, setIsLoading] = useState(false);//for blocking overlay
+    const router = useRouter()
+    const { showToast } = useToast()
 
     const handlerSubmit = async (e) => {
         e.preventDefault()
+        setIsLoading(true);
 
-        const formData = new FormData()
-        formData.append('file', image)
-        formData.append('id', resourceId)
+        try {
+            const formData = new FormData()
+            formData.append('file', image)
+            formData.append('id', resourceId)
 
-        const response = await fetch('/api/resources/image', {
-            method: 'POST',
-            body: formData,
-        });
+            const response = await fetch('/api/resources/image', {
+                method: 'POST',
+                body: formData,
+            });
 
-        if (response.status == 200) {
-            const result = await response.json();
-            setUrl(result.data)
-            alert('Imagen añadida correctamente')
-            setOpen(false)
-        } else {
-            alert('No se pudo realizar la operación')
+            if (response.status == 200) {
+                const result = await response.json();
+                setUrl(result.data)
+                showToast({ type: "success", message: 'Operación exitosa' })
+                setOpen(false)
+            } else {
+                showToast({ type: 'error', message: 'No se pudo realizar la operación!' })
+            }
+
+        } catch (error) {
+            showToast({ type: 'error', message: 'No se pudo realizar la operación!' })
+        } finally {
+            setIsLoading(false);
+            reloadPage(router)
         }
+
     }
 
     const onClose = () => {
@@ -37,6 +54,8 @@ const ResourceImgModal = ({ data }) => {
 
     return (
         <>
+            <BlockingOverlay isLoading={isLoading} />
+
             {open && (
                 <div className="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center z-50 p-4">
                     <div className="bg-white text-black rounded-lg p-6 shadow-lg w-full md:w-[500px] lg:w-[900px] max-h-[95vh] overflow-y-auto">
