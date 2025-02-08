@@ -7,6 +7,18 @@
     text-wrap: balance;
   }
 }
+@layer components {
+  .title {
+    color: #4A3D5B;
+    font-weight: 700;
+    text-transform: capitalize;
+    font-size: 29px;
+    line-height: 37px;
+    letter-spacing: -1%;
+  }
+  @media (min-width: 600px) {}
+
+}
 
 /* Estilos de editor de textos */
 .public-DraftStyleDefault-block {

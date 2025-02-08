@@ -9,8 +9,11 @@ module.exports = {
     extend: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "nosotrosMobile": "url('/home/nosotrosMobile.webp')",
+        "nosotrosWeb": "url('/home/nosotrosWeb.webp')",
+        "contactoMobile": "url('/home/contactoMobile.webp')",
+        "contactoWeb": "url('/home/contactoWeb.webp')",
       },
       padding: {
         "mobile": "1rem",
@@ -38,8 +41,7 @@ module.exports = {
         "bth-blue": "#7CCAF2",
         "btn-purple": "#644C9B",
       }
-    },
-
+    }
   
   },
   plugins: [
