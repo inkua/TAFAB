@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from './components/Navbar/Navbar'
 import Footer from './components/Generic/Footer'
+import { ToastProvider } from '@/utils/ToastProvider'
 
 function mainLayout({ children }) {
     return (
@@ -8,6 +9,7 @@ function mainLayout({ children }) {
             <Navbar />
             {children}
             <Footer />
+            <ToastProvider />
         </body>
     )
 }

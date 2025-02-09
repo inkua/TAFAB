@@ -1,15 +1,15 @@
 import Link from "next/link";
 
-import Denuncias from "./components/inicio/Denuncias/Denuncias";
 import Eventos from "./components/inicio/Eventos/Eventos";
 import Noticias from "./components/inicio/Noticias/Noticias";
 import Proyectos from "./components/inicio/Proyectos/Proyectos";
 import Videos from "./components/inicio/Videos/Videos";
+import Carrusel from "./components/inicio/Denuncias/Carrusel";
 
 export default function Home() {
     return (
         <main className="px-mobile md:px-tablet w-full xl:max-w-top min-[1500px]:px-0 lg:mx-auto *:mb-[45px] lg:*:mb-[70px]">
-            <Denuncias />
+            <Carrusel />
             
             <Eventos />
 
