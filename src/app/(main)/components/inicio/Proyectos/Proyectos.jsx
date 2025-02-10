@@ -16,8 +16,9 @@ const Proyectos = () => {
                 <div className="bg-tertiary h-1 w-full min-w-[20%] max-w-[55%] ml-4"></div>
             </div>
 
-            <div className="overflow-x-scroll overflow-y-hidden flex flex-row gap-6 px-6"
+            <div className="overflow-x-scroll overflow-y-hidden flex flex-row gap-6 px-6 cursor-grab active:cursor-grabbing select-none scroll-container"
                 role="list"
+                id="projectsScroll"
             >
 
                 {projects.map((project)=>(
@@ -43,6 +44,10 @@ const Proyectos = () => {
                 ))}
 
             </div>
+
+            {/* Carga el script en el cliente para el scroll del contenido*/}
+            <script defer src="/js/projectsScroll.js"></script>
+
         </section>
     )
 }

@@ -5,7 +5,11 @@ const Noticias = () => {
     return (
         <section className="">
             <h2 className="title">ÚLTIMAS NOTICIAS</h2>
-            <div className="overflow-x-scroll px-6 mt-10 flex flex-row gap-4 md:gap-6" role="list">
+            <div 
+            className="overflow-x-scroll px-6 mt-10 flex flex-row gap-4 md:gap-6 cursor-grab active:cursor-grabbing select-none scroll-container" 
+            role="list"
+            id="newsScroll"
+            >
 
                 <div className="w-full min-w-[255px] max-w-[293px] md:w-1/2 mb-2 flex flex-col lg:flex-row lg:items-center lg:min-w-[637px]" role="listitem">
                     <Image
@@ -20,7 +24,7 @@ const Noticias = () => {
                         <h3 className="font-bold text-xl uppercase leading-7 mt-1">Marchamos Por derechos</h3>
                         <p className="mt-1 h-auto text-sm">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
                         <Link
-                            className="font-bold underline mt-4 text-sm"
+                            className="font-bold underline mt-4 text-sm hover:text-btn-purple"
                             href={"www.instagram.com"}
                             target="_blank"
                             rel="noopener noreferrer">
@@ -42,7 +46,7 @@ const Noticias = () => {
                         <h3 className="font-bold text-xl uppercase leading-7 mt-1">Marchamos Por derechos</h3>
                         <p className="mt-1 h-auto text-sm">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
                         <Link
-                            className="font-bold underline mt-4 text-sm"
+                            className="font-bold underline mt-4 text-sm hover:text-btn-purple"
                             href={"www.instagram.com"}
                             target="_blank"
                             rel="noopener noreferrer">
@@ -74,6 +78,10 @@ const Noticias = () => {
                 </div>
 
             </div>
+
+            {/* Carga el script en el cliente para el scroll del contenido*/}
+            <script defer src="/js/newsScroll.js"></script>
+
         </section>
     )
 }

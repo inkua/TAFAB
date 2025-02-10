@@ -1,4 +1,3 @@
-import Link from "next/link"
 import SeeBtn from "./components/SeeBtn"
 import SeeLink from "./components/SeeLink"
 
@@ -11,9 +10,12 @@ const Videos = () => {
                 <div className="bg-tertiary h-1 w-full min-w-[20%] max-w-[55%] ml-4"></div>
             </div>
 
-            <div className="flex flex-row gap-4 lg:gap-14 md:px-4 overflow-x-scroll">
+            <div className="flex flex-row gap-4 lg:gap-14 md:px-4 overflow-x-scroll cursor-grab active:cursor-grabbing select-none scroll-container"
+                id="videosScroll"
+                role="list"
+            >
 
-                <div className="w-full min-w-[288px] max-w-[364px]">
+                <div className="w-full min-w-[288px] max-w-[364px]" role="listitem">
                     <div className="w-full aspect-video grid place-items-center bg-center bg-no-repeat bg-cover"
                         style={{ backgroundImage: "url('home/nosotrosWeb.webp')" }}
                     >
@@ -25,7 +27,7 @@ const Videos = () => {
                     <p className="text-xs leading-5">Si eres una persona Trans y necesitas apoyo o quieres más información sobre lo que hacemos en Trans AFAB Venezuela...</p>
                 </div>
 
-                <div className="w-full min-w-[288px] max-w-[364px]">
+                <div className="w-full min-w-[288px] max-w-[364px]" role="listitem">
                     <div className="w-full aspect-video grid place-items-center bg-center bg-no-repeat bg-cover"
                         style={{ backgroundImage: "url('home/nosotrosWeb.webp')" }}
                     >
@@ -37,7 +39,7 @@ const Videos = () => {
                     <p className="text-xs leading-5">Si eres una persona Trans y necesitas apoyo o quieres más información sobre lo que hacemos en Trans AFAB Venezuela...</p>
                 </div>
 
-                <div className="w-full min-w-[288px] max-w-[364px]">
+                <div className="w-full min-w-[288px] max-w-[364px]" role="listitem">
                     <div className="w-full aspect-video grid place-items-center bg-center bg-no-repeat bg-cover"
                         style={{ backgroundImage: "url('home/nosotrosWeb.webp')" }}
                     >
@@ -49,7 +51,7 @@ const Videos = () => {
                     <p className="text-xs leading-5">Si eres una persona Trans y necesitas apoyo o quieres más información sobre lo que hacemos en Trans AFAB Venezuela...</p>
                 </div>
 
-                <div className="w-full min-w-[288px] max-w-[364px]">
+                <div className="w-full min-w-[288px] max-w-[364px]" role="listitem">
                     <div className="w-full aspect-video grid place-items-center bg-center bg-no-repeat bg-cover"
                         style={{ backgroundImage: "url('home/nosotrosWeb.webp')" }}
                     >
@@ -62,7 +64,10 @@ const Videos = () => {
                 </div>
 
 
-            </div>
+            </div>{
+            
+            /* Carga el script en el cliente para el scroll del contenido*/}
+            <script defer src="/js/videosScroll.js"></script>
 
         </section>
     )

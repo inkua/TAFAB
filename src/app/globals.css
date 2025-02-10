@@ -74,6 +74,7 @@
   z-index: 9999 !important;
 }
 
+/* carrusel inicio */
 .paginationDots {
   padding: 5px;
   background-color: white !important;
@@ -89,3 +90,7 @@
 .swiper-pagination-bullet-active{
   background: #8971BF !important;
 }
+/* carrusel final */
+
+
+
