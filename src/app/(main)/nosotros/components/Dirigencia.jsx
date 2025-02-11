@@ -1,0 +1,201 @@
+import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react'
+import Image from 'next/image'
+
+import LeaderCard from './LeaderCard'
+
+const Dirigencia = () => {
+    return (
+        <section id='dirigencia' className='m-auto'>
+            {/* <h2 className='title mt-16'>NUESTRA DIRIGENCIA</h2> */}
+            <div className=" flex flex-row items-center justify-between mb-9">
+                <h2 className="title">NUESTRA DIRIGENCIA</h2>
+                <div className="bg-tertiary h-1 w-full min-w-[20%] max-w-[55%] ml-4"></div>
+            </div>
+
+            <div className='w-full'>
+                <h3 className='mt-5 font-normal text-2xl md:text-4xl text-text-dark mb-2'>Jonah Daniel Sira</h3>
+
+                <article className=' flex flex-col'>
+
+                    <div className='w-full flex flex-col lg:flex-row justify-between items-center mt-3 md:mt-6 mb-5 md:mb-7'>
+                        <div className='w-full flex flex-col md:flex-row justify-center items-center gap-4 lg:w-[66%]'>
+                            <Image
+                                className='w-full max-w-[492px] md:w-[150%] md:flex-1 lg:aspect-[329/153] object-cover'
+                                src="/nosotros/miembro/jonah.webp"
+                                loading="lazy"
+                                width={600}
+                                height={400}
+                                alt="Imagen de Jonah"
+                            />
+
+                            <p className='leading-6 font-semibold text-sm md:flex-1 xl:text-base'>Hombre transgénero y No Binarie nacido en Coro, Falcón. Estudiante universitario, defensor de Derechos Humanos y cofundador de Trans AFAB Venezuela. Actualmente es codirector de la organización.</p>
+                        </div>
+                        <p className='hidden text-start leading-6 font-light italic text-sm xl:text-base border md:block border-tertiary h-fit lg:w-[33%] m-0 p-3'>
+                            “Las personas Trans tenemos Derecho a ocupar espacios y a alzar la voz ante cualquier muestra de discriminación. Somos personas que desde la pobreza y la marginalidad social debemos seguir luchando por alcanzar nuestros derechos, si no lo hacemos nosotros, ¿Quién lo hará?”.  Jonah Sira.
+                        </p>
+                    </div>
+
+                    <div className='md:hidden'>
+                        <Disclosure>
+                            <DisclosureButton className="py-2 px-2 my-4 bg-tertiary text-slate-600">Las personas Trans...  ver más</DisclosureButton>
+                            <DisclosurePanel className="font-light italic text-sm">
+                                “Las personas Trans tenemos Derecho a ocupar espacios y a alzar la voz ante cualquier muestra de discriminación. Somos personas que desde la pobreza y la marginalidad social debemos seguir luchando por alcanzar nuestros derechos, si no lo hacemos nosotros, ¿Quién lo hará?”.  Jonah Sira.
+                            </DisclosurePanel>
+                        </Disclosure>
+                    </div>
+                </article>
+            </div>
+
+            <div className='w-full'>
+                <h3 className='mt-5 font-normal text-2xl md:text-4xl text-text-dark mb-2'>Kallum Olortegui</h3>
+
+                <article className=' flex flex-col'>
+
+                    <div className='w-full flex flex-col lg:flex-row justify-between items-center mt-3 md:mt-6 mb-5 md:mb-7'>
+                        <div className='w-full flex flex-col md:flex-row justify-center items-center gap-4 lg:w-[66%]'>
+                            <Image
+                                className='w-full max-w-[492px] md:w-[150%] md:flex-1 lg:aspect-[329/153] object-cover'
+                                src="/nosotros/miembro/kallum.webp"
+                                loading="lazy"
+                                width={600}
+                                height={400}
+                                alt="Imagen de Kallum"
+                            />
+                            <p className='leading-6 font-semibold text-sm md:flex-1 xl:text-base'>
+                                Hombre transgénero. Estudiante de psicología en la Universidad Central de Venezuela, activista por los Derechos Humanos de la comunidad LGBTIQ+ y Cofundador de Trans AFAB Venezuela. Actualmente es codirector y tesorero de la organización.
+                            </p>
+                        </div>
+                        <p className='hidden text-start leading-6 font-light italic text-sm xl:text-base border md:block border-tertiary h-fit lg:w-[33%] m-0 p-3'>
+                            “Entendí que si no encuentro espacios a los que pertenecer, yo los crearé. No sólo, nunca sólo, pero en colaboración y en compañía a través de la solidaridad y la ternura, la comunicación y responsabilidad. Que nuestra venganza sea no la violencia, si no nuestra felicidad y bienestar”.  Kallum Olortegui.
+                        </p>
+                    </div>
+
+                    <div className='md:hidden'>
+                        <Disclosure>
+                            <DisclosureButton className="py-2 px-2 my-4 bg-tertiary text-slate-600">Entendí que si no...  ver más</DisclosureButton>
+                            <DisclosurePanel className="font-light italic text-sm">
+                                “Entendí que si no encuentro espacios a los que pertenecer, yo los crearé. No sólo, nunca sólo, pero en colaboración y en compañía a través de la solidaridad y la ternura, la comunicación y responsabilidad. Que nuestra venganza sea no la violencia, si no nuestra felicidad y bienestar”.  Kallum Olortegui.
+                            </DisclosurePanel>
+                        </Disclosure>
+                    </div>
+                </article>
+            </div>
+
+
+            <Disclosure>
+                <DisclosureButton className="py-2 px-2 bg-btn-pink  text-text-dark underline  md:hidden block">VER MÁS CONTENIDO</DisclosureButton>
+                <DisclosurePanel >
+
+                    <div className='w-full'>
+                        <h3 className='mt-5 font-normal text-2xl md:text-4xl text-text-dark mb-2'>Samara Sereno</h3>
+
+                        <article className=' flex flex-col'>
+
+                            <div className='w-full flex flex-col lg:flex-row justify-between items-center mt-3 md:mt-6 mb-5 md:mb-7'>
+                                <div className='w-full flex flex-col md:flex-row justify-center items-center gap-4 lg:w-[66%]'>
+                                    <Image
+                                        className='w-full max-w-[492px] md:w-[150%] md:flex-1 lg:aspect-[329/153] object-cover'
+                                        src="/nosotros/miembro/samara.webp"
+                                        loading="lazy"
+                                        width={600}
+                                        height={400}
+                                        alt="Imagen de Samara"
+                                    />
+                                    <p className='leading-6 font-semibold text-sm md:flex-1 xl:text-base'>
+                                        Mujer Trans. Artista, artesana y activista por los Derechos Humanos de las personas LGBTIQ+. Actualmente es vocal de la junta directiva y coordinadora regional para el estado Aragua.
+                                    </p>
+                                </div>
+                                <p className='hidden text-start leading-6 font-light italic text-sm xl:text-base border md:block border-tertiary h-fit lg:w-[33%] m-0 p-3'>
+                                    “Hoy soy libre y sigo descubriendo quien soy realmente después de tantos años, el activismo me da fuerzas para continuar en esta 'guerra' diaria de ser yo”.  S. Sereno
+                                </p>
+                            </div>
+
+                            <div className='md:hidden'>
+                                <Disclosure>
+                                    <DisclosureButton className="py-2 px-2 my-4 bg-tertiary text-slate-600">Hoy soy libre...  ver más</DisclosureButton>
+                                    <DisclosurePanel className="font-light italic text-sm">
+                                        “Hoy soy libre y sigo descubriendo quien soy realmente después de tantos años, el activismo me da fuerzas para continuar en esta 'guerra' diaria de ser yo”.  S. Sereno
+                                    </DisclosurePanel>
+                                </Disclosure>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div className='w-full'>
+                        <h3 className='mt-5 font-normal text-2xl md:text-4xl text-text-dark mb-2'>Dani Brito</h3>
+
+                        <article className=' flex flex-col'>
+
+                            <div className='w-full flex flex-col lg:flex-row justify-between items-center mt-3 md:mt-6 mb-5 md:mb-7'>
+                                <div className='w-full flex flex-col md:flex-row justify-center items-center gap-4 lg:w-[66%]'>
+                                    <Image
+                                        className='w-full max-w-[492px] md:w-[150%] md:flex-1 lg:aspect-[329/153] object-cover'
+                                        src="/nosotros/miembro/dani.webp"
+                                        loading="lazy"
+                                        width={600}
+                                        height={400}
+                                        alt="Imagen de Dani"
+                                    />
+                                    <p className='leading-6 font-semibold text-sm md:flex-1 xl:text-base'>
+                                        Persona No Binarie. Artista, Drag Queen venezolana y activista por los Derechos Humanos de la comunidad LGBTIQ+. Actualmente es vocal de la junta directiva y coordinadora regional para el estado Carabobo.
+                                    </p>
+                                </div>
+                                <p className='hidden text-start leading-6 font-light italic text-sm xl:text-base border md:block border-tertiary h-fit lg:w-[33%] m-0 p-3'>
+                                    “Necesitaba este fuego, este deseo de luchar, de impulsar y trabajar por el progreso. Tengo un gran viaje delante de mí y solo puedo sentir ansias”.  Dani Brito
+                                </p>
+                            </div>
+
+                            <div className='md:hidden'>
+                                <Disclosure>
+                                    <DisclosureButton className="py-2 px-2 my-4 bg-tertiary text-slate-600">Necesitaba este fuego...  ver más</DisclosureButton>
+                                    <DisclosurePanel className="font-light italic text-sm">
+                                        “Necesitaba este fuego, este deseo de luchar, de impulsar y trabajar por el progreso. Tengo un gran viaje delante de mí y solo puedo sentir ansias”.  Dani Brito
+                                    </DisclosurePanel>
+                                </Disclosure>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div className='w-full'>
+                        <h3 className='mt-5 font-normal text-2xl md:text-4xl text-text-dark mb-2'>D. F.</h3>
+
+                        <article className=' flex flex-col'>
+
+                            <div className='w-full flex flex-col lg:flex-row justify-between items-center mt-3 md:mt-6 mb-5 md:mb-7'>
+                                <div className='w-full flex flex-col md:flex-row justify-center items-center gap-4 lg:w-[66%]'>
+                                    <Image
+                                        className='w-full max-w-[492px] md:w-[150%] md:flex-1 lg:aspect-[329/153] object-cover'
+                                        src="/nosotros/miembro/df.webp"
+                                        loading="lazy"
+                                        width={600}
+                                        height={400}
+                                        alt="Imagen de D. F."
+                                    />
+                                    <p className='leading-6 font-semibold text-sm md:flex-1 xl:text-base'>
+                                        Hombre Trans. Estudiante universitario, músico e ilustrador. Actualmente es secretario de la junta directiva diseñador gráfico de TAFAB.
+                                    </p>
+                                </div>
+                                <p className='hidden text-start leading-6 font-light italic text-sm xl:text-base border md:block border-tertiary h-fit lg:w-[33%] m-0 p-3'>
+                                    "Pasé gran parte de mi vida con miedo de mí mismo y del rechazo. Ser yo requiere valentía pero también trajo alegría, y hoy soy amado por quién soy”. D. F.
+                                </p>
+                            </div>
+
+                            <div className='md:hidden'>
+                                <Disclosure>
+                                    <DisclosureButton className="py-2 px-2 my-4 bg-tertiary text-slate-600">Pasé con miedo...  ver más</DisclosureButton>
+                                    <DisclosurePanel className="font-light italic text-sm">
+                                        "Pasé gran parte de mi vida con miedo de mí mismo y del rechazo. Ser yo requiere valentía pero también trajo alegría, y hoy soy amado por quién soy”. D. F.
+                                    </DisclosurePanel>
+                                </Disclosure>
+                            </div>
+                        </article>
+                    </div>
+
+                </DisclosurePanel>
+            </Disclosure>
+            <LeaderCard />
+        </section>
+    )
+}
+
+export default Dirigencia

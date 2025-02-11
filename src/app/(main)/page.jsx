@@ -1,14 +1,15 @@
 import Link from "next/link";
 
+import Carrusel from "./components/inicio/Denuncias/Carrusel";
 import Eventos from "./components/inicio/Eventos/Eventos";
 import Noticias from "./components/inicio/Noticias/Noticias";
 import Proyectos from "./components/inicio/Proyectos/Proyectos";
 import Videos from "./components/inicio/Videos/Videos";
-import Carrusel from "./components/inicio/Denuncias/Carrusel";
 
 export default function Home() {
     return (
         <main className="px-mobile md:px-tablet w-full xl:max-w-top min-[1500px]:px-0 lg:mx-auto *:mb-[45px] lg:*:mb-[70px]">
+            <h1 className="sr-only">Trans AFAB Venezuela</h1>
             <Carrusel />
             
             <Eventos />

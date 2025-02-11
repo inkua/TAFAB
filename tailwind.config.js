@@ -16,6 +16,9 @@ module.exports = {
         "contactoWeb": "url('/home/contactoWeb.webp')",
         "denunciaMobile": "url('/home/carrusel/denunciasMobile.webp')",
         "denunciaWeb": "url('/home/carrusel/denunciasWeb.webp')",
+        "aboutWeb": "url('/nosotros/nosotrosWeb.webp')",
+        "aboutMobile": "url('/nosotros/nosotrosMobile.webp')",
+
       },
       padding: {
         "mobile": "1rem",
