@@ -6,12 +6,8 @@ export async function GET(request) {
     const searchParams = request.nextUrl.searchParams
     const page = searchParams.get('page')
     try {
-        let res 
-        if(page){
-            res = await getNews(Number(page));
-        }else{
-            res = await getNews();
-        }
+        const res = await getNews(page ? Number(page) : 1);
+        
         if (res) {
             return Response.json({ status: 200, msg: "operación Exitosa", data: res });
         } else {

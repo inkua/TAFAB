@@ -1,4 +1,4 @@
-import { truncateDescription } from "@/utils/descriptions"
+import { truncateDescription, truncateString } from "@/utils/descriptions"
 import ItemTableImg from "../../../componets/ItemTableImg/ItemTableImg"
 import ResourceActionDropdown from "../ResourceActionDropdown/ResourceActionDropdown"
 
@@ -15,7 +15,7 @@ const ResourceItemTable = ({data}) => {
 
                         <div>
                             <h2 className="text-sm font-medium text-gray-800">
-                                {data?.title}
+                                {truncateString(data?.title, 35)}
                             </h2>
                             <p className="text-xs font-normal text-gray-500">
                                 {data?.id}

@@ -14,7 +14,7 @@ const user = {
 }
 
 const navigation = [
-    { name: 'Dashboard', href: '/admin', current: true },
+    { name: 'Panel', href: '/admin', current: true },
     { name: 'Videos', href: '/admin/videos', current: false },
     { name: 'Eventos', href: '/admin/events', current: false },
     { name: 'Recursos', href: '/admin/resources', current: false },

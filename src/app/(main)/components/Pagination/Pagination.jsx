@@ -35,10 +35,10 @@ function Pagination({ data }) {
             </div>
 
             <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
-                <p className="text-sm text-gray-700">
+                <span className="text-sm text-gray-700">
                     Página <span className="font-medium">{currentPage}</span> de{' '}
                     <span className="font-medium">{totalPages == 0 ? 1 : totalPages}</span>
-                </p>
+                </span>
                 <nav aria-label="Pagination" className="isolate inline-flex -space-x-px  shadow-sm">
                     <button
                         onClick={() => goToPage(currentPage - 1)}

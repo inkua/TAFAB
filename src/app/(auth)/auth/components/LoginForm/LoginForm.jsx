@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useRouter } from "next/navigation";
 import { useToast } from '@/utils/toast';
 import BlockingOverlay from '@/app/components/BlockingOverlay/BlockingOverlay';
+import Link from 'next/link';
 
 function LoginForm() {
     const [email, setEmail] = useState('');
@@ -97,6 +98,14 @@ function LoginForm() {
                                 <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:bg-blue-400 focus:ring focus:ring-blue-300 focus:ring-opacity-50">
                                     Iniciar sesión
                                 </button>
+                                <div className='w-full p-4 text-center'>
+                                    <Link 
+                                        className="text-btn-purple tracking-wide focus:ring focus:ring-blue-300 focus:ring-opacity-50 hover:text-btn-pink"
+                                        href='/' 
+                                        alt="go home"
+                                    >Sitio Web</Link>
+                                </div>
+
                             </div>
                         </form>
                     </div>
