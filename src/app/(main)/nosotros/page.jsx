@@ -48,7 +48,6 @@ function page() {
                             <Image
                                 src="/nosotros/misionMobile.webp"
                                 className='w-full aspect-video lg:aspect-square object-cover'
-                                loading="lazy"
                                 alt="imagen de mision"
                                 width={600}
                                 height={400}
@@ -75,7 +74,6 @@ function page() {
                             <Image
                                 src="/nosotros/misionMobile.webp"
                                 className='w-full aspect-video lg:aspect-square object-cover'
-                                loading="lazy"
                                 alt="imagen de mision"
                                 width={600}
                                 height={400}
@@ -114,13 +112,13 @@ function page() {
                 />
             </section>
 
-            <section>
+            <section id='principios'>
                 <h2 className='title mt-16 '>¿CUÁLES SON NUESTROS PRINCIPIOS?</h2>
 
                 <ol className='list-decimal flex flex-col gap-2 mt-2 *:list-inside leading-7 text-sm lg:text-xl font-normal my-2 lg:mt-6 lg:mb-8'>
-                    <li>Inclusión y respeto: Creemos que los intereses de las personas trans venezolanas deben de ser escuchados, atendidos, visibilizados y defendidos.</li>
-                    <li>Solidaridad: Fomentamos la unión y el bienestar de la población trans venezolana.</li>
-                    <li>Empoderamiento y apoyo mutuo: El apoyo social es nuestra principal herramienta.</li>
+                    <li><strong>Inclusión y respeto:</strong> Creemos que los intereses de las personas trans venezolanas deben de ser escuchados, atendidos, visibilizados y defendidos.</li>
+                    <li><strong>Solidaridad:</strong> Fomentamos la unión y el bienestar de la población trans venezolana.</li>
+                    <li><strong>Empoderamiento y apoyo mutuo:</strong> El apoyo social es nuestra principal herramienta.</li>
                 </ol>
             </section>
 

@@ -1,8 +1,10 @@
+import { getDateFormated, parseDate } from "@/utils/getDate";
 import { deleteImage, updateImage, uploadImage } from "./cloudinaryContainer";
 import { addElement, deleteElement, getAllElements, getElementById, updateElement } from "./container";
 
 // add a new news entity | requires news data | returns the added news response
 const addNew = async (newData) => {
+    newData.date = getDateFormated()
     return await addElement(newData, 'news');
 };
 
@@ -11,9 +13,26 @@ const getNewById = async (nid) => {
     return await getElementById(nid, 'news');
 };
 
-// get all news | does not require parameters | returns a list of all news
-const getNews = async () => {
-    return await getAllElements('news');
+// get all news | require the page you wanna display & how many elements you need | returns a list of news oganized and per page
+const getNews = async (page = 1, pageSize = 5) => {
+    const allNews = await getActiveNews('news');
+    const newsFormated = formattedNews(allNews)
+
+    const startIndex = (page - 1) * pageSize;
+    const endIndex = page * pageSize;
+
+    const paginatedEntities = newsFormated.slice(startIndex, endIndex);
+
+    const totalItems = newsFormated.length;
+    const totalPages = Math.ceil(totalItems / pageSize);
+
+    return {
+        list: paginatedEntities,
+        currentPage: page,
+        totalPages: totalPages,
+        totalItems: totalItems,
+        pageSize: pageSize
+    };
 };
 
 // get news per page | requires page and pageSize (default: 1 and 5) | returns paginated news
@@ -81,6 +100,13 @@ const deleteNewImg = async (imgUrl) => {
     const result = await deleteImage(imgUrl);
     return result;
 };
+
+// Función para ordenar y limpiar la lista de noticias
+function formattedNews(newsList) {
+    return newsList
+        .map(({ article, ...rest }) => rest) // Elimina la propiedad 'article'
+        .sort((a, b) => parseDate(b.date) - parseDate(a.date)); // Ordena de más reciente a más antigua
+}
 
 export {
     addNew,

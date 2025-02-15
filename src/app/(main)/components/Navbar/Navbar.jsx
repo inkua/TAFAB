@@ -12,6 +12,10 @@ function Navbar() {
 
     const menuItems = [
         {
+            name: "Inicio",
+            href: "/",
+        },
+        {
             name: "Nosotros",
             href: "/nosotros",
             dropdownItems: [
@@ -20,7 +24,7 @@ function Navbar() {
                     href: "/nosotros#misionyvision"
                 },
                 {
-                    name: "¿Quién es nuestra dirigencia?",
+                    name: "Dirigencia",
                     href: "/nosotros#dirigencia"
                 },
                 {
@@ -28,7 +32,7 @@ function Navbar() {
                     href: "/nosotros#comofuncionamos"
                 },
                 {
-                    name: "¿Cuáles son nuestros principios?",
+                    name: "Nuestros principios",
                     href: "/nosotros#principios"
                 },
                 {
@@ -47,19 +51,19 @@ function Navbar() {
             href: "/informate"
         },
         {
-            name: "Preguntas frecuentes",
+            name: "FAQ",
             href: "/faq"
         },
         {
-            name: "Cómo ayudar",
-            href: "/comoayudar"
+            name: "Articulos",
+            href: "/articulos"
         },
     ];
 
     return (
         <header className="flex flex-col z-10">
             {/* Top Banner */}
-            <div className="bg-primary p-mobile lg:p-8 flex flex-col lg:flex-row gap-4 text-center items-center justify-center text-text-white font-semibold text-lg">
+            <div className="bg-primary pt-mobile pb-0 px-mobile lg:px-8 lg:py-6 flex flex-col lg:flex-row gap-1 md:gap-4 text-center items-center justify-center text-text-white font-semibold text-sm lg:text-base">
                 <p>Defendemos los derechos y el bienestar de las personas Trans en Venezuela y el mundo</p>
                 <button className="flex gap-2 items-center px-mobile border-2 border-white my-5 lg:my-0">
                     <img src="/assets/Flag.jpg" alt="Bandera orgullo trans" />
@@ -72,7 +76,7 @@ function Navbar() {
                 alt="Bandera orgullo trans" />
 
             {/* Desktop Navigation */}
-            <nav className="hidden p-tablet justify-center items-center gap-9 lg:flex">
+            <nav className="hidden px-tablet py-8 justify-center items-center gap-9 lg:flex">
                 <Link href={'/'}>
                     <img className="w-28"
                         src="/auth/logoAuth.jpg"
@@ -108,7 +112,7 @@ function Navbar() {
 
                             {/* Dropdown Menu */}
                             {item.dropdownItems && activeDropdown === item.name && (
-                                <div className="absolute top-5 mt-2 w-56 origin-top-left rounded-md bg-white py-2 shadow-lg ring-1 ring-black ring-opacity-5">
+                                <div className="absolute top-5 text-sm mt-2 w-56 origin-top-left rounded-md bg-white py-2 shadow-lg ring-1 ring-black ring-opacity-5 z-10">
                                     {item.dropdownItems.map((dropdownItem) => (
                                         <Link
                                             key={dropdownItem.name}
@@ -123,7 +127,7 @@ function Navbar() {
                         </li>
                     ))}
                 </ul>
-                <button className="flex text-lg px-5 gap-2 items-center bg-btn-purple p-5 text-white">
+                <button className="flex xl:text-lg px-4 py-2 gap-2 items-center bg-btn-purple text-white">
                     <span>
                         Haz un donativo
                     </span>
@@ -138,16 +142,16 @@ function Navbar() {
                         src="/auth/logoAuth.jpg"
                         alt="logo" />
                 </Link>
-                <button className="flex text-lg gap-2 items-center bg-btn-purple py-1 px-3 text-white">
+                <button className="flex text-xs sm:text-sm md:text-lg gap-2 items-center bg-btn-purple py-1 px-2 sm:px-3 text-white">
                     <span>
                         Haz un donativo
                     </span>
                     <img src="/assets/Heart.jpg" alt="Corazon orgullo trans" />
                 </button>
-                <button
+                <button 
                     onClick={() => setIsOpen(!isOpen)}
-                    className="inline-flex items-center justify-center rounded-md p-2 text-gray-700 hover:bg-purple-50 hover:text-purple-600"
-                >
+                    className="inline-flex items-center justify-center rounded-md p-2 text-gray-700 hover:bg-purple-50 hover:text-purple-600  z-20" 
+                >{/* aqio <----------------------------------------------- */}
                     <span className="sr-only">Abrir menú principal</span>
                     {!isOpen ? (
                         <svg
@@ -165,7 +169,7 @@ function Navbar() {
                         </svg>
                     ) : (
                         <svg
-                            className="absolute top-2 right-2 z-10 h-12 w-12 stroke-btn-purple"
+                            className="absolute top-2 right-2 z-10 h-12 w-12 stroke-white"
                             fill="none"
                             viewBox="0 0 24 24"
                             strokeWidth="3"
@@ -182,50 +186,54 @@ function Navbar() {
             </div>
 
             {/* Mobile Dropdown */}
-            <div className={`${isOpen ? "absolute w-full bg-primary" : "hidden"} lg:hidden`}>
+            <div className={`${isOpen ? "absolute w-full bg-[#3B2540]" : "hidden"} lg:hidden z-10`}> {/* aqio <----------------------------------------------- */}
                 <div className="space-y-1 pb-3 pt-2">
                     <ul className="flex flex-col gap-10 pt-10">
                         {menuItems.map((item) => (
-                        <li key={item.name}
-                            className="text-2xl font-semibold text-white w-full items-center pl-10 py-2 list-none">
-                            <Link href={item.href}>
-                                {item.name}
-                            </Link>
-                            <button
-                                onClick={() => item.dropdownItems && toggleDropdown(item.name)}
+                            <li
+                                key={item.name}
+                                className="text-2xl font-semibold text-white w-full items-center pl-10 py-2 list-none"
+                                onClick={() => setIsOpen(false)}
                             >
-                                {item.dropdownItems && (
-                                    <svg
-                                        className={`ml-2 h-5 w-5 transition-transform duration-200 stroke-btn-purple ${activeDropdown === item.name ? "rotate-180" : ""
-                                            }`}
-                                        fill="none"
-                                        viewBox="0 0 24 24"
-                                        stroke="currentColor"
-                                    >
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth={5}
-                                            d="M19 9l-7 7-7-7"
-                                        />
-                                    </svg>
-                                )}
-                            </button>
-                            {item.dropdownItems && activeDropdown === item.name && (
-                                <div className="px-4 py-2">
-                                    {item.dropdownItems.map((dropdownItem) => (
-                                        <Link
-                                            key={dropdownItem.name}
-                                            href={dropdownItem.href}
-                                            className="block px-4 py-2 text-xl"
+
+                                <Link href={item.href}>
+                                    {item.name}
+                                </Link>
+                                <button
+                                    onClick={() => item.dropdownItems && toggleDropdown(item.name)}
+                                >
+                                    {item.dropdownItems && (
+                                        <svg
+                                            className={`ml-2 h-5 w-5 transition-transform duration-200 stroke-white ${activeDropdown === item.name ? "rotate-180" : ""
+                                                }`}
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            stroke="currentColor"
                                         >
-                                            {dropdownItem.name}
-                                        </Link>
-                                    ))}
-                                </div>
-                            )}
-                        </li>
-                    ))}
+                                            <path
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeWidth={5}
+                                                d="M19 9l-7 7-7-7"
+                                            />
+                                        </svg>
+                                    )}
+                                </button>
+                                {item.dropdownItems && activeDropdown === item.name && (
+                                    <div className="px-4 py-2">
+                                        {item.dropdownItems.map((dropdownItem) => (
+                                            <Link
+                                                key={dropdownItem.name}
+                                                href={dropdownItem.href}
+                                                className="block px-4 py-2 text-xl"
+                                            >
+                                                {dropdownItem.name}
+                                            </Link>
+                                        ))}
+                                    </div>
+                                )}
+                            </li>
+                        ))}
                     </ul>
                 </div>
             </div>

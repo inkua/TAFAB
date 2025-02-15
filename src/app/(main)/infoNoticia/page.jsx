@@ -1,5 +1,4 @@
-import React from 'react'
-import CardNoticia from '../noticias/components/CardNoticia'
+import CardNoticia from '../articulos/components/CardNoticia'
 
 const infoNoticia = () => {
     return (

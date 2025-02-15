@@ -1,10 +1,17 @@
 import { getSession } from "@/app/services/lib";
 import { addNew, deleteNew, getNews, setNew } from "@/DAO/news.db";
 
-export async function GET() {
-    try {
-        const res = await getNews();
+export async function GET(request) {
 
+    const searchParams = request.nextUrl.searchParams
+    const page = searchParams.get('page')
+    try {
+        let res 
+        if(page){
+            res = await getNews(Number(page));
+        }else{
+            res = await getNews();
+        }
         if (res) {
             return Response.json({ status: 200, msg: "operación Exitosa", data: res });
         } else {

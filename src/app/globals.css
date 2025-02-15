@@ -12,12 +12,15 @@
     color: #4A3D5B;
     font-weight: 700;
     text-transform: capitalize;
-    font-size: 29px;
+    font-size: 23px;
     line-height: 37px;
     letter-spacing: -1%;
   }
-  @media (min-width: 600px) {}
-
+  @media (min-width: 600px) {
+    .title{
+      font-size: 29px;
+    }
+  }
 }
 
 /* Estilos de editor de textos */

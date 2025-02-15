@@ -29,7 +29,6 @@ const NewForm = ({ isOpen, setIsOpen, saveNew, data, add = true }) => {
         const newData = allDataInput()
 
         if (add) {
-            newData.date = getDateFormated( )
             saveNew(newData);
         } else {
             saveNew({ newData, id: id });
