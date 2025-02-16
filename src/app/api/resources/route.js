@@ -1,10 +1,13 @@
 
 import { getSession } from "@/app/services/lib";
-import { addResource, deleteResource, getActiveResources, setResource } from "@/DAO/resources.db";
+import { addResource, deleteResource, getResources, setResource } from "@/DAO/resources.db";
 
-export async function GET() {
+export async function GET(request) {
+    const searchParams = request.nextUrl.searchParams
+    const page = searchParams.get('page')
+
     try {
-        const res = await getActiveResources();
+        const res = await getResources(page ? Number(page) : 1);
 
         if (res) {
             return Response.json({ status: 200, msg: "operación Exitosa", data: res });

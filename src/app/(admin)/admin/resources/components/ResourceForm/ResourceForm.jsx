@@ -1,6 +1,5 @@
 "use client"
 
-import { getDateFormated } from "@/utils/getDate";
 import { useEffect, useState } from "react";
 
 const ResourceForm = ({ isOpen, setIsOpen, saveResource, data, add = true }) => {
@@ -26,7 +25,6 @@ const ResourceForm = ({ isOpen, setIsOpen, saveResource, data, add = true }) => 
         const newData = { ...formValues };
 
         if (add) {
-            newData.date = getDateFormated()
             saveResource(newData);
         } else {
             saveResource({ newData, id: id });

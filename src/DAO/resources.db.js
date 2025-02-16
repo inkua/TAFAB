@@ -1,8 +1,10 @@
+import { getDateFormated, parseDate } from "@/utils/getDate";
 import { deleteImage, updateImage, uploadImage } from "./cloudinaryContainer";
 import { addElement, deleteElement, getAllElements, getElementById, updateElement } from "./container";
 
 // add a new resource entity | requires resource data | returns the added resource response
 const addResource = async (newResource) => {
+    newResource.date = getDateFormated()
     return await addElement(newResource, 'resources');
 };
 
@@ -12,8 +14,25 @@ const getResourceById = async (rid) => {
 };
 
 // get all resources | does not require parameters | returns a list of all resources
-const getResources = async () => {
-    return await getAllElements('resources');
+const getResources = async (page = 1, pageSize = 5) => {
+    const allResources = await getActiveResources()
+    const formattedResources = formattedList(allResources)
+
+    const startIndex = (page - 1) * pageSize;
+    const endIndex = page * pageSize;
+
+    const paginatedEntities = formattedResources.slice(startIndex, endIndex);
+
+    const totalItems = formattedResources.length;
+    const totalPages = Math.ceil(totalItems / pageSize);
+
+    return {
+        list: paginatedEntities,
+        currentPage: page,
+        totalPages: totalPages,
+        totalItems: totalItems,
+        pageSize: pageSize
+    };
 };
 
 // get resources per page | requires page and pageSize (default: 1 and 5) | returns paginated resources
@@ -82,6 +101,12 @@ const deleteResourceImg = async (imgUrl) => {
     const result = await deleteImage(imgUrl);
     return result;
 };
+
+// Función para ordenar los recursos por fechas
+function formattedList(resourceList) {
+    return resourceList
+        .sort((a, b) => parseDate(b.date) - parseDate(a.date)); // Ordena de más reciente a más antigua
+}
 
 export {
     addResource,

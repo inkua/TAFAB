@@ -61,7 +61,7 @@ const Proyectos = () => {
                                 className="md:w-[263px] lg:w-[363px] w-full h-auto aspect-video rounded-sm object-cover"
                             />
                             <div>
-                                <h2 className="text-base md:text-xlg lg:text-2xl font-bold mb-2 text-text-dark">{proyecto.titulo}</h2>
+                                <h2 className="text-base md:text-xl lg:text-2xl font-bold mb-2 text-text-dark">{proyecto.titulo}</h2>
                                 <p className="font-light leading-8 text-sm md:text-base lg:text-xl">{proyecto.descripcion}</p>
                             </div>
                         </div>

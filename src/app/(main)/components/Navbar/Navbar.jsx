@@ -47,8 +47,8 @@ function Navbar() {
             href: "/proyectos",
         },
         {
-            name: "Infórmate",
-            href: "/informate"
+            name: "Recursos",
+            href: "/recursos"
         },
         {
             name: "FAQ",
