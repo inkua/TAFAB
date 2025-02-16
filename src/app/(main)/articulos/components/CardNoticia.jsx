@@ -2,7 +2,7 @@ import Link from "next/link"
 import NoticiaImg from "./NoticiaImg"
 
 const CardNoticia = ({ data }) => {
-    const { imgUrl, date, title, copy } = data
+    const { imgUrl, date, title, copy, id } = data
 
     return (
         <div className='bg-[#F4F4F4] px-[19px] py-[30px]'>
@@ -13,7 +13,7 @@ const CardNoticia = ({ data }) => {
             <p className='font-normal text-4 mb-[10px]'>{copy}</p>
 
             <Link
-                href={""}
+                href={`/articulos/${id}`}
                 className='underline font-bold text-sm'
             >Leer más</Link>
         </div>
