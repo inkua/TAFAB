@@ -73,7 +73,7 @@ const Dirigencia = () => {
                     <div className='md:hidden'>
                         <Disclosure>
                             <DisclosureButton className="py-2 px-2 my-4 bg-tertiary text-slate-600">Entendí que si no...  ver más</DisclosureButton>
-                            <DisclosurePanel className="font-light italic text-sm">
+                            <DisclosurePanel className="font-light italic text-sm mb-2">
                                 “Entendí que si no encuentro espacios a los que pertenecer, yo los crearé. No sólo, nunca sólo, pero en colaboración y en compañía a través de la solidaridad y la ternura, la comunicación y responsabilidad. Que nuestra venganza sea no la violencia, si no nuestra felicidad y bienestar”.  Kallum Olortegui.
                             </DisclosurePanel>
                         </Disclosure>
@@ -83,7 +83,7 @@ const Dirigencia = () => {
 
 
             <Disclosure>
-                <DisclosureButton className="py-2 px-2 bg-btn-pink  text-text-dark underline  md:hidden block">VER MÁS CONTENIDO</DisclosureButton>
+                <DisclosureButton className="py-2 mt-4 px-2 bg-btn-pink  text-text-dark underline  md:hidden block">VER MÁS CONTENIDO</DisclosureButton>
                 <DisclosurePanel >
 
                     <div className='w-full'>

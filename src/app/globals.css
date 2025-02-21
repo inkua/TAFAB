@@ -232,3 +232,38 @@
   }
 
 }
+
+
+/* Estilos generales para navegadores WebKit (Chrome, Edge, Safari) */
+.scroll-container::-webkit-scrollbar {
+  height: 8px; /* Altura de la barra de desplazamiento */
+}
+
+.scroll-container::-webkit-scrollbar-track {
+  background: rgba(117, 190, 226, 0.124); /* Color del fondo de la barra */
+  border-radius: 10px; /* Bordes redondeados */
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+  background: rgba(217, 159, 200, 0.615); /* Color del "pulgar" (la parte móvil) */
+  border-radius: 10px; /* Bordes redondeados */
+  transition: background 0.3s ease-in-out;
+}
+
+.scroll-container::-webkit-scrollbar-thumb:hover {
+  background: #ac7cb6c2; /* Color más oscuro al pasar el mouse */
+}
+
+/* Estilos para Firefox */
+.scroll-container {
+  scrollbar-width: thin; /* Tamaño del scroll */
+  scrollbar-color: rgba(217, 159, 200, 0.615) rgba(117, 190, 226, 0.124); /* Color del pulgar y el fondo */
+  border-radius: 10px; /* Bordes redondeados */
+}
+
+/* Mejoras para un diseño más moderno */
+.scroll-container {
+  scroll-behavior: smooth; /* Hace el scroll más suave */
+  overflow-x: auto; /* Asegura que el desplazamiento se mantenga horizontal */
+  -webkit-overflow-scrolling: touch; /* Suaviza el scroll en dispositivos táctiles */
+}

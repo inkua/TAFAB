@@ -1,7 +1,7 @@
 import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/react"
 import Image from "next/image"
 
-function LeaderCard({blurData}) {
+function LeaderCard() {
     return (
         <section className="hidden md:flex md:flex-col"><div className='w-full'>
             <h3 className='mt-5 font-normal text-2xl md:text-4xl text-text-dark mb-2'>Samara Sereno</h3>
