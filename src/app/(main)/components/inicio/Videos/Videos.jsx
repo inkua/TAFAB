@@ -17,7 +17,7 @@ const Videos = () => {
 
                 <div className="w-full min-w-[288px] max-w-[364px]" role="listitem">
                     <div className="w-full aspect-video grid place-items-center bg-center bg-no-repeat bg-cover"
-                        style={{ backgroundImage: "url('home/nosotrosWeb.webp')" }}
+                        style={{ backgroundImage: "url('/defaultVideo.webp')" }}
                     >
                         <SeeBtn />
                     </div>
@@ -29,7 +29,7 @@ const Videos = () => {
 
                 <div className="w-full min-w-[288px] max-w-[364px]" role="listitem">
                     <div className="w-full aspect-video grid place-items-center bg-center bg-no-repeat bg-cover"
-                        style={{ backgroundImage: "url('home/nosotrosWeb.webp')" }}
+                        style={{ backgroundImage: "url('/defaultVideo.webp')" }}
                     >
                         <SeeLink />
                     </div>
@@ -41,9 +41,9 @@ const Videos = () => {
 
                 <div className="w-full min-w-[288px] max-w-[364px]" role="listitem">
                     <div className="w-full aspect-video grid place-items-center bg-center bg-no-repeat bg-cover"
-                        style={{ backgroundImage: "url('home/nosotrosWeb.webp')" }}
+                        style={{ backgroundImage: "url('/defaultVideo.webp')" }}
                     >
-                        <button className="bg-btn-pink hover:bg-bth-blue text-text-dark py-2 px-6 uppercase underline font-bold">ver</button>
+                        <button className="bg-btn-pink lg:opacity-50 hover:opacity-100 transition-opacity hover:bg-bth-blue text-text-dark py-2 px-6 uppercase underline font-bold">ver</button>
                     </div>
 
                     <span className="text-right block text-xs mt-4">Septiembre 12, 2025.</span>
@@ -53,9 +53,9 @@ const Videos = () => {
 
                 <div className="w-full min-w-[288px] max-w-[364px]" role="listitem">
                     <div className="w-full aspect-video grid place-items-center bg-center bg-no-repeat bg-cover"
-                        style={{ backgroundImage: "url('home/nosotrosWeb.webp')" }}
+                        style={{ backgroundImage: "url('/defaultVideo.webp')" }}
                     >
-                        <button className="bg-btn-pink hover:bg-bth-blue text-text-dark py-2 px-6 uppercase underline font-bold">ver</button>
+                        <button className="bg-btn-pink lg:opacity-50 hover:opacity-100 transition-opacity hover:bg-bth-blue hover:cur text-text-dark py-2 px-6 uppercase underline font-bold">ver</button>
                     </div>
 
                     <span className="text-right block text-xs mt-4">Septiembre 12, 2025.</span>
