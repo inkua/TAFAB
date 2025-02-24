@@ -1,3 +1,4 @@
+import { parseDate } from "@/utils/getDate";
 import { deleteImage, updateImage, uploadImage } from "./cloudinaryContainer";
 import { addElement, deleteElement, getAllElements, getElementById, updateElement } from "./container";
 
@@ -12,8 +13,25 @@ const getVideoById = async (vid) => {
 }
 
 // get all videos | does not require parameters | returns a list of all videos
-const getVideos = async () => {
-    return await getAllElements('videos')
+const getVideos = async (page = 1, pageSize = 6) => {
+    const allVideos = await getActiveVideos()
+    const orderedList = orderedVideos(allVideos)
+
+    const startIndex = (page - 1) * pageSize;
+    const endIndex = page * pageSize;
+
+    const paginatedEntities = orderedList.slice(startIndex, endIndex);
+
+    const totalItems = orderedList.length;
+    const totalPages = Math.ceil(totalItems / pageSize);
+
+    return {
+        list: paginatedEntities,
+        currentPage: page,
+        totalPages: totalPages,
+        totalItems: totalItems,
+        pageSize: pageSize
+    };
 }
 
 // get videos per page | requires page and pageSize (default: 1 and 5) | returns paginated videos
@@ -71,8 +89,11 @@ const uploadVideoImg = async (buffer, videoId) => {
 }
 
 // update an video image | requires the image buffer and existing image URL | returns the updated image URL
-const setVideoImg = async (buffer, imgUrl) => {
+const setVideoImg = async (buffer, imgUrl, videoId) => {
     const result = await updateImage(buffer, imgUrl, "videos")
+    if (result && result !== imgUrl) {
+        await setVideo({ imgUrl: result }, videoId)
+    }
     return result
 }
 
@@ -80,6 +101,11 @@ const setVideoImg = async (buffer, imgUrl) => {
 const deleteVideoImg = async (imgUrl) => {
     const result = await deleteImage(imgUrl)
     return result
+}
+
+// Función para ordenar por fechas
+function orderedVideos(newsList) {
+    return newsList.map(item => item).sort((a, b) => parseDate(b.date) - parseDate(a.date));
 }
 
 export {

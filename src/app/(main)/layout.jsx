@@ -1,14 +1,13 @@
-import React from 'react'
-import Navbar from './components/Navbar/Navbar'
-import Footer from './components/Generic/Footer'
 import { ToastProvider } from '@/utils/ToastProvider'
+import FooterContact from './components/FooterContact/FooterContact'
+import Navbar from './components/Navbar/Navbar'
 
 function mainLayout({ children }) {
     return (
         <body className="h-screen">
             <Navbar />
             {children}
-            <Footer />
+            <FooterContact />
             <ToastProvider />
         </body>
     )

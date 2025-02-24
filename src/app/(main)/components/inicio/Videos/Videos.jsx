@@ -1,7 +1,21 @@
-import SeeBtn from "./components/SeeBtn"
-import SeeLink from "./components/SeeLink"
+import ItemVideo from "./components/itemVideo"
+import { getUrlBase } from "@/utils/urlRoute"
 
-const Videos = () => {
+const getData = async () => {
+    const urlBase = getUrlBase()
+    const url = `${urlBase}/api/videos`
+
+    const response = await fetch(url, {
+        next: {
+            revalidate: 3600
+        }
+    });
+    const result = await response.json();
+    return result.data.list
+}
+
+const Videos = async () => {
+    const data = await getData()
 
     return (
         <section className="">
@@ -15,58 +29,11 @@ const Videos = () => {
                 role="list"
             >
 
-                <div className="w-full min-w-[288px] max-w-[364px]" role="listitem">
-                    <div className="w-full aspect-video grid place-items-center bg-center bg-no-repeat bg-cover"
-                        style={{ backgroundImage: "url('/defaultVideo.webp')" }}
-                    >
-                        <SeeBtn />
-                    </div>
+                {data?.map(item => <ItemVideo key={item.id} data={item} />)}
 
-                    <span className="text-right block text-xs mt-4">Septiembre 12, 2025.</span>
-                    <h3 className="uppercase text-lg mt-1">Ser trans y la academia</h3>
-                    <p className="text-xs leading-5">Si eres una persona Trans y necesitas apoyo o quieres más información sobre lo que hacemos en Trans AFAB Venezuela...</p>
-                </div>
+            </div>
 
-                <div className="w-full min-w-[288px] max-w-[364px]" role="listitem">
-                    <div className="w-full aspect-video grid place-items-center bg-center bg-no-repeat bg-cover"
-                        style={{ backgroundImage: "url('/defaultVideo.webp')" }}
-                    >
-                        <SeeLink />
-                    </div>
-
-                    <span className="text-right block text-xs mt-4">Septiembre 12, 2025.</span>
-                    <h3 className="uppercase text-lg mt-1">Ser trans y la academia</h3>
-                    <p className="text-xs leading-5">Si eres una persona Trans y necesitas apoyo o quieres más información sobre lo que hacemos en Trans AFAB Venezuela...</p>
-                </div>
-
-                <div className="w-full min-w-[288px] max-w-[364px]" role="listitem">
-                    <div className="w-full aspect-video grid place-items-center bg-center bg-no-repeat bg-cover"
-                        style={{ backgroundImage: "url('/defaultVideo.webp')" }}
-                    >
-                        <button className="bg-btn-pink lg:opacity-50 hover:opacity-100 transition-opacity hover:bg-bth-blue text-text-dark py-2 px-6 uppercase underline font-bold">ver</button>
-                    </div>
-
-                    <span className="text-right block text-xs mt-4">Septiembre 12, 2025.</span>
-                    <h3 className="uppercase text-lg mt-1">Ser trans y la academia</h3>
-                    <p className="text-xs leading-5">Si eres una persona Trans y necesitas apoyo o quieres más información sobre lo que hacemos en Trans AFAB Venezuela...</p>
-                </div>
-
-                <div className="w-full min-w-[288px] max-w-[364px]" role="listitem">
-                    <div className="w-full aspect-video grid place-items-center bg-center bg-no-repeat bg-cover"
-                        style={{ backgroundImage: "url('/defaultVideo.webp')" }}
-                    >
-                        <button className="bg-btn-pink lg:opacity-50 hover:opacity-100 transition-opacity hover:bg-bth-blue hover:cur text-text-dark py-2 px-6 uppercase underline font-bold">ver</button>
-                    </div>
-
-                    <span className="text-right block text-xs mt-4">Septiembre 12, 2025.</span>
-                    <h3 className="uppercase text-lg mt-1">Ser trans y la academia</h3>
-                    <p className="text-xs leading-5">Si eres una persona Trans y necesitas apoyo o quieres más información sobre lo que hacemos en Trans AFAB Venezuela...</p>
-                </div>
-
-
-            </div>{
-            
-            /* Carga el script en el cliente para el scroll del contenido*/}
+            {/* Carga el script en el cliente para el scroll del contenido*/}
             <script defer src="/js/videosScroll.js"></script>
 
         </section>

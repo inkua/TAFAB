@@ -1,13 +1,14 @@
 import Link from "next/link"
 
-const SeeLink = (url) => {
+const SeeLink = ({link}) => {
     return (
         <Link
-            className="bg-btn-pink hover:bg-bth-blue text-text-dark py-2 px-6 uppercase underline font-bold"
-            href={"https://www.youtube.com"}
+            className="font-bold underline mt-4 text-sm hover:text-btn-purple"
+            href={link||""}
             target="_blank"
             rel="noopener noreferrer">
-            ver</Link>
+            Ver video
+        </Link>
     )
 }
 

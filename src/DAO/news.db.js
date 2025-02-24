@@ -90,8 +90,13 @@ const uploadNewImg = async (buffer, newsId) => {
 };
 
 // update a news image | requires the image buffer and existing image URL | returns the updated image URL
-const setNewImg = async (buffer, imgUrl) => {
+const setNewImg = async (buffer, imgUrl, newsId) => {
     const result = await updateImage(buffer, imgUrl, "news");
+
+    if (result && result !== imgUrl) {
+        await setNew({ imgUrl: result }, newsId)
+    }
+
     return result;
 };
 

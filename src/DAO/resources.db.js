@@ -91,8 +91,12 @@ const uploadResourceImg = async (buffer, resourceId) => {
 };
 
 // update a resource image | requires the image buffer and existing image URL | returns the updated image URL
-const setResourceImg = async (buffer, imgUrl) => {
+const setResourceImg = async (buffer, imgUrl, videoId) => {
     const result = await updateImage(buffer, imgUrl, "resources");
+
+    if (result && result !== imgUrl) {
+        await setResource({ imgUrl: result }, videoId)
+    }
     return result;
 };
 

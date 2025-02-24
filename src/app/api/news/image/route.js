@@ -24,7 +24,7 @@ export async function POST(request) {
         let response
 
         if (entityNew.data.imgUrl) {
-            response = await setNewImg(buffer, entityNew.data.imgUrl)
+            response = await setNewImg(buffer, entityNew.data.imgUrl, itemId)
         } else {
             response = await uploadNewImg(buffer, itemId)
         }

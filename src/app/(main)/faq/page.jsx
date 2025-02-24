@@ -1,3 +1,4 @@
+import Link from "next/link"
 import Preguntas from "./components/Preguntas"
 
 const faqs = [
@@ -85,6 +86,30 @@ export default function FAQSection() {
             <section>
                 <h2 className="title mb-6">PREGUNTAS FRECUENTES</h2>
                 <Preguntas list={faqs} />
+            </section>
+
+            <section>
+                <div className="flex flex-row items-center justify-between mb-9">
+                    <h1 className="title">TU OPINIÓN CUENTA</h1>
+                    <div className="bg-tertiary h-1 w-full min-w-[20%] max-w-[55%] ml-4"></div>
+                </div>
+                <p className='leading-8 text-sm md:text-base lg:text-xl font-light mb-4' >
+                Tu voz es importante para nosotros. Usa nuestro buzón para enviar denuncias, resolver dudas o compartir sugerencias de manera segura y confidencial.
+                </p>
+
+                <div className="my-12">
+                    <Link
+                        href='https://forms.gle/FuqH24a31HzaskY97'
+                        alt="Formulario"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-[#FABF74] text-[#484848] py-5 px-10 hover:bg-bth-blue"
+                    >
+                        Escribenos aquí
+                    </Link>
+                </div>
+
+
             </section>
         </main>
     )

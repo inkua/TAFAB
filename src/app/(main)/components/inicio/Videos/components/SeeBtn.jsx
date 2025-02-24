@@ -9,7 +9,7 @@ const SeeBtn = () => {
         showToast({ type: "info", message: "Este video es solo para miembros, te invitamos a subscribirte", time: 3500 })
     }
     return (
-        <button className="bg-btn-pink hover:bg-bth-blue text-text-dark py-2 px-6 uppercase underline font-bold"
+        <button className="font-bold underline mt-4 text-sm hover:text-btn-purple bg-transparent"
             onClick={() => handleClick()}
         >ver</button>
     )

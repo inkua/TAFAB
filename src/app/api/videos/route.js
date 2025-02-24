@@ -1,6 +1,6 @@
 
 import { getSession } from "@/app/services/lib";
-import { addVideo, deleteVideo, getActiveVideos, getVideos, setVideo } from "@/DAO/videos.db";
+import { addVideo, deleteVideo, getVideos, setVideo } from "@/DAO/videos.db";
 
 
 export async function GET() {

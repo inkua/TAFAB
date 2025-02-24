@@ -55,16 +55,16 @@ function Navbar() {
             href: "/proyectos",
         },
         {
-            name: "Recursos",
-            href: "/recursos"
+            name: "Blog",
+            href: "/articulos"
         },
         {
-            name: "FAQ",
+            name: "Preguntas",
             href: "/faq"
         },
         {
-            name: "Articulos",
-            href: "/articulos"
+            name: "Recursos",
+            href: "/recursos"
         },
     ];
 
@@ -139,12 +139,12 @@ function Navbar() {
                         </li>
                     ))}
                 </ul>
-                <button className="flex xl:text-lg px-4 py-2 gap-2 items-center bg-btn-purple text-white">
+                <Link className="flex xl:text-lg px-4 py-2 gap-2 items-center bg-btn-purple text-white" href="/donar">
                     <span>
                         Haz un donativo
                     </span>
                     <img src="/assets/Heart.jpg" alt="Corazon orgullo trans" />
-                </button>
+                </Link>
             </nav>
 
             {/* Mobile Navigation */}

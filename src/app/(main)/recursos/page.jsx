@@ -1,9 +1,10 @@
 import ResourcesList from "./components/ResourcesList"
 import Pagination from "../components/Pagination/Pagination"
+import { getUrlBase } from "@/utils/urlRoute"
 
 const getData = async (page) => {
-    const baseUrl = process.env.NEXT_PUBLIC_URL
-    const URL = (`${baseUrl}/api/resources${page ? (`?page=${page}`) : ("")}`)
+    const urlBase = getUrlBase()
+    const URL = (`${urlBase}/api/resources${page ? (`?page=${page}`) : ("")}`)
     const response = await fetch(URL,
         {
             next: {

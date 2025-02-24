@@ -24,7 +24,7 @@ export async function POST(request) {
         let response
 
         if (video.data.imgUrl) {
-            response = await setVideoImg(buffer, video.data.imgUrl)
+            response = await setVideoImg(buffer, video.data.imgUrl, videoId)
         } else {
             response = await uploadVideoImg(buffer, videoId)
         }

@@ -7,7 +7,8 @@ const LoadingStyleComponent = () => {
                 className="w-[200px] lg:w-[300px]"
                 src={"/assets/spinner.gif"}
                 width={300} height={300}
-                alt="Loading..." />
+                alt="Loading..." 
+                unoptimized/>
         </main>
     )
 }

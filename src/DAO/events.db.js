@@ -63,7 +63,7 @@ const deleteEvent = async (eid) => {
 // upload an event image | requires the image buffer and event id | returns the uploaded image URL
 const uploadEventImg = async (buffer, eventId) => {
     const result = await uploadImage(buffer, "events")
-    
+
     if (result) {
         setEvent({ imgUrl: result }, eventId)
     }
@@ -71,8 +71,13 @@ const uploadEventImg = async (buffer, eventId) => {
 }
 
 // update an event image | requires the image buffer and existing image URL | returns the updated image URL
-const setEventImg = async (buffer, imgUrl) => {
+const setEventImg = async (buffer, imgUrl, eventId) => {
     const result = await updateImage(buffer, imgUrl, "events")
+
+    if (result && result !== imgUrl) {
+        await setEvent({ imgUrl: result }, eventId)
+    }
+
     return result
 }
 

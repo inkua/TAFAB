@@ -1,10 +1,11 @@
 
 import CardNoticia from './components/CardNoticia'
 import Pagination from '../components/Pagination/Pagination'
+import { getUrlBase } from '@/utils/urlRoute'
 
 const getData = async (page) => {
-    const baseUrl = process.env.NEXT_PUBLIC_URL
-    const URL = (page ? `${baseUrl}/api/news?page=${page}` : `${baseUrl}/api/news`)
+    const urlBase = getUrlBase()
+    const URL = (page ? `${urlBase}/api/news?page=${page}` : `${urlBase}/api/news`)
     const response = await fetch(URL,
         {
             next: {

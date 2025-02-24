@@ -1,5 +1,6 @@
-import { getSession } from "@/app/services/lib";
+export const dynamic = "force-dynamic";
 
+import { getSession } from "@/app/services/lib";
 
 export async function GET(req) {
     try {
