@@ -1,5 +1,6 @@
-import ItemVideo from "./components/itemVideo"
+
 import { getUrlBase } from "@/utils/urlRoute"
+import ItemVideo from "./components/ItemVideo";
 
 const getData = async () => {
     const urlBase = getUrlBase()
