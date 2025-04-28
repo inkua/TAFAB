@@ -28,10 +28,10 @@ const Dirigencia = () => {
                                 alt="Imagen de Jonah"
                             />
 
-                            <p className='leading-6 font-semibold text-sm md:flex-1 xl:text-base'>Hombre transgénero y No Binarie nacido en Coro, Falcón. Estudiante universitario, defensor de Derechos Humanos y cofundador de Trans AFAB Venezuela. Actualmente es codirector de la organización.</p>
+                            <p className='leading-6 font-semibold text-sm md:flex-1 xl:text-base'>Hombre transgénero y no binarie, nacido en Coro, Falcón. Fisioterapeuta, defensor de derechos humanos y cofundador de Trans AFAB Venezuela. Actualmente es codirector de la colectiva.</p>
                         </div>
                         <p className='hidden text-start leading-6 font-light italic text-sm xl:text-base border md:block border-tertiary h-fit lg:w-[33%] m-0 p-3'>
-                            “Las personas Trans tenemos Derecho a ocupar espacios y a alzar la voz ante cualquier muestra de discriminación. Somos personas que desde la pobreza y la marginalidad social debemos seguir luchando por alcanzar nuestros derechos, si no lo hacemos nosotros, ¿Quién lo hará?”.  Jonah Sira.
+                            “Las personas Trans tenemos derecho a ocupar espacios y a alzar la voz ante cualquier muestra de discriminación. Somos personas que desde la pobreza y la marginalidad social debemos seguir luchando por alcanzar nuestros derechos, si no lo hacemos nosotros, ¿Quién lo hará?”. <strong className='not-italic'> Jonah Sira.</strong>
                         </p>
                     </div>
 
@@ -39,7 +39,7 @@ const Dirigencia = () => {
                         <Disclosure>
                             <DisclosureButton className="py-2 px-2 my-4 bg-tertiary text-slate-600">Las personas Trans...  ver más</DisclosureButton>
                             <DisclosurePanel className="font-light italic text-sm">
-                                “Las personas Trans tenemos Derecho a ocupar espacios y a alzar la voz ante cualquier muestra de discriminación. Somos personas que desde la pobreza y la marginalidad social debemos seguir luchando por alcanzar nuestros derechos, si no lo hacemos nosotros, ¿Quién lo hará?”.  Jonah Sira.
+                                “Las personas Trans tenemos derecho a ocupar espacios y a alzar la voz ante cualquier muestra de discriminación. Somos personas que desde la pobreza y la marginalidad social debemos seguir luchando por alcanzar nuestros derechos, si no lo hacemos nosotros, ¿Quién lo hará?”. <strong className='not-italic'> Jonah Sira.</strong>
                             </DisclosurePanel>
                         </Disclosure>
                     </div>
@@ -62,11 +62,11 @@ const Dirigencia = () => {
                                 alt="Imagen de Kallum"
                             />
                             <p className='leading-6 font-semibold text-sm md:flex-1 xl:text-base'>
-                                Hombre transgénero. Estudiante de psicología en la Universidad Central de Venezuela, activista por los Derechos Humanos de la comunidad LGBTIQ+ y Cofundador de Trans AFAB Venezuela. Actualmente es codirector y tesorero de la organización.
+                                Hombre transgénero. Estudiante de psicología en la Universidad Central de Venezuela, activista por los derechos humanos de la comunidad LGBTIQ+ y cofundador de Trans AFAB Venezuela. Actualmente es codirector y tesorero de la colectiva.
                             </p>
                         </div>
                         <p className='hidden text-start leading-6 font-light italic text-sm xl:text-base border md:block border-tertiary h-fit lg:w-[33%] m-0 p-3'>
-                            “Entendí que si no encuentro espacios a los que pertenecer, yo los crearé. No sólo, nunca sólo, pero en colaboración y en compañía a través de la solidaridad y la ternura, la comunicación y responsabilidad. Que nuestra venganza sea no la violencia, si no nuestra felicidad y bienestar”.  Kallum Olortegui.
+                            “Entendí que si no encuentro espacios a los que pertenecer, yo los crearé. No sólo, nunca sólo, pero en colaboración y en compañía a través de la solidaridad y la ternura, la comunicación y responsabilidad. Que nuestra venganza sea no la violencia, si no nuestra felicidad y bienestar”. <strong className='not-italic'> Kallum Olortegui.</strong>
                         </p>
                     </div>
 
@@ -74,7 +74,7 @@ const Dirigencia = () => {
                         <Disclosure>
                             <DisclosureButton className="py-2 px-2 my-4 bg-tertiary text-slate-600">Entendí que si no...  ver más</DisclosureButton>
                             <DisclosurePanel className="font-light italic text-sm mb-2">
-                                “Entendí que si no encuentro espacios a los que pertenecer, yo los crearé. No sólo, nunca sólo, pero en colaboración y en compañía a través de la solidaridad y la ternura, la comunicación y responsabilidad. Que nuestra venganza sea no la violencia, si no nuestra felicidad y bienestar”.  Kallum Olortegui.
+                                “Entendí que si no encuentro espacios a los que pertenecer, yo los crearé. No sólo, nunca sólo, pero en colaboración y en compañía a través de la solidaridad y la ternura, la comunicación y responsabilidad. Que nuestra venganza sea no la violencia, si no nuestra felicidad y bienestar”. <strong className='not-italic'> Kallum Olortegui.</strong>
                             </DisclosurePanel>
                         </Disclosure>
                     </div>
@@ -83,7 +83,7 @@ const Dirigencia = () => {
 
 
             <Disclosure>
-                <DisclosureButton className="py-2 mt-4 px-2 bg-btn-pink  text-text-dark underline  md:hidden block">VER MÁS CONTENIDO</DisclosureButton>
+                <DisclosureButton className="py-2 mt-4 px-2 bg-btn-pink  text-text-dark underline  md:hidden block">VER MÁS DIRIGENTES</DisclosureButton>
                 <DisclosurePanel >
 
                     <div className='w-full'>
@@ -102,11 +102,11 @@ const Dirigencia = () => {
                                         alt="Imagen de Samara"
                                     />
                                     <p className='leading-6 font-semibold text-sm md:flex-1 xl:text-base'>
-                                        Mujer Trans. Artista, artesana y activista por los Derechos Humanos de las personas LGBTIQ+. Actualmente es vocal de la junta directiva y coordinadora regional para el estado Aragua.
+                                        Mujer Transgénero. Artista, artesana y activista por los derechos humanos de las personas LGBTIQ+. Actualmente es vocal de la junta directiva y coordinadora regional para los estados Aragua y Carabobo
                                     </p>
                                 </div>
                                 <p className='hidden text-start leading-6 font-light italic text-sm xl:text-base border md:block border-tertiary h-fit lg:w-[33%] m-0 p-3'>
-                                    “Hoy soy libre y sigo descubriendo quien soy realmente después de tantos años, el activismo me da fuerzas para continuar en esta 'guerra' diaria de ser yo”.  S. Sereno
+                                    “Hoy soy libre y sigo descubriendo quien soy realmente después de tantos años, el activismo me da fuerzas para continuar en esta 'guerra' diaria de ser yo”. <strong className='not-italic'>S. Sereno</strong>
                                 </p>
                             </div>
 
@@ -114,7 +114,7 @@ const Dirigencia = () => {
                                 <Disclosure>
                                     <DisclosureButton className="py-2 px-2 my-4 bg-tertiary text-slate-600">Hoy soy libre...  ver más</DisclosureButton>
                                     <DisclosurePanel className="font-light italic text-sm">
-                                        “Hoy soy libre y sigo descubriendo quien soy realmente después de tantos años, el activismo me da fuerzas para continuar en esta 'guerra' diaria de ser yo”.  S. Sereno
+                                        “Hoy soy libre y sigo descubriendo quien soy realmente después de tantos años, el activismo me da fuerzas para continuar en esta 'guerra' diaria de ser yo”. <strong className='not-italic'>S. Sereno</strong>
                                     </DisclosurePanel>
                                 </Disclosure>
                             </div>
@@ -137,11 +137,11 @@ const Dirigencia = () => {
                                         alt="Imagen de Dani"
                                     />
                                     <p className='leading-6 font-semibold text-sm md:flex-1 xl:text-base'>
-                                        Persona No Binarie. Artista, Drag Queen venezolana y activista por los Derechos Humanos de la comunidad LGBTIQ+. Actualmente es vocal de la junta directiva y coordinadora regional para el estado Carabobo.
+                                        Persona No Binarie. Artista, Drag Queen venezolana y activista por los derechos humanos de la comunidad LGBTIQ+. Actualmente es vocal de la junta directiva y coordinadora regional para el estado Carabobo.
                                     </p>
                                 </div>
                                 <p className='hidden text-start leading-6 font-light italic text-sm xl:text-base border md:block border-tertiary h-fit lg:w-[33%] m-0 p-3'>
-                                    “Necesitaba este fuego, este deseo de luchar, de impulsar y trabajar por el progreso. Tengo un gran viaje delante de mí y solo puedo sentir ansias”.  Dani Brito
+                                    “Necesitaba este fuego, este deseo de luchar, de impulsar y trabajar por el progreso. Tengo un gran viaje delante de mí y solo puedo sentir ansias”. <strong className='not-italic'>Dani Brito</strong>
                                 </p>
                             </div>
 
@@ -149,7 +149,7 @@ const Dirigencia = () => {
                                 <Disclosure>
                                     <DisclosureButton className="py-2 px-2 my-4 bg-tertiary text-slate-600">Necesitaba este fuego...  ver más</DisclosureButton>
                                     <DisclosurePanel className="font-light italic text-sm">
-                                        “Necesitaba este fuego, este deseo de luchar, de impulsar y trabajar por el progreso. Tengo un gran viaje delante de mí y solo puedo sentir ansias”.  Dani Brito
+                                        “Necesitaba este fuego, este deseo de luchar, de impulsar y trabajar por el progreso. Tengo un gran viaje delante de mí y solo puedo sentir ansias”. <strong className='not-italic'>Dani Brito</strong>
                                     </DisclosurePanel>
                                 </Disclosure>
                             </div>
@@ -172,11 +172,11 @@ const Dirigencia = () => {
                                         alt="Imagen de D. F."
                                     />
                                     <p className='leading-6 font-semibold text-sm md:flex-1 xl:text-base'>
-                                        Hombre Trans. Estudiante universitario, músico e ilustrador. Actualmente es secretario de la junta directiva diseñador gráfico de TAFAB.
+                                        Hombre Trans. Estudiante universitario, músico e ilustrador. Actualmente es secretario de la junta directiva y diseñador gráfico de la imagen institucional de TAFAB.
                                     </p>
                                 </div>
                                 <p className='hidden text-start leading-6 font-light italic text-sm xl:text-base border md:block border-tertiary h-fit lg:w-[33%] m-0 p-3'>
-                                    "Pasé gran parte de mi vida con miedo de mí mismo y del rechazo. Ser yo requiere valentía pero también trajo alegría, y hoy soy amado por quién soy”. D. F.
+                                    "Pasé gran parte de mi vida con miedo de mí mismo y del rechazo. Ser yo requiere valentía pero también trajo alegría, y hoy soy amado por quién soy”.<strong className='not-italic'> D. F.</strong>
                                 </p>
                             </div>
 
@@ -184,7 +184,7 @@ const Dirigencia = () => {
                                 <Disclosure>
                                     <DisclosureButton className="py-2 px-2 my-4 bg-tertiary text-slate-600">Pasé con miedo...  ver más</DisclosureButton>
                                     <DisclosurePanel className="font-light italic text-sm">
-                                        "Pasé gran parte de mi vida con miedo de mí mismo y del rechazo. Ser yo requiere valentía pero también trajo alegría, y hoy soy amado por quién soy”. D. F.
+                                        "Pasé gran parte de mi vida con miedo de mí mismo y del rechazo. Ser yo requiere valentía pero también trajo alegría, y hoy soy amado por quién soy”. <strong className='not-italic'>D. F.</strong>
                                     </DisclosurePanel>
                                 </Disclosure>
                             </div>

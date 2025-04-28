@@ -40,7 +40,7 @@ export default function Home() {
                 </Link>
             </section>
 
-            <Noticias />
+            {/* <Noticias /> */}
 
             <Videos />
         </main>

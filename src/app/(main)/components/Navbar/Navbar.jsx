@@ -53,14 +53,28 @@ function Navbar() {
         {
             name: "Proyectos",
             href: "/proyectos",
+            dropdownItems: [
+                {
+                    name: "Asistencia sanitaria",
+                    href: "/proyectos/asistencia-sanitaria"
+                },
+                {
+                    name: "Asistencia socioeconómica",
+                    href: "/proyectos/asistencia-socioeconomica"
+                },
+                {
+                    name: "Educación y sensibilización",
+                    href: "/proyectos/educacion-sensibilizacion"
+                },
+            ],
         },
         {
-            name: "Blog",
+            name: "Artículos",
             href: "/articulos"
         },
         {
             name: "Preguntas",
-            href: "/faq"
+            href: "/preguntas"
         },
         {
             name: "Recursos",
@@ -73,10 +87,17 @@ function Navbar() {
             {/* Top Banner */}
             <div className="bg-primary pt-mobile pb-0 px-mobile lg:px-8 lg:py-6 flex flex-col lg:flex-row gap-1 md:gap-4 text-center items-center justify-center text-text-white font-semibold text-sm lg:text-base">
                 <p>Defendemos los derechos y el bienestar de las personas Trans en Venezuela y el mundo</p>
-                <button className="flex gap-2 items-center px-mobile border-2 border-white my-5 lg:my-0">
-                    <img src="/assets/Flag.jpg" alt="Bandera orgullo trans" />
-                    <span>Sé miembro de nuestra comunidad</span>
-                </button>
+                <a 
+                    alt="se parte de la comunidad"
+                    href="https://www.whatsapp.com/channel/0029VayoFLsLCoWtBT43Ae0Q"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <button className="flex gap-2 items-center px-mobile border-2 border-white my-5 lg:my-0">
+                        <img src="/assets/Flag.jpg" alt="Bandera orgullo trans" />
+                        <span>Sé miembro de nuestra comunidad</span>
+                    </button>
+                </a>
             </div>
 
             <img className="w-full"
@@ -88,7 +109,8 @@ function Navbar() {
                 <Link href={'/'}>
                     <img className="w-28"
                         src="/auth/logoAuth.jpg"
-                        alt="logo" />
+                        alt="logo" 
+                        onClick={()=>setActiveDropdown(false)}/>
                 </Link>
                 <ul className="flex w-2/3 gap-9 justify-center">
                     {menuItems.map((item) => (
@@ -96,6 +118,7 @@ function Navbar() {
                             <Link
                                 className={`hover:underline underline-offset-0 decoration-bth-blue decoration-4 hover:underline-offset-8 ${pathname == item.href && "underline !underline-offset-8"} transition-colors duration-150`}
                                 href={item.href}
+                                onClick={() => setActiveDropdown(false)}
                             >
                                 {item.name}
                             </Link>

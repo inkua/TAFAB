@@ -4,7 +4,7 @@ const ArticleDetail = ({ data }) => {
     return (
         <section>
             <div className="mx-auto" role="banner">
-                <figure className="relative w-full aspect-video max-h-[320px] lg:max-h-[370px]">
+                <figure className="relative w-full aspect-video max-h-[320px] lg:max-h-[400px]">
                     <Image
                         className="object-cover object-center mb-[11px]"
                         src={data.imgUrl}
@@ -14,7 +14,7 @@ const ArticleDetail = ({ data }) => {
                     />
                 </figure>
                 <span className="italic text-[11px] md:text-[20px] block text-right">
-                    {data.title + (data.date ? ", " + data.date : "")}
+                    {data.title + (data.date ? " - " + data.date : "")}
                 </span>
             </div>
 

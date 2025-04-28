@@ -1,13 +1,26 @@
 import Link from "next/link"
+
 import Preguntas from "./components/Preguntas"
 
 const faqs = [
     {
-        question: "No tengo con quien hablar de esto en mi entorno, ¿Qué puedo hacer?",
+        question: "No tengo con quien hablar sobre mi identidad, ¿Dónde puedo conversar sobre lo que me pasa?",
         answer: (<>
-            Desde Trans AFAB Venezuela tenemos diferentes espacios de convivencia, como la comunidad de WhatsApp y nuestras diferentes actividades tanto presenciales dentro de los estados donde contamos con alcance presencial (por los momentos Dist. Capital, Falcón, Carabobo y Maracay) como las virtuales. Puedes saber más de esto{" "}
+            En Trans AFAB Venezuela tenemos diferentes espacios de convivencia, en especial una comunidad de WhatsApp, con grupos de apoyo virtual, donde conocerás personas trangénero de todo el país. {" "}
             <a
-                href="https://example.com"
+                href="https://chat.whatsapp.com/BukpP64lLKQI76JxTLPpvo"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 underline"
+            >
+                Únete
+            </a>.
+            <br />
+            <br />
+            También realizamos diferentes actividades, tanto presenciales dentro de los estados donde contamos con alcance presencial (por los momentos Dist. Capital, Falcón, Carabobo y Maracay). 
+            Conoce las próximas actividades{" "}
+            <a
+                href="https://www.instagram.com/transafabvzla/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-500 underline"
@@ -17,17 +30,9 @@ const faqs = [
         </>)
     },
     {
-        question: "Quiero comenzar mi transición hormonal, ¿Me pueden ayudar?",
+        question: "Quiero comenzar mi terapia hormonal, ¿Me pueden ayudar?",
         answer: (<>
-            ¡Sí! Actualmente contamos con acompañamiento y monitoreo alrededor de la terapia de reemplazo hormonal (TRH). Podemos informarte y responder las dudas que tengas como acompañarte a lo largo de este trayecto. Estamos construyendo un equipo médico para brindar atención integral, pero por lo momentos contamos directamente con un médico y referimos a los demás especialistas, varios siendo miembros de la fundación Unitrans. Para más información puedes contactarnos al {" "}
-            <a
-                href="https://wa.me/584260364005"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-500 underline"
-            >
-                Whatsapp
-            </a>.
+            ¡Sí! Actualmente contamos con acompañamiento y monitoreo alrededor de la terapia de reemplazo hormonal (TRH). Podemos informarte y responder las dudas que tengas, y  también acompañarte a lo largo de todo el proceso. Estamos construyendo un equipo médico para brindar atención integral, pero por lo momentos contamos directamente con un médico y referimos a los demás especialistas; <strong> para más información contáctanos al +58 412-7112532</strong>
         </>)
     },
     {

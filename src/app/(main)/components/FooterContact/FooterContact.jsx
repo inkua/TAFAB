@@ -1,4 +1,4 @@
-
+import Link from "next/link"
 
 const FooterContact = () => {
     return (
@@ -19,7 +19,7 @@ const FooterContact = () => {
 
                             <div className="w-full mt-6">
                                 <label className="block mb-2 text-md text-white ">Mensaje</label>
-                                <textarea className="block w-full h-32 px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 md:h-48  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring" placeholder="Texto"></textarea>
+                                <textarea className="block w-full h-32 px-5 py-3 mt-2 text-gray-700 placeholder-gray-500 bg-white border border-gray-200 md:h-48  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring" placeholder="texto"></textarea>
                             </div>
 
                             <button className="w-full px-6 py-3 mt-6 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-btn-purple">
@@ -33,13 +33,13 @@ const FooterContact = () => {
                         <p className="font-extrabold text-white lg:text-right">Trans AFAB Venezuela</p>
 
                         <div className="flex flex-col items-start lg:items-end mt-5 space-y-2 ">
-                            <a href="#" className="text-white lg:text-lg">Inicio</a>
-                            <a href="#" className="text-white lg:text-lg">Nosotros</a>
-                            <a href="#" className="text-white lg:text-lg">Proyectos</a>
-                            <a href="#" className="text-white lg:text-lg">Blog</a>
-                            <a href="#" className="text-white lg:text-lg">Preguntas</a>
-                            <a href="#" className="text-white lg:text-lg">Recursos</a>
-                            <a href="#" className="text-white lg:text-lg">Donar</a>
+                            <Link href="/" alt="inicio" className="text-white lg:text-lg">Inicio</Link>
+                            <Link href="/nosotros" alt="nosotros" className="text-white lg:text-lg">Nosotros</Link>
+                            <Link href="/proyectos" alt="proyectos" className="text-white lg:text-lg">Proyectos</Link>
+                            <Link href="/articulos" alt="artículos" className="text-white lg:text-lg">Articulos</Link>
+                            <Link href="/preguntas" alt="preguntas frecuentes" className="text-white lg:text-lg">Preguntas Frecuentes</Link>
+                            <Link href="/recursos" alt="recursos de la comunidad" className="text-white lg:text-lg">Recursos</Link>
+                            <Link href="/donar" alt="donar" className="text-white lg:text-lg">Donar</Link>
                         </div>
                     </div>
                 </div>

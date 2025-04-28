@@ -1,5 +1,7 @@
 import Image from 'next/image';
-import React from 'react';
+import Link from 'next/link';
+
+import NoticiaImg from '../articulos/components/NoticiaImg';
 
 const list = [
     {
@@ -42,30 +44,46 @@ const Proyectos = () => {
             <section className="font-sans w-full">
                 <h1 className="title mb-4">NUESTROS PROYECTOS</h1>
                 <p className="mb-6 font-light leading-8 text-sm md:text-base lg:text-xl">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue. Vestibulum auctor ornare leo, non suscipit magna interdum eu. Curabitur pellentesque nibh nibh, at maximus ante fermentum sit amet. Pellentesque commodo lacus at sodales sodales. Quisque sagittis orci ut diam condimentum, vel euismod erat placerat. In iaculis arcu eros, eget tempus orci facilisis id.
+                    Durante el 2024 Trans AFAB Venezuela (TAFAB) logró ampliar su impacto en la población LGBTIQ+ venezolana. Además, dicho año fue clave para demostrar el compromiso por parte del equipo de trabajo y sus capacidades operativas para afrontar cada desafío. Durante el transcurso de los meses, la organización impactó directamente, entre 250 a 300 personas de forma directa, a través de cada uno de los proyectos ejecutados; y, de forma indirecta, a más de 350 personas alrededor del país.
                 </p>
-                <div className="flex flex-col gap-8" role='list'>
-                    {list.map((proyecto, index) => (
-                        <div
-                            id={proyecto.seccionId}
-                            key={index}
-                            className="flex flex-col md:flex-row  items-center gap-4 pb-4"
-                            role='listitem'
-                        >
-                            <Image
-                                src={proyecto.imagen}
-                                alt={proyecto.titulo}
-                                width={600}
-                                loading='lazy'
-                                height={600}
-                                className="md:w-[263px] lg:w-[363px] w-full h-auto aspect-video rounded-sm object-cover"
-                            />
-                            <div>
-                                <h2 className="text-base md:text-xl lg:text-2xl font-bold mb-2 text-text-dark">{proyecto.titulo}</h2>
-                                <p className="font-light leading-8 text-sm md:text-base lg:text-xl">{proyecto.descripcion}</p>
-                            </div>
-                        </div>
-                    ))}
+
+                <div className='flex flex-col w-full h-max gap-[32px] lg:grid lg:grid-cols-3'>
+                    <div className='bg-[#F4F4F4] px-[19px] py-[30px]'>
+                        <NoticiaImg imgUrl="/proyectos/atencion.webp" title="asistencia sanitaria" />
+
+                        <h2 className='text-lg font-extrabold uppercase mb-[10px]'>Asistencia Sanitaria</h2>
+                        <p className='font-normal text-4 mb-[10px]'>El proyecto de asistencia sanitaria de la Fundación Trans AFAB brinda atención médica y psicológica a personas LGBTIQ+, especialmente a la población trans, desde un enfoque libre de estigmas y con perspectiva de género.</p>
+
+                        <Link
+                            href={`/proyectos/asistencia-sanitaria`}
+                            className='bg-[#FABF74] w-full block text-center text-base lg:text-lg py-2 lg:py-4 px-12 hover:bg-btn-pink mt-4'
+                        >Ver más</Link>
+                    </div>
+
+                    <div className='bg-[#F4F4F4] px-[19px] py-[30px]'>
+                        <NoticiaImg imgUrl="/proyectos/closet.webp" title="closet comunitario" />
+
+                        <h2 className='text-lg font-extrabold uppercase mb-[10px]'>Asistencia socioeconómica</h2>
+                        <p className='font-normal text-4 mb-[10px]'>Son proyectos enfocados alrededor del acceso a recursos de diversas índoles; a través de estos se brindan recursos materiales y financieros a personas en situación de emergencia o vulnerabilidad económica.</p>
+
+                        <Link
+                            href={`/proyectos/asistencia-socioeconomica`}
+                            className='bg-[#FABF74] w-full block text-center text-base lg:text-lg py-2 lg:py-4 px-12 hover:bg-btn-pink mt-4'
+                        >Ver más</Link>
+                    </div>
+
+                    <div className='bg-[#F4F4F4] px-[19px] py-[30px] flex flex-col'>
+                        <NoticiaImg imgUrl="/proyectos/incidencia.webp" title="educación" />
+
+                        <h2 className='text-lg font-extrabold uppercase mb-[10px]'>Educación y sensibilización</h2>
+                        <p className='font-normal text-4 mb-[10px]'>Esta área de acción incluye proyectos y actividades enfocadas en educar y visibilizar sobre la historia de vida y experiencias de las personas trans en Venezuela</p>
+
+                        <Link
+                            href={`/proyectos/educacion-sensibilizacion`}
+                            className='bg-[#FABF74] w-full block text-center text-base lg:text-lg py-2 lg:py-4 px-12 hover:bg-btn-pink mt-auto'
+                        >Ver más</Link>
+                    </div>
+                    
                 </div>
             </section>
         </main>

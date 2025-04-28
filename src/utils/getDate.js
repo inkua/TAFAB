@@ -12,6 +12,21 @@ function getDateFormated() {
     return `${nombreMes} ${dia}, ${año}`;
 }
 
+function dateFormatedFrontend(firebaseDate) {
+    const date = new Date(firebaseDate.seconds * 1000);
+
+    const opciones = { day: 'numeric', month: 'long', year: 'numeric' };
+    const formatter = new Intl.DateTimeFormat('es-ES', opciones);
+    const partes = formatter.formatToParts(date);
+
+    const dia = partes.find(p => p.type === 'day').value;
+    const mes = partes.find(p => p.type === 'month').value;
+    const año = partes.find(p => p.type === 'year').value;
+
+    const resultado = `${mes.charAt(0).toUpperCase() + mes.slice(1)} ${dia}, ${año}`;
+    return resultado;
+}
+
 // Función para convertir la fecha en un objeto Date
 function parseDate(dateStr) {
     const months = {
@@ -24,4 +39,5 @@ function parseDate(dateStr) {
 export {
     getDateFormated,
     parseDate,
+    dateFormatedFrontend,
 }
