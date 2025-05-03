@@ -3,11 +3,11 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import MobileDropdownBtn from "./components/MobileDropdownBtn";
 
 function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState(null);
-    const [moblileDropdown, setMoblileDropdown] = useState(false);
     const pathname = usePathname()
 
     const toggleDropdown = (menu) => {
@@ -18,6 +18,7 @@ function Navbar() {
         setMoblileDropdown(false)
         setIsOpen(false)
     }
+
 
     const menuItems = [
         {
@@ -247,40 +248,8 @@ function Navbar() {
                                 </Link>
 
                                 { item.dropdownItems&&
-                                <>
-                                    <button
-                                        onClick={() => setMoblileDropdown(!moblileDropdown)}
-                                    >
-                                            <svg
-                                                className={`ml-2 h-5 w-5 transition-transform duration-200 stroke-white ${moblileDropdown && "rotate-180"}`}
-                                                fill="none"
-                                                viewBox="0 0 24 24"
-                                                stroke="currentColor"
-                                            >
-                                                <path
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                    strokeWidth={5}
-                                                    d="M19 9l-7 7-7-7"
-                                                />
-                                            </svg>
-                                    </button>
-
-                                    {moblileDropdown && (
-                                        <div className="px-4 py-2">
-                                            {item.dropdownItems.map((dropdownItem) => (
-                                                <Link
-                                                    key={dropdownItem.name}
-                                                    href={dropdownItem.href}
-                                                    className="block px-4 py-2 text-xl"
-                                                    onClick={()=>onMobileClick()}
-                                                >
-                                                    {dropdownItem.name}
-                                                </Link>
-                                            ))}
-                                        </div>
-                                    )}
-                                </>
+                                <MobileDropdownBtn item={item} setIsOpen={setIsOpen}/>
+                    
                             }
                                 
                             </li>
