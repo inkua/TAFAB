@@ -22,7 +22,7 @@ async function Recursos({ searchParams }) {
     return (
         <main className='px-mobile md:px-tablet w-full xl:max-w-top min-[1500px]:px-0 lg:mx-auto'>
             <h1 className='title mb-4'>RECURSOS DE LA COMUNIDAD</h1>
-            <p className="mb-6">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut numquam excepturi dolorum sequi placeat. Sequi minima officia nam? Voluptas optio consequuntur quasi et, est aut beatae adipisci temporibus eligendi velit.</p>
+            <p className="mb-6">Aquí encontrarás documentos, enlaces web y foros con información clave sobre  los derechos trans en Venezuela y el mundo.</p>
             
             <ResourcesList data={data.list} />
 

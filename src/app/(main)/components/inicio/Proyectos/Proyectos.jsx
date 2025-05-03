@@ -4,10 +4,10 @@ import Link from "next/link"
 
 const Proyectos = () => {
     const projects = [
-        {id:1, imgUrl:'/home/proyectos/acompanamiento.webp', title:'Acompañamiento psicosocial', url:'/proyectos#'},
-        {id:2, imgUrl:'/home/proyectos/closet.webp', title:'Closet comunitario', url:'/proyectos#'},
-        {id:3, imgUrl:'/home/proyectos/redes.webp', title:'Visualización en redes', url:'/proyectos#'},
-        {id:4, imgUrl:'/home/proyectos/insidencia.webp', title:'Insidencia pública', url:'/proyectos#'},
+        {id:1, imgUrl:'/home/proyectos/acompanamiento.webp', title:'Atención psicológica', url:'/proyectos/asistencia-sanitaria#atencion-psicologica'},
+        {id:2, imgUrl:'/home/proyectos/closet.webp', title:'Closet comunitario', url:'/proyectos/asistencia-socioeconomica#closet'},
+        {id:3, imgUrl:'/home/proyectos/redes.webp', title:'Educación y Sensibilización', url:'/proyectos/educacion-sensibilizacion'},
+        {id:4, imgUrl:'/home/proyectos/insidencia.webp', title:'salud física', url:'/proyectos/asistencia-sanitaria#salud-fisica'},
     ]
     return (
         <section className="bg-white" role="listbox">

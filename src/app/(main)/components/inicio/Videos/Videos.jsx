@@ -1,6 +1,6 @@
-
 import { getUrlBase } from "@/utils/urlRoute"
-import ItemVideo from "./components/ItemVideo";
+
+import Slider from "../../Slider/Slider";
 
 const getData = async () => {
     const urlBase = getUrlBase()
@@ -25,18 +25,7 @@ const Videos = async () => {
                 <div className="bg-tertiary h-1 w-full min-w-[20%] max-w-[55%] ml-4"></div>
             </div>
 
-            <div className="flex flex-row gap-4 lg:gap-14 md:px-4 overflow-x-scroll cursor-grab active:cursor-grabbing select-none scroll-container"
-                id="videosScroll"
-                role="list"
-            >
-
-                {data?.map(item => <ItemVideo key={item.id} data={item} />)}
-
-            </div>
-
-            {/* Carga el script en el cliente para el scroll del contenido*/}
-            <script defer src="/js/videosScroll.js"></script>
-
+            <Slider data={data} type="videos" />
         </section>
     )
 }

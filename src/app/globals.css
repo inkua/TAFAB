@@ -267,3 +267,10 @@
   overflow-x: auto; /* Asegura que el desplazamiento se mantenga horizontal */
   -webkit-overflow-scrolling: touch; /* Suaviza el scroll en dispositivos táctiles */
 }
+
+
+.swiper-wrapper .carrousel_item {
+  display: flex !important;
+  justify-content: center !important;
+  width: auto !important;
+}

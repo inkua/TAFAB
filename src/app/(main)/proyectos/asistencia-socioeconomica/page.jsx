@@ -15,7 +15,7 @@ function page() {
                     alt="closet comunitario"
                 />
             </section>
-            <section>
+            <section id="closet">
                 <div className="flex flex-row items-center justify-between mb-9">
                     <h2 className="title">Clóset comunitario:</h2>
                     <div className="bg-tertiary h-1 w-full min-w-[20%] max-w-[55%] ml-4"></div>

@@ -15,7 +15,7 @@ function page() {
                 />
             </section>
 
-            <section className="">
+            <section id="atencion-psicologica">
                 <div className="flex flex-row items-center justify-between mb-9">
                     <h2 className="title">Programa de atención psicológica</h2>
                     <div className="bg-tertiary h-1 w-full min-w-[20%] max-w-[55%] ml-4"></div>
@@ -35,7 +35,7 @@ function page() {
                 <p className="mb-6 font-bold leading-8 text-sm md:text-base lg:text-xl">Si quieres recibir atención psicológica individualizada, escríbenos al +58 426-0364005 o al +58 412-7112532</p>
             </section>
 
-            <section>
+            <section id="salud-fisica">
                 <div className="flex flex-row items-center justify-between mb-9">
                     <h2 className="title">Programa de salud física</h2>
                     <div className="bg-tertiary h-1 w-full min-w-[20%] max-w-[55%] ml-4"></div>

@@ -8,7 +8,7 @@ const ItemVideo = ({data}) => {
     }
 
     return (
-        <div className="w-full min-w-[288px] max-w-[364px]" role="listitem">
+        <div className="w-[288px] md:w-[364px]" role="listitem">
             <div className="w-full aspect-video grid place-items-center bg-center bg-no-repeat bg-cover"
                 style={{ backgroundImage: `url(${imageSrc})` }}
             >
