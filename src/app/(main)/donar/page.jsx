@@ -1,4 +1,7 @@
-
+export const metadata = {
+    title: "Donar | TAFAB Venezuela",
+    description: "Apoya el trabajo de TAFAB y haz posible que más personas trans en Venezuela reciban acompañamiento, recursos y visibilidad.",
+}
 
 const Donar = () => {
     return (

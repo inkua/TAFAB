@@ -4,6 +4,11 @@ import Link from 'next/link'
 
 import Dirigencia from './components/Dirigencia'
 
+export const metadata = {
+    title: "Nosotros | TAFAB Venezuela",
+    description: "Descubre cómo trabajamos desde la experiencia trans para ofrecer apoyo, organización y transformación social en Venezuela.",
+}
+
 function page() {
     return (
         <main className='px-mobile md:px-tablet w-full xl:max-w-top min-[1500px]:px-0 lg:mx-auto *:mb-[45px] lg:*:mb-[70px]'>

@@ -14,6 +14,10 @@ const getData = async (page) => {
     const result = await response.json();
     return result.data
 }
+export const metadata = {
+    title: "Recursos | TAFAB Venezuela",
+    description: "Una colección de materiales útiles para personas trans y sus aliades: videos, guías, documentos legales y enlaces relevantes.",
+}
 
 async function Recursos({ searchParams }) {
     const { page } = searchParams

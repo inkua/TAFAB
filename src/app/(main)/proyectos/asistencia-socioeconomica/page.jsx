@@ -1,5 +1,10 @@
 import Link from "next/link"
 
+export const metadata = {
+    title: "Asistencia Socioeconómica | TAFAB",
+    description: "Son proyectos enfocados alrededor del acceso a recursos de diversas índoles; a través de estos se brindan recursos materiales y financieros a personas en situación de emergencia o vulnerabilidad económica.",
+}
+
 function page() {
     return (
         <main className='px-mobile md:px-tablet w-full xl:max-w-top min-[1500px]:px-0 lg:mx-auto *:mb-[45px] lg:*:mb-[70px]'>

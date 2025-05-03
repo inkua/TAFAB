@@ -1,7 +1,11 @@
-import Image from 'next/image';
 import Link from 'next/link';
 
 import NoticiaImg from '../articulos/components/NoticiaImg';
+
+export const metadata = {
+    title: "Proyectos | TAFAB Venezuela",
+    description: "Conoce las iniciativas que impulsamos para garantizar espacios seguros, acceso a derechos y conexión entre comunidades trans venezolanas.",
+}
 
 const list = [
     {

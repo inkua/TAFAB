@@ -1,3 +1,7 @@
+export const metadata = {
+    title: "Asistencia Sanitaria | TAFAB",
+    description: "El proyecto de asistencia sanitaria de la Fundación Trans AFAB brinda atención médica y psicológica a personas LGBTIQ+, especialmente a la población trans, desde un enfoque libre de estigmas y con perspectiva de género.",
+}
 
 function page() {
     return (

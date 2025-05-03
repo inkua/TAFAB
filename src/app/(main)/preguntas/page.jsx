@@ -2,6 +2,11 @@ import Link from "next/link"
 
 import Preguntas from "./components/Preguntas"
 
+export const metadata = {
+    title: "Preguntas Frecuentes | TAFAB Venezuela",
+    description: "Resolvemos tus dudas frecuentes sobre TAFAB, nuestras áreas de trabajo y la forma en que acompañamos a la comunidad trans.",
+}
+
 const faqs = [
     {
         question: "No tengo con quien hablar sobre mi identidad, ¿Dónde puedo conversar sobre lo que me pasa?",

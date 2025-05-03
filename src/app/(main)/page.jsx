@@ -4,6 +4,11 @@ import Eventos from "./components/inicio/Eventos/Eventos";
 import Proyectos from "./components/inicio/Proyectos/Proyectos";
 import Videos from "./components/inicio/Videos/Videos";
 
+export const metadata = {
+    title: "Inicio | TAFAB Venezuela",
+    description: "Bienvenide a TAFAB, una colectiva trans venezolana que teje redes de apoyo, información y lucha por los derechos humanos de la comunidad trans desde y para Venezuela.",
+}
+
 export default function Home() {
     return (
         <main className="px-mobile md:px-tablet w-full xl:max-w-top min-[1500px]:px-0 lg:mx-auto *:mb-[45px] lg:*:mb-[70px]">

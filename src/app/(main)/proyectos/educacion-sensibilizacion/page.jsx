@@ -1,5 +1,10 @@
 import Link from "next/link"
 
+export const metadata = {
+    title: "Educación y Sensibilización | TAFAB",
+    description: "Esta área de acción incluye proyectos y actividades enfocadas en educar y visibilizar sobre la historia de vida y experiencias de las personas trans en Venezuela",
+}
+
 function page() {
     return (
         <main className='px-mobile md:px-tablet w-full xl:max-w-top min-[1500px]:px-0 lg:mx-auto *:mb-[45px] lg:*:mb-[70px]'>

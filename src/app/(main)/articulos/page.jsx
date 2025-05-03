@@ -3,6 +3,11 @@ import CardNoticia from './components/CardNoticia'
 import Pagination from '../components/Pagination/Pagination'
 import { getUrlBase } from '@/utils/urlRoute'
 
+export const metadata = {
+    title: "Artículos | TAFAB Venezuela",
+    description: "Lee artículos informativos, opiniones y contenidos relevantes sobre temas trans en Venezuela, creados por TAFAB o aliados de la causa.",
+}
+
 const getData = async (page) => {
     const urlBase = getUrlBase()
     const URL = (page ? `${urlBase}/api/news?page=${page}` : `${urlBase}/api/news`)
