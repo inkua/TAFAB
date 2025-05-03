@@ -17,9 +17,10 @@ const sendEmail = async (email, subject, message) => {
             html:message,
         })
 
-        if(info.rejected.length === 0){
+        if(info.rejected.length != 0){
             return false
         }
+        
         return true
         
     } catch (error) {

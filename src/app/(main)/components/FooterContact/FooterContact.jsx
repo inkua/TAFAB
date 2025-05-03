@@ -1,4 +1,5 @@
 import Link from "next/link"
+import FormContact from "./components/FormContact"
 
 const FooterContact = () => {
     return (
@@ -6,26 +7,7 @@ const FooterContact = () => {
             <div className="px-mobile md:px-tablet w-full xl:max-w-top min-[1500px]:px-0 xl:mx-auto py-4 md:py-8 xl:pt-12">
                 <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-y-10 lg:grid-cols-3 w-full">
                     <div className="sm:col-span-2">
-                        <form className="mt-4 lg:max-w-[550px] 2xl:max-w-[660px]">
-                            <div className="flex-1">
-                                <label className="block mb-2 text-md text-white ">Nombre</label>
-                                <input type="text" placeholder="tu nombre" className="block w-full px-5 py-1 lg:py-2 mt-2 text-gray-700 bg-white border border-gray-200  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring" />
-                            </div>
-
-                            <div className="flex-1 mt-6">
-                                <label className="block mb-2 text-md text-white ">Correo</label>
-                                <input type="email" placeholder="tu correo" className="block w-full px-5  py-1 lg:py-2 mt-2 text-gray-700 bg-white border border-gray-200 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring" />
-                            </div>
-
-                            <div className="w-full mt-6">
-                                <label className="block mb-2 text-md text-white ">Mensaje</label>
-                                <textarea className="block w-full h-32 px-5 py-3 mt-2 text-gray-700 placeholder-gray-500 bg-white border border-gray-200 md:h-48  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring" placeholder="texto"></textarea>
-                            </div>
-
-                            <button className="w-full px-6 py-3 mt-6 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-btn-purple">
-                                ENVIAR MENSAJE
-                            </button>
-                        </form>
+                        <FormContact />
                     </div>
 
 

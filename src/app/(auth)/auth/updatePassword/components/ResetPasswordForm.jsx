@@ -3,6 +3,25 @@
 import { useToast } from "@/utils/toast";
 import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
+import DOMPurify from "dompurify";
+import * as yup from "yup";
+
+const schema = yup.object().shape({
+    email: yup.string().email("Correo inválido").required("Debe ingresar un correo válido."),
+    currentPassword: yup.string().required("Debe ingresar su contraseña actual/provisional."),
+    newPassword: yup
+        .string()
+        .matches(
+            /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/,
+            "La nueva contraseña debe tener al menos 8 caracteres, incluir una letra mayúscula, una letra minúscula y un número."
+        )
+        .required("Debe ingresar una nueva contraseña."),
+    confirmPassword: yup
+        .string()
+        .oneOf([yup.ref('newPassword'), null], 'Las contraseñas no coinciden.')
+        .required("Debe confirmar la nueva contraseña."),
+});
+
 
 function ResetPasswordForm() {
     const emailRef = useRef(null);
@@ -16,37 +35,31 @@ function ResetPasswordForm() {
 
     const router = useRouter();
 
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
-
     const validateForm = () => {
-        let newErrors = "";
-        let isValid = true;
-
         const email = emailRef.current?.value;
         const currentPassword = currentPswRef.current?.value;
-
-        if (!email || !/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) {
-            newErrors = "Debe ingresar un correo válido.";
-            isValid = false;
+    
+        const formData = {
+            email,
+            currentPassword,
+            newPassword: password,
+            confirmPassword,
+        };
+    
+        try {
+            schema.validateSync(formData, { abortEarly: false });
+            setErrors("");
+            return true;
+        } catch (err) {
+            if (err.inner && err.inner.length > 0) {
+                setErrors(err.inner[0].message); // solo mostrar el primer error
+            } else {
+                setErrors("Error de validación.");
+            }
+            return false;
         }
-
-        if (!currentPassword) {
-            newErrors = "Debe ingresar su contraseña actual/provisional.";
-            isValid = false;
-        }
-
-        if (!passwordRegex.test(password)) {
-            newErrors =
-                "La nueva contraseña debe tener al menos 8 caracteres, incluir una letra mayúscula, una letra minúscula y un número.";
-            isValid = false;
-        } else if (password !== confirmPassword) {
-            newErrors = "Las contraseñas no coinciden.";
-            isValid = false;
-        }
-
-        setErrors(newErrors);
-        return isValid;
     };
+    
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -54,9 +67,9 @@ function ResetPasswordForm() {
         if (validateForm()) {
             try {
                 const data = {
-                    email: emailRef.current.value,
-                    currentPass: currentPswRef.current.value,
-                    newPass: password,
+                    email: DOMPurify.sanitize(emailRef.current.value),
+                    currentPass: DOMPurify.sanitize(currentPswRef.current.value),
+                    newPass: DOMPurify.sanitize(password),
                 };
     
                 const response = await fetch("/api/admins/pass/change", {

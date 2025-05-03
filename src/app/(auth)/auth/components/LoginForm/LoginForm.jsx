@@ -5,6 +5,8 @@ import { useRouter } from "next/navigation";
 import { useToast } from '@/utils/toast';
 import BlockingOverlay from '@/app/components/BlockingOverlay/BlockingOverlay';
 import Link from 'next/link';
+import DOMPurify from 'dompurify';
+import * as yup from 'yup';
 
 function LoginForm() {
     const [email, setEmail] = useState('');
@@ -12,6 +14,18 @@ function LoginForm() {
     const router = useRouter();
     const [isLoading, setIsLoading] = useState(false);
     const { showToast } = useToast()
+
+    const schema = yup.object().shape({
+        email: yup
+            .string()
+            .email('Ingresa un correo electrónico válido')
+            .required('El correo electrónico es obligatorio'),
+        password: yup
+            .string()
+            .min(6, 'La contraseña debe tener al menos 6 caracteres')
+            .required('La contraseña es obligatoria'),
+    });
+    
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -22,7 +36,8 @@ function LoginForm() {
             const response = await fetch('/api/auth/', {
                 method: 'POST',
                 body: JSON.stringify({
-                    email: email, password: password,
+                    email: DOMPurify.sanitize(email),
+                    password: DOMPurify.sanitize(password),
                 }),
             })
             
@@ -37,19 +52,17 @@ function LoginForm() {
     };
 
     const validateForm = () => {
-        const newErrors = {};
-        if (!email) newErrors.email = 'El correo electrónico es obligatorio';
-        else if (!/\S+@\S+\.\S+/.test(email)) newErrors.email = 'Ingresa un correo electrónico válido';
-
-        if (!password) newErrors.password = 'La contraseña es obligatoria';
-        else if (password.length < 6) newErrors.password = 'La contraseña debe tener al menos 6 caracteres';
-
-        if (Object.keys(newErrors).length > 0) {
-            const errorMessages = Object.values(newErrors).join('\n');
-            showToast({ type: 'error', message: 'Campos incompletos' })
+        try {
+            schema.validateSync({ email, password }, { abortEarly: false });
+            return true;
+        } catch (err) {
+            if (err.inner && err.inner.length > 0) {
+                showToast({ type: 'error', message: 'Campos incompletos o inválidos' });
+            }
+            return false;
         }
-        return true;
     };
+    
 
     return (
         <>

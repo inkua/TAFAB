@@ -12,9 +12,11 @@
     "@emailjs/browser": "^4.4.1",
     "@headlessui/react": "^2.2.0",
     "@heroicons/react": "^2.1.5",
+    "@hookform/resolvers": "^5.0.1",
     "@tailwindcss/forms": "^0.5.9",
     "browser-image-compression": "^2.0.2",
     "cloudinary": "^2.5.1",
+    "dompurify": "^3.2.5",
     "dotenv": "^16.4.5",
     "draft-convert": "^2.1.13",
     "draft-js": "^0.11.7",
@@ -25,8 +27,10 @@
     "nodemailer": "^6.10.0",
     "react": "^18",
     "react-dom": "^18",
+    "react-hook-form": "^7.56.1",
     "react-toastify": "^11.0.3",
-    "swiper": "^11.2.6"
+    "swiper": "^11.2.6",
+    "yup": "^1.6.1"
   },
   "devDependencies": {
     "postcss": "^8",
