@@ -1,7 +1,7 @@
 import { getNewById } from "@/DAO/news.db";
-import Noticias from "../../components/inicio/Noticias/Noticias";
-import ArticleDetail from "../components/ArticleDetail";
 
+import ArticlesCarousel from "../../components/ArticlesCarousel/ArticlesCarousel";
+import ArticleDetail from "../components/ArticleDetail";
 
 const Article = async ({ params }) => {
     const { id } = params;
@@ -23,7 +23,7 @@ const Article = async ({ params }) => {
             <ArticleDetail data={data}/>
         }
 
-        <Noticias />
+        <ArticlesCarousel />
 
         </main>
     )

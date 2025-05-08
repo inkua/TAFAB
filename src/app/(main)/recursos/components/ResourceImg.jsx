@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-const ResourceImg = ({ title, imgUrl = "/defaultRecurso.webp" }) => {
+const ResourceImg = ({ title, imgUrl = "/defaultVideo.webp" }) => {
     return (
         <Image
             src={imgUrl}

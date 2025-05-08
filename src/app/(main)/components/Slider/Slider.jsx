@@ -8,6 +8,7 @@ import ItemVideo from "../inicio/Videos/components/ItemVideo";
 
 import 'swiper/css';
 import 'swiper/css/navigation';
+import ItemArticle from "../ArticlesCarousel/components/ItemArticle";
 
 const Slider = ({ data, type = "events" }) => {
 
@@ -39,12 +40,19 @@ const Slider = ({ data, type = "events" }) => {
                 {
                     type === "events" ?
                         data?.map(item => <SwiperSlide className="carrousel_item" key={item.id}>
-                                <ItemEvent key={item.id} data={item} /> 
-                            </SwiperSlide>)
+                            <ItemEvent key={item.id} data={item} />
+                        </SwiperSlide>)
                         :
-                        data?.map(item => <SwiperSlide className="carrousel_item" key={item.id}>
-                                <ItemVideo key={item.id} data={item} /> 
-                            </SwiperSlide>)
+                        (
+                            type === "videos" ?
+                                data?.map(item => <SwiperSlide className="carrousel_item" key={item.id}>
+                                    <ItemVideo key={item.id} data={item} />
+                                </SwiperSlide>)
+                                :
+                                data?.map(item => <SwiperSlide className="carrousel_item" key={item.id}>
+                                    <ItemArticle key={item.id} data={item} />
+                                </SwiperSlide>)
+                        )
                 }
             </Swiper>
         </div>

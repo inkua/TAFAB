@@ -10,7 +10,7 @@ const ConfirmDialog = ({ isModalOpen, onConfirm, onCancel, message }) => {
                         className="fixed inset-0 z-10 overflow-y-auto" role="dialog"
                     >
                         <div className="flex items-end justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0 ">
-                            <span className="hidden sm:inline-block sm:align-middle sm:h-screen" ariaHidden="true">&#8203;</span>
+                            <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
 
                             <div className="relative inline-block px-4 pt-5 pb-4 overflow-hidden text-left align-bottom transition-all transform bg-gray-100 rounded-lg shadow-xl rtl:text-right sm:my-8 sm:align-middle sm:max-w-sm sm:w-full sm:p-6">
                                 {message ?
