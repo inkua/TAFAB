@@ -1,7 +1,7 @@
 import Image from 'next/image'
 
 const ItemTableImg = ({ data }) => {
-    const imageUrl = data || "https://res.cloudinary.com/diiavhlq4/image/upload/v1736874938/general-1736874938068.webp"
+    const imageUrl = data || "https://res.cloudinary.com/daeszwu7k/image/upload/v1746840192/general-1736874938068_tsyw3k.webp"
     return (
         <Image
             src={imageUrl}
