@@ -20,7 +20,7 @@ const Eventos = async () => {
 
     return (
         <section className="">
-            <h2 className="title">EVENTOS</h2>
+            <h2 className="title mb-4">EVENTOS</h2>
             <Slider data={data} type="events"/>
         </section>
     )

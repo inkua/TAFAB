@@ -9,7 +9,7 @@ const ItemEvent = ({data}) => {
             role="listitem"
         >
             <Image
-                className="aspect-square w-full lg:w-[220px]"
+                className="aspect-square w-full lg:w-[220px] object-cover"
                 src={data?.imgUrl|| "/defaultVideo.webp"}
                 alt="Imagen del evento"
                 width={300}

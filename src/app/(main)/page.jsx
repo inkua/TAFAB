@@ -35,7 +35,7 @@ export default function Home() {
             <section>
                 <Link
                     className="no-underline"
-                    href={"/https://www.whatsapp.com/channel/0029VayoFLsLCoWtBT43Ae0Q"}
+                    href="https://www.whatsapp.com/channel/0029VayoFLsLCoWtBT43Ae0Q"
                     target="_blank"
                     rel="noopener noreferrer"
                     alt={"Comuidad de Whatsapp"}

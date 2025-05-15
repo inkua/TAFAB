@@ -14,11 +14,11 @@ const Tutorials = () => {
                         videoUrl="https://www.youtube.com/embed/DeumyOzKqgI?si=3XkppCIPgyDrPGAA"
                     />
                     <TutorialItem 
-                        title="Estadisticas e imágen de equipo" 
+                        title="Gestión de eventos, videos y recursos" 
                         videoUrl="https://www.youtube.com/embed/DeumyOzKqgI?si=3XkppCIPgyDrPGAA"
                     />
                     <TutorialItem 
-                        title="Métodos de pagos" 
+                        title="Gestión de Artículos" 
                         videoUrl="https://www.youtube.com/embed/DeumyOzKqgI?si=3XkppCIPgyDrPGAA"
                     />
 

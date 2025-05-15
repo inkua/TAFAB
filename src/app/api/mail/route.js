@@ -1,8 +1,6 @@
-
 import { contactTemplate } from "@/utils/HTML_templates";
+
 import { sendEmail } from "../send-email";
-
-
 
 export async function POST(req) {
     try {
@@ -17,7 +15,7 @@ export async function POST(req) {
         );
 
         const response = await sendEmail(
-            "manuel14mds@gmail.com",
+            "transafabvzla@gmail.com",
             subject,
             message
         );

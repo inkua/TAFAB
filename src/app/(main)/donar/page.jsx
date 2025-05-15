@@ -58,9 +58,16 @@ const Donar = () => {
                     </h2>
 
                     <div className="mt-8 md:mt-0 md:ml-24">
-                        <a className="flex xl:text-lg px-12 py-4 gap-3 items-center justify-center bg-btn-purple text-white cursor-pointer hover:bg-btn-pink">
+                        <a 
+                            className="flex xl:text-lg px-12 py-4 gap-3 items-center justify-center bg-btn-purple text-white cursor-pointer hover:bg-btn-pink"
+                            href="https://api.whatsapp.com/send?phone=584260364005&text=Hola"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            alt="Whatsapp"
+                        >
+
                             <span>
-                                +58-2460364005
+                                +58-4260364005
                             </span>
                             <img src="/whatsapp_logo.svg" alt="Whatsapp" />
                         </a>
