@@ -16,8 +16,8 @@ const getEvents = async () => {
     return await getAllElements('events')
 }
 
-// get events per page | requires page and pageSize (default: 1 and 5) | returns paginated events
-const getEventsPerPage = async (page = 1, pageSize = 5) => {
+// get events per page | requires page and pageSize (default: 1 and 10) | returns paginated events
+const getEventsPerPage = async (page = 1, pageSize = 10) => {
     const allEvents = await getAllElements('events');
 
     const startIndex = (page - 1) * pageSize;

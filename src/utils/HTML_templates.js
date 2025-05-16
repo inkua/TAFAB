@@ -9,7 +9,7 @@ const passwordTemplate = (name = 'voluntario', password) => {
             <p>Tu cuenta en nuestra plataforma ha sido configurada con éxito. Para que puedas acceder, hemos generado una contraseña provisional. Si solicitaste la restauración de tu contraseña, también puedes usar esta para iniciar sesión o puedes personalizarla según tu preferencia.</p>
             <h2 style="font-size: 18px;">Tu contraseña provisional: ${password}</h2>
             <p>Para mayor seguridad, te pedimos que cambies esta contraseña. Haz clic en el siguiente enlace para acceder a la página donde podrás establecer una nueva contraseña personalizada:</p>
-            <a href="http://www.transafab.org/updatePassword" style="display: inline-block; padding: 10px 20px; background-color: #007BFF; color: #ffffff; text-decoration: none; border-radius: 5px; font-weight: bold;">Cambiar mi contraseña</a>
+            <a href="http://www.transafab.org/auth/updatePassword" style="display: inline-block; padding: 10px 20px; background-color: #007BFF; color: #ffffff; text-decoration: none; border-radius: 5px; font-weight: bold;">Cambiar mi contraseña</a>
             <br><br>
             <p>Si no solicitaste esta cuenta o la restauración de tu contraseña, por favor contáctanos de inmediato respondiendo a este correo.</p>
             <p>Atentamente,<br>El equipo de Trans AFAB</p>

@@ -35,8 +35,8 @@ const getResources = async (page = 1, pageSize = 5) => {
     };
 };
 
-// get resources per page | requires page and pageSize (default: 1 and 5) | returns paginated resources
-const getResourcesPerPage = async (page = 1, pageSize = 5) => {
+// get resources per page | requires page and pageSize (default: 1 and 10) | returns paginated resources
+const getResourcesPerPage = async (page = 1, pageSize = 10) => {
     const list = await getAllElements('resources');
 
     const startIndex = (page - 1) * pageSize;

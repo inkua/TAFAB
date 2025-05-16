@@ -8,6 +8,9 @@ La fundación **inkuA** impulsa el desarrollo de sitios web para organizaciones 
 
 En este caso, **Trans AFAB Venezuela** ya contaba con una identidad visual consolidada, por lo tanto, no se trabajó sobre su branding. Este repositorio contiene exclusivamente el desarrollo del sitio web.
 
+## Despliegue
+Sitio web de la organización Trans AFAB Venezuela: https://www.transafab.org/
+
 > ⚠️ **Importante:** El código queda licenciado como **open source**. No es propiedad de la fundación beneficiaria. 
 
 ---
@@ -123,7 +126,9 @@ SECRET=text-secret
 
 #### Gmail App Key
 EMAIL_USER=your-email@gmail.com
+
 EMAIL_PASSWORD=your-app-password
+
 
 ---
 ## 🚀 Instalación y ejecución local

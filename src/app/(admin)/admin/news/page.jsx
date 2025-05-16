@@ -9,9 +9,9 @@ const News = async ({ searchParams }) => {
     const { page } = searchParams
     let data = {}
     if (page) {
-        data = await getNewsPerPage(Number(page), 3)
+        data = await getNewsPerPage(Number(page), 6)
     } else {
-        data = await getNewsPerPage(1, 3)
+        data = await getNewsPerPage(1, 6)
     }
 
     return (

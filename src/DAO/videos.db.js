@@ -34,8 +34,8 @@ const getVideos = async (page = 1, pageSize = 6) => {
     };
 }
 
-// get videos per page | requires page and pageSize (default: 1 and 5) | returns paginated videos
-const getVideosPerPage = async (page = 1, pageSize = 5) => {
+// get videos per page | requires page and pageSize (default: 1 and 10) | returns paginated videos
+const getVideosPerPage = async (page = 1, pageSize = 10) => {
     const list = await getAllElements('videos');
 
     const startIndex = (page - 1) * pageSize;

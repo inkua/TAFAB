@@ -12,7 +12,7 @@ async function Events({ searchParams }) {
     if (page) {
         data = await getEventsPerPage(Number(page))
     } else {
-        data = await getEventsPerPage()
+        data = await getEventsPerPage(1)
     }
 
     return (
