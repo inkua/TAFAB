@@ -14,7 +14,7 @@ function Navbar() {
         setActiveDropdown(activeDropdown === menu ? null : menu);
     };
 
-    const onMobileClick=()=>{
+    const onMobileClick = () => {
         setMoblileDropdown(false)
         setIsOpen(false)
     }
@@ -88,7 +88,7 @@ function Navbar() {
             {/* Top Banner */}
             <div className="bg-primary pt-mobile pb-0 px-mobile lg:px-8 lg:py-6 flex flex-col lg:flex-row gap-1 md:gap-4 text-center items-center justify-center text-text-white font-semibold text-sm lg:text-base">
                 <p>Defendemos los derechos y el bienestar de las personas Trans en Venezuela y el mundo</p>
-                <a 
+                <a
                     alt="se parte de la comunidad"
                     href="https://www.whatsapp.com/channel/0029VayoFLsLCoWtBT43Ae0Q"
                     target="_blank"
@@ -110,8 +110,8 @@ function Navbar() {
                 <Link href={'/'}>
                     <img className="w-28"
                         src="/auth/logoAuth.jpg"
-                        alt="logo" 
-                        onClick={()=>setActiveDropdown(false)}/>
+                        alt="logo"
+                        onClick={() => setActiveDropdown(false)} />
                 </Link>
                 <ul className="flex w-2/3 gap-9 justify-center">
                     {menuItems.map((item) => (
@@ -179,12 +179,15 @@ function Navbar() {
                         alt="logo" />
                 </Link>
 
-                <button className="flex text-xs sm:text-sm md:text-lg gap-2 items-center bg-btn-purple py-1 px-2 sm:px-3 text-white">
-                    <span>
-                        Haz un donativo
-                    </span>
-                    <img src="/assets/Heart.jpg" alt="Corazon orgullo trans" />
-                </button>
+                <Link href={'/donar'} alt="Haz un donativo">
+                    <button className="flex text-xs sm:text-sm md:text-lg gap-2 items-center bg-btn-purple py-1 px-2 sm:px-3 text-white">
+                        <span>
+                            Haz un donativo
+                        </span>
+                        <img src="/assets/Heart.jpg" alt="Corazon orgullo trans" />
+                    </button>
+                </Link>
+
 
                 <button
                     onClick={() => setIsOpen(true)}
@@ -239,19 +242,19 @@ function Navbar() {
                                 className="text-2xl font-semibold text-white w-full items-center pl-10 py-2 list-none"
                             >
 
-                                <Link 
+                                <Link
                                     href={item.href}
                                     alt={item.name}
-                                    onClick={()=>onMobileClick()}
+                                    onClick={() => onMobileClick()}
                                 >
                                     {item.name}
                                 </Link>
 
-                                { item.dropdownItems&&
-                                <MobileDropdownBtn item={item} setIsOpen={setIsOpen}/>
-                    
-                            }
-                                
+                                {item.dropdownItems &&
+                                    <MobileDropdownBtn item={item} setIsOpen={setIsOpen} />
+
+                                }
+
                             </li>
                         ))}
                     </ul>
